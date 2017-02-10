@@ -88,6 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>template.cpp</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,11 +143,53 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bit.cpp" />
+    <ClCompile Include="CompleteSearch.cpp" />
+    <ClCompile Include="DP.cpp" />
+    <ClCompile Include="DP_keta.cpp" />
+    <ClCompile Include="FenwickTree.cpp" />
+    <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="Geometry3D.cpp" />
+    <ClCompile Include="GraphTheory.cpp" />
+    <ClCompile Include="inclusion-exclusion principle.cpp" />
+    <ClCompile Include="is_eulerian_graph.cpp" />
+    <ClCompile Include="miller_rabin_primality_test.cpp" />
+    <ClCompile Include="ModInt.cpp" />
+    <ClCompile Include="NumberTheory.cpp" />
+    <ClCompile Include="Parsing.cpp" />
+    <ClCompile Include="RangeQuery.cpp" />
+    <ClCompile Include="Regex.cpp" />
+    <ClCompile Include="String.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Tricks.cpp" />
+    <ClCompile Include="UnionFind.cpp" />
+    <ClCompile Include="平均最大化.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h" />
     <ClInclude Include="dump.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="snippet\all.snippet" />
+    <None Include="snippet\i.snippet" />
+    <None Include="snippet\ii.snippet" />
+    <None Include="snippet\iii.snippet" />
+    <None Include="snippet\iiii.snippet" />
+    <None Include="snippet\iiiii.snippet" />
+    <None Include="snippet\iiiv.snippet" />
+    <None Include="snippet\iiv.snippet" />
+    <None Include="snippet\inrange.snippet" />
+    <None Include="snippet\iv.snippet" />
+    <None Include="snippet\ivv.snippet" />
+    <None Include="snippet\memset.snippet" />
+    <None Include="snippet\modint.snippet" />
+    <None Include="snippet\o.snippet" />
+    <None Include="snippet\oo.snippet" />
+    <None Include="snippet\ooo.snippet" />
+    <None Include="snippet\ov.snippet" />
+    <None Include="snippet\ovv.snippet" />
+    <None Include="snippet\tmp.snippet" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

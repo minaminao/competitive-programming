@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>inrange</Title>
+			<Shortcut>inrange</Shortcut>
+			<Description></Description>
+			<Author>minami</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+      <Declarations>
+        <Literal>
+          <ID>i</ID>
+          <Default>i</Default>
+          <ToolTip></ToolTip>
+        </Literal>
+        <Literal>
+          <ID>j</ID>
+          <Default>j</Default>
+          <ToolTip></ToolTip>
+        </Literal>
+        <Literal>
+          <ID>R</ID>
+          <Default>R</Default>
+          <ToolTip></ToolTip>
+        </Literal>
+        <Literal>
+          <ID>C</ID>
+          <Default>C</Default>
+          <ToolTip></ToolTip>
+        </Literal>
+      </Declarations>
+			<Code Language="cpp">
+        <![CDATA[bool inrange(int $i$, int $j$) { return $i$ >= 0 && $i$ < $R$ && $j$ >= 0 && $j$ < $C$; }$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -13,10 +13,79 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\typical problem">
+      <UniqueIdentifier>{86255e80-878f-4e78-83fc-e1e761a82989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="snippet">
+      <UniqueIdentifier>{80332d64-ec66-4bd5-bfb1-4dad1832c7e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="template.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="DP.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FenwickTree.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry3D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="DP_keta.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphTheory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CompleteSearch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Bit.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberTheory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Parsing.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RangeQuery.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Tricks.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="UnionFind.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ModInt.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Regex.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="平均最大化.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
+    <ClCompile Include="inclusion-exclusion principle.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
+    <ClCompile Include="is_eulerian_graph.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
+    <ClCompile Include="miller_rabin_primality_test.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -26,5 +95,64 @@
     <ClInclude Include="dump.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="snippet\all.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\i.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iiii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iiiii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iiiv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iiv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\inrange.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ivv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\memset.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\modint.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\o.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\oo.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ooo.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ov.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ovv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\tmp.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>

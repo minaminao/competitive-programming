@@ -37,3 +37,7 @@ template<class T1, class T2, class T3, class T4, class T5>
 void _dump(T1 a, T2 b, T3 c, T4 d, T5 e) {
 	cerr << " " << a << " " << b << " " << c << " " << d << " " << e << endl;
 }
+
+//pair
+template<typename T1, typename T2>
+ostream &operator << (ostream &os, const pair<T1, T2> &p) { os << "(" << p.first << "," << p.second << ")"; return os; }
