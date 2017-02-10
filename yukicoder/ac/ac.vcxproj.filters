@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\atcoder\abc032_c.cpp">
+    <ClCompile Include="..\yukicoder\476.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

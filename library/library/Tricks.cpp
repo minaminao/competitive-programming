@@ -244,6 +244,7 @@ signed main_201609() {
 
 	//総和
 	int sum = accumulate(all(vi), 0), sum2 = accumulate(all(vd), 0.0);
+	long long sum = accumulate(all(vi), 0LL); //long long なら 0LLにしないとオーバーフロー
 	double ave = sum / vi.size();
 	i = 5;
 	dump(bitset<3>(i));
