@@ -16,6 +16,6 @@ template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
 signed main() {
-	cout << "Hello" << endl;
+
 	return 0;
 }
