@@ -189,6 +189,7 @@ signed main() {
 	*/
 	mp["hoge"]++;//1
 	for (auto it = mp.begin(); it != mp.end(); it++);
+	mp.count("hoge");
 
 	//v={1,2,...,v.size()}
 	iota(v.begin(), v.end(), 1);
