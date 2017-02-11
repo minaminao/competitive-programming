@@ -1,15 +1,62 @@
-//素数判定
-bool is_prime(int x) {
-	if (x <= 1)return false;
-	else if (x == 2)return true;
-	if (x % 2 == 0)return false;
-	for (int i = 3; i*i <= x; i += 2)
-		if (x%i == 0)return false;
-	return true;
+//約数を求める 未ソート
+vector<int> divisor(int x) {
+	vector<int> ret;
+	int i;
+	for (i = 1; i*i < x; i++) {
+		if (x%i)continue;
+		ret.emplace_back(i);
+		ret.emplace_back(x / i);
+	}
+	if (i*i == x)ret.emplace_back(i);
+	return ret;
+}
+
+//最大公約数
+int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }
+//最小公倍数
+int lcm(int x, int y) { return x*y / gcd(x, y); }
+//最大公約数 複数個
+int gcd(const vector<int> &v) {
+	int ret = v[0];
+	for (int i = 1; i < v.size(); i++)
+		ret = gcd(ret, v[i]);
+	return ret;
+}
+//最小公倍数 複数個
+int lcm(const vector<int> &v) {
+	int ret = v[0];
+	for (int i = 1; i < v.size(); i++)
+		ret = lcm(ret, v[i]);
+	return ret;
+}
+
+//拡張ユークリッドの互除法
+//ax+by=gcd(a,b) を満たす x, y を求める
+//http://mathtrain.jp/euclid (一次不定方程式への応用)
+long long extgcd(long long a, long long b, long long &x, long long &y) {
+	long long g = a; x = 1; y = 0;
+	if (b != 0) {
+		g = extgcd(b, a % b, y, x);
+		y -= (a / b) * x;
+	}
+	return g;
+}
+
+const double EPS = 1e-8;
+//mod(double)
+double modulo(double x, double mod) {
+	x -= floor(x / mod)*mod;
+	if (x<EPS || x + EPS>mod)x = 0;
+	return x;
+}
+
+//最小非負剰余(c/c++は絶対値最小剰余)
+int modulo(int x, int mod) {
+	return (x%mod < 0) ? x%mod + abs(mod) : x%mod;
 }
 
 //高速累乗 繰り返し自乗法
-long long mod_pow(long long base, long long exponent, long long mod) {
+long long modpow(long long base, long long exponent, long long mod) {
 	long long res = 1;
 	while (exponent > 0) {
 		if (exponent & 1)res = res * base % mod;
@@ -19,7 +66,7 @@ long long mod_pow(long long base, long long exponent, long long mod) {
 	return res;
 }
 //(a*b)%mod 
-long long mod_mul(long long a, long long b, long long mod) {
+long long modmul(long long a, long long b, long long mod) {
 	long long x = 0, y = a % mod;
 	while (b > 0) {
 		if (b & 1)x = x + y % mod;
@@ -37,13 +84,31 @@ bool miller_rabin_primality_test(long long x, int iteration) {
 	while (s % 2 == 0)s /= 2;
 	for (int i = 0; i < iteration; i++) {
 		long long a = rand() % (x - 1) + 1, temp = s;
-		long long mod = mod_pow(a, temp, x);
+		long long mod = modpow(a, temp, x);
 		while (temp != x - 1 && mod != 1 && mod != x - 1) {
-			mod = mod_mul(mod, mod, x);
+			mod = modmul(mod, mod, x);
 			temp *= 2;
 		}
 		if (mod != x - 1 && temp % 2 == 0)return false;
 	}
+	return true;
+}
+
+//逆元
+//xy%m=1, y<m となるyを求める
+long long modinv(long long x, long long m) {
+	long long s, t;
+	extgcd(x, m, s, t);
+	return (s + m) % m;
+}
+
+//素数判定
+bool is_prime(int x) {
+	if (x <= 1)return false;
+	else if (x == 2)return true;
+	if (x % 2 == 0)return false;
+	for (int i = 3; i*i <= x; i += 2)
+		if (x%i == 0)return false;
 	return true;
 }
 
@@ -99,49 +164,6 @@ vector<int> prime_factorization(int x) {
 	return factors;
 }
 
-//最大公約数
-int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }
-//最大公約数 複数個
-int gcd(const vector<int> &v) {
-	int ret = v[0];
-	for (int i = 1; i < v.size(); i++)
-		ret = gcd(ret, v[i]);
-	return ret;
-}
-//最小公倍数
-int lcm(int x, int y) { return x*y / gcd(x, y); }
-//最小公倍数 複数個
-int lcm(const vector<int> &v) {
-	int ret = v[0];
-	for (int i = 1; i < v.size(); i++)
-		ret = lcm(ret, v[i]);
-	return ret;
-}
-
-//拡張ユークリッドの互除法
-//ax+by=gcd(a,b) を満たす x, y を求める
-//http://mathtrain.jp/euclid (一次不定方程式への応用)
-int extgcd(int a, int b, int &x, int &y) {
-	int g = a; x = 1; y = 0;
-	if (b != 0) {
-		g = extgcd(b, a % b, y, x);
-		y -= (a / b) * x;
-	}
-	return g;
-}
-
-//約数を求める 未ソート
-vector<int> divisor(int x) {
-	vector<int> ret;
-	int i;
-	for (i = 1; i*i < x; i++) {
-		if (x%i)continue;
-		ret.emplace_back(i);
-		ret.emplace_back(x / i);
-	}
-	if (i*i == x)ret.emplace_back(i);
-	return ret;
-}
 
 //オイラーのφ関数（Euler's totient function）
 //nと互いに素な数[1,n]の個数
@@ -204,16 +226,3 @@ public:
 		return sm;
 	}
 };
-
-#include "Geometry.cpp"
-//mod(double)
-double modulo(double x, double mod) {
-	x -= floor(x / mod)*mod;
-	if (x<EPS || x + EPS>mod)x = 0;
-	return x;
-}
-
-//最小非負剰余(c/c++は絶対値最小剰余)
-int modulo(int x, int mod) {
-	return (x%mod < 0) ? x%mod + abs(mod) : x%mod;
-}

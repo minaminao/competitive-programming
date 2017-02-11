@@ -15,7 +15,7 @@ template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
 //‚‘¬—Ýæ ŒJ‚è•Ô‚µŽ©æ–@
-long long mod_pow(long long base, long long exponent, long long mod) {
+long long modpow(long long base, long long exponent, long long mod) {
 	long long res = 1;
 	while (exponent > 0) {
 		if (exponent & 1)res = res * base % mod;
@@ -25,7 +25,7 @@ long long mod_pow(long long base, long long exponent, long long mod) {
 	return res;
 }
 //(a*b)%mod 
-long long mod_mul(long long a, long long b, long long mod) {
+long long modmul(long long a, long long b, long long mod) {
 	long long x = 0, y = a % mod;
 	while (b > 0) {
 		if (b & 1)x = x + y % mod;
@@ -43,9 +43,9 @@ bool miller_rabin_primality_test(long long x, int iteration) {
 	while (s % 2 == 0)s /= 2;
 	for (int i = 0; i < iteration; i++) {
 		long long a = rand() % (x - 1) + 1, temp = s;
-		long long mod = mod_pow(a, temp, x);
+		long long mod = modpow(a, temp, x);
 		while (temp != x - 1 && mod != 1 && mod != x - 1) {
-			mod = mod_mul(mod, mod, x);
+			mod = modmul(mod, mod, x);
 			temp *= 2;
 		}
 		if (mod != x - 1 && temp % 2 == 0)return false;

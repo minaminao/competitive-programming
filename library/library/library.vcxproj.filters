@@ -154,5 +154,8 @@
     <None Include="snippet\tmp.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\ll.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>
