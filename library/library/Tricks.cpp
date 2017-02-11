@@ -150,13 +150,13 @@ signed main() {
 	v.insert(v.end(), v2.begin(), v2.end()); //vの末尾にv2を挿入
 	binary_search(v.begin(), v.end(), 2);//ソート済みのシーケンスに対してその値が存在するかどうか setが使えない時
 
-	/*
-	<functional>
-	比較系
-	equal_to, not_equal_to, greater, less, greater_equal, less_equal
-	演算系
-	plus, minus, multiplies, divides, modulus, negate
-	*/
+										 /*
+										 <functional>
+										 比較系
+										 equal_to, not_equal_to, greater, less, greater_equal, less_equal
+										 演算系
+										 plus, minus, multiplies, divides, modulus, negate
+										 */
 
 	hash<int>()(1);
 
@@ -190,25 +190,23 @@ signed main() {
 	mp["hoge"]++;//1
 	for (auto it = mp.begin(); it != mp.end(); it++);
 
-	iota(v.begin(), v.end(), 1); //v={1,2,...,v.size()}
+	//v={1,2,...,v.size()}
+	iota(v.begin(), v.end(), 1);
 
 
-								 //since c++17
+	//since c++17
+	//template <class C>
+	//constexpr auto size(const C& c) -> decltype(c.size()) {
+	//	return c.size();
+	//}
+	//template <class T, std::size_t N>
+	//constexpr std::size_t size(const T(&array)[N]) noexcept {
+	//	return N;
+	//}
 	vector<int> v(10); dump(size(v)); //10
 	int a[10]; dump(size(a)); //10
-							  //template <class C>
-							  //constexpr auto size(const C& c) -> decltype(c.size()) {
-							  //	return c.size();
-							  //}
-							  //template <class T, std::size_t N>
-							  //constexpr std::size_t size(const T(&array)[N]) noexcept {
-							  //	return N;
-							  //}
-
 
 	dump(__LINE__);
-
-
 
 	//bitset
 	bitset<8> bs1(5); dump(bs1);
@@ -260,11 +258,11 @@ signed main_201609() {
 	priority_queue < pii, vector<pii>, decltype(cmp) > pq(cmp);
 
 	//pair
-	pii p{ 1,2 }; //初期化
+	pii p{ 1,2 };
 
-				  //tuple
-				  //各データに優先順位があり、データごとに昇順・降順(-1かける)でソートするときに便利
-				  //tupleでmemseetは使えない？OR stringで使えない？　（要検証）
+	//tuple
+	//各データに優先順位があり、データごとに昇順・降順(-1かける)でソートするときに便利
+	//tupleでmemseetは使えない？OR stringで使えない？　（要検証）
 	tuple<int, double, string> t;
 	cin >> get<0>(t);
 	t = make_tuple(1, 2.0, "a");
@@ -284,7 +282,7 @@ signed main_201609() {
 	//map
 	map<int, int> m;
 	m.find(1);
-	for (auto itr = m.begin(); itr != m.end(); itr++) {
+	for (auto it = m.begin(); it != m.end(); it++) {
 
 	}
 

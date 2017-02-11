@@ -1,43 +1,106 @@
-#define dump(...) cerr << #__VA_ARGS__; _dump(__VA_ARGS__);
+#define dump(...) cerr << #__VA_ARGS__ << ':'; _dump(__VA_ARGS__); cerr << endl;
 
-template<class T>
-void _dump(vector<T> &v) {
-	for (auto &e : v)
-		cerr << " " << e;
-	cerr << endl;
-}
+template <typename T1, typename T2>
+ostream &operator<<(ostream &, const pair<T1, T2> &);
+template <typename ...T>
+ostream &operator<<(ostream &, const tuple<T...> &);
+template <typename T, size_t N>
+ostream &operator<<(ostream &, const array<T, N> &);
+#define __DECLARE__(C)    \
+    template <typename T> \
+    ostream &operator<<(ostream &, const C<T> &);
+#define __DECLAREM__(C)               \
+    template <typename T1, typename T2> \
+    ostream &operator<<(ostream &, const C<T1, T2> &);
+__DECLARE__(deque)
+__DECLAREM__(map)
+__DECLARE__(set)
+__DECLARE__(stack)
+__DECLARE__(queue)
+__DECLARE__(priority_queue)
+__DECLARE__(unordered_set)
+__DECLAREM__(unordered_map)
+__DECLARE__(vector)
 
-template<class T1, class T2>
-void _dump(map<T1, T2> &m) {
-	for (auto it = m.begin(); it != m.end(); it++)
-		cerr << " (" << it->first << "," << it->second << ")";
-	cerr << endl;
-}
+// function to print a tuple of any size
+template <class Tuple, size_t N>
+struct TuplePrinter {
+	static void print(ostream &os, const Tuple &t) {
+		TuplePrinter<Tuple, N - 1>::print(os, t);
+		os << ", " << get<N - 1>(t);
+	}
+};
 
-template<class T1>
-void _dump(T1 a) {
-	cerr << " " << a << endl;
-}
+template <class Tuple>
+struct TuplePrinter<Tuple, 1> {
+	static void print(ostream &os, const Tuple &t) { os << get<0>(t); }
+};
 
-template<class T1, class T2>
-void _dump(T1 a, T2 b) {
-	cerr << " " << a << " " << b << endl;
+template <typename ...T>
+ostream &operator<<(ostream &os, const tuple<T...> &t) {
+	os << '(';
+	TuplePrinter<decltype(t), sizeof...(T)>::print(os, t);
+	os << ')';
+	return os;
 }
+// end
 
-template<class T1, class T2, class T3>
-void _dump(T1 a, T2 b, T3 c) {
-	cerr << " " << a << " " << b << " " << c << endl;
-}
-
-template<class T1, class T2, class T3, class T4>
-void _dump(T1 a, T2 b, T3 c, T4 d) {
-	cerr << " " << a << " " << b << " " << c << " " << d << endl;
-}
-template<class T1, class T2, class T3, class T4, class T5>
-void _dump(T1 a, T2 b, T3 c, T4 d, T5 e) {
-	cerr << " " << a << " " << b << " " << c << " " << d << " " << e << endl;
-}
-
-//pair
+// function to print a pair
 template<typename T1, typename T2>
-ostream &operator << (ostream &os, const pair<T1, T2> &p) { os << "(" << p.first << "," << p.second << ")"; return os; }
+ostream &operator<<(ostream &os, const pair<T1, T2> &p) {
+	return (os << '(' << p.first << ", " << p.second << ')');
+}
+// end
+
+// function to print a container
+#define __INNER__ \
+    os << '['; \
+    for (auto it = begin(c); it != end(c); it++) { \
+		if (it != begin(c))os << ", "; \
+        os << *it; \
+    } \
+    return os << ']';
+
+template <typename T, size_t N>
+ostream &operator<<(ostream &os, const array<T, N> &c) {
+	__INNER__
+}
+
+#define __DEFINE__(C) \
+    template <typename T> \
+    ostream &operator<<(ostream &os, const C<T> &c) { \
+        __INNER__ \
+    }
+
+#define __DEFINEM__(C) \
+    template <typename T1, typename T2> \
+    ostream &operator<<(ostream &os, const C<T1, T2> &c) { \
+        __INNER__ \
+    }
+
+#define __DEFINEW__(C, M1, M2) \
+    template <typename T> \
+    ostream &operator<<(ostream &os, const C<T> &c) { \
+        deque<T> v; \
+        for (auto d = c; !d.empty(); d.pop()) v.M1(d.M2()); \
+        return os << v; \
+    }
+
+__DEFINE__(deque)
+__DEFINEM__(map)
+__DEFINEW__(priority_queue, emplace, top)
+__DEFINEW__(queue, emplace, front)
+__DEFINE__(set)
+__DEFINEW__(stack, emplace, top)
+__DEFINEM__(unordered_map)
+__DEFINE__(unordered_set)
+__DEFINE__(vector)
+// end
+
+void _dump() {}
+
+template<typename T, typename ...Tail>
+void _dump(T head, Tail... tail) {
+	cerr << ' ' << head;
+	_dump(tail...);
+}

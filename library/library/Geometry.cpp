@@ -4,8 +4,7 @@ const double EPS = 1e-8; //問題ごとに変更
 #define next(P,i) P[(i+1)%P.size()]
 #define prev(P,i) P[(i+P.size()-1)%P.size()]
 
-class Point {
-public:
+struct Point {
 	double x, y;
 	Point() {}
 	Point(double x, double y) :x(x), y(y) {}
@@ -26,8 +25,7 @@ public:
 inline ostream &operator << (ostream &os, const Point &p) { os << p.x << " " << p.y; return os; }
 inline istream &operator >> (istream &is, Point &p) { double x, y; is >> x >> y; p = Point(x, y); return is; }
 
-class Vector :public Point {
-public:
+struct Vector :public Point {
 	using Point::Point;
 	Vector() {}
 	Vector(const Point &P) { x = P.x; y = P.y; }
@@ -40,23 +38,20 @@ double dot(Vector a, Vector b) { return a.x*b.x + a.y*b.y; }
 //外積 cross product の大きさ（正負あり）
 double cross(Vector a, Vector b) { return a.x*b.y - a.y*b.x; }
 
-class Line {
-public:
+struct Line {
 	Point p1, p2;
 	Line() {}
 	Line(Point p1, Point p2) :p1(p1), p2(p2) {}
 };
 
-class Segment :public Line {
-public:
+struct Segment :public Line {
 	using Line::Line;
 	Segment() {}
 	Segment(const Line &L) { p1 = L.p1; p2 = L.p2; }
 	Vector vec() { return p2 - p1; }
 };
 
-class Circle {
-public:
+struct Circle {
 	Point c; //center
 	double r; //radius
 	Circle() {}

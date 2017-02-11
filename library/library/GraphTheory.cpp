@@ -391,7 +391,7 @@ bool is_eulerian_graph(const Graph &udg) {
 	int n = udg.size();
 	vector<int> degree(n, 0);
 	for (auto &es : udg)for (auto &e : es) degree[e.d]++, degree[e.s]++;
-	dumpc(degree);
+	dump(degree);
 	for (auto &d : degree)if ((d / 2) % 2)return false;
 	return true;
 }
@@ -402,7 +402,7 @@ bool is_semi_eulerian_graph(const Graph &udg) {
 	int n = udg.size();
 	vector<int> degree(n, 0);
 	for (auto &es : udg)for (auto &e : es) degree[e.d]++, degree[e.s]++;
-	dumpc(degree);
+	dump(degree);
 	int odd = 0;
 	for (auto &d : degree) {
 		if ((d / 2) % 2)odd++;

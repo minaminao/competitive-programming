@@ -80,7 +80,7 @@ vector<char> eratos(int n) {
 vector<int> get_primes(int n) {
 	vector<char> is_prime = eratos(n);
 	vector<int> primes;
-	rep(i, 0, n + 1)
+	for (int i = 0; i < n + 1; i++)
 		if (is_prime[i])
 			primes.emplace_back(i);
 	return primes;
@@ -104,7 +104,8 @@ int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }
 //Å‘åŒö–ñ” •¡”ŒÂ
 int gcd(const vector<int> &v) {
 	int ret = v[0];
-	rep(i, 1, v.size())ret = gcd(ret, v[i]);
+	for (int i = 1; i < v.size(); i++)
+		ret = gcd(ret, v[i]);
 	return ret;
 }
 //Å¬Œö”{”
@@ -112,7 +113,8 @@ int lcm(int x, int y) { return x*y / gcd(x, y); }
 //Å¬Œö”{” •¡”ŒÂ
 int lcm(const vector<int> &v) {
 	int ret = v[0];
-	rep(i, 1, v.size())ret = lcm(ret, v[i]);
+	for (int i = 1; i < v.size(); i++)
+		ret = lcm(ret, v[i]);
 	return ret;
 }
 
@@ -159,10 +161,11 @@ int euler_totient(int n) {
 vector<int> pascal_triangle(int n) {
 	vector<int> a(n, 1), b(n, 1);
 	//3’i–Ú‚©‚çn’i–Ú‚Ü‚ÅŒvŽZ
-	rep(i, 3, n + 1) {
+	for (int i = 3; i < n + 1; i++) {
 		swap(a, b);
 		a[0] = 1; a[i - 1] = 1;
-		rep(j, 1, i - 1)a[j] = b[j - 1] + b[j];
+		for (int j = 1; j < i - 1; j++)
+			a[j] = b[j - 1] + b[j];
 	}
 	return a;
 }

@@ -3,8 +3,7 @@ const double EPS = 1e-8; //ñ‚ëËÇ≤Ç∆Ç…ïœçX
 #define equals(a,b) (fabs((a)-(b)) < EPS)
 template<class T> bool chequals(T &a, const T &b) { if (fabs(a - b) < EPS) { a = b; return true; } return false; }
 
-class Point {
-public:
+struct Point {
 	double x, y, z;
 	Point() {}
 	Point(double x, double y, double z) :x(x), y(y), z(z) {}
@@ -30,8 +29,7 @@ public:
 inline ostream &operator << (ostream &os, const Point &p) { os << p.x << " " << p.y << " " << p.z; return os; }
 inline istream &operator >> (istream &is, Point &p) { double x, y, z; is >> x >> y >> z; p = Point(x, y, z); return is; }
 
-class Vector :public Point {
-public:
+struct Vector :public Point {
 	using Point::Point;
 	Vector() {}
 	Vector(const Point &P) { x = P.x; y = P.y; z = P.z; }
@@ -54,15 +52,13 @@ Vector cross(Vector a, Vector b) {
 	return ret;
 }
 
-class Line {
-public:
+struct Line {
 	Point p1, p2;
 	Line() {}
 	Line(Point p1, Point p2) :p1(p1), p2(p2) {}
 };
 
-class Segment :public Line {
-public:
+struct Segment :public Line {
 	using Line::Line;
 	Segment() {}
 	Segment(const Line &L) { p1 = L.p1; p2 = L.p2; }
@@ -70,8 +66,7 @@ public:
 };
 
 //ãÖ
-class Sphere {
-public:
+struct Sphere {
 	Point c;
 	double r;
 	Sphere() {}
@@ -79,8 +74,7 @@ public:
 };
 
 //ïΩñ 
-class Plane {
-public:
+struct Plane {
 	double a, b, c, d;// ax+by+cz+d=0
 	Plane() {}
 	Plane(double a, double b, double c, double d) :a(a), b(b), c(c), d(d) {}
@@ -92,8 +86,7 @@ public:
 	Point point() { return Point(a*d, b*d, c*d); }
 };
 
-class Triangle {
-public:
+struct Triangle {
 	Point p1, p2, p3;
 	Triangle() {}
 	Triangle(const Point &p1, const Point &p2, const Point &p3) :p1(p1), p2(p2), p3(p3) {}

@@ -7,6 +7,8 @@ bool inrange(int i, int j) { return i >= 0 && i < R && j >= 0 && j < C; }
 int X, Y;
 bool inrange(int x, int y) { return x >= 0 && x < X && y >= 0 && y < Y; }
 
+//bfs‚ªŽÀ‘•‚Å‚«‚éê‡Astack‚ðŽg‚Á‚½dfs‚Å‚àŽÀ‘•‚Å‚«‚é
+
 //xyÀ•W‚Å‚Ì[‚³—Dæ’Tõ
 void dfs(int x, int y) {
 	/* “®ì */
