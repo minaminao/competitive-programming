@@ -87,6 +87,12 @@
     <ClCompile Include="miller_rabin_primality_test.cpp">
       <Filter>ソース ファイル\typical problem</Filter>
     </ClCompile>
+    <ClCompile Include="NumericalAnalysis.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Search.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">

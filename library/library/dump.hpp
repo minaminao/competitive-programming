@@ -1,4 +1,4 @@
-#define dump(...) cerr << #__VA_ARGS__ << ':'; _dump(__VA_ARGS__); cerr << endl;
+#define dump(...) cerr << #__VA_ARGS__ << ": "; _dump(__VA_ARGS__); cerr << endl;
 
 template <typename T1, typename T2>
 ostream &operator<<(ostream &, const pair<T1, T2> &);
@@ -88,10 +88,10 @@ ostream &operator<<(ostream &os, const array<T, N> &c) {
 
 __DEFINE__(deque)
 __DEFINEM__(map)
-__DEFINEW__(priority_queue, emplace, top)
-__DEFINEW__(queue, emplace, front)
+__DEFINEW__(priority_queue, emplace_front, top)
+__DEFINEW__(queue, emplace_back, front)
 __DEFINE__(set)
-__DEFINEW__(stack, emplace, top)
+__DEFINEW__(stack, emplace_front, top)
 __DEFINEM__(unordered_map)
 __DEFINE__(unordered_set)
 __DEFINE__(vector)
@@ -99,8 +99,13 @@ __DEFINE__(vector)
 
 void _dump() {}
 
-template<typename T, typename ...Tail>
-void _dump(T head, Tail... tail) {
-	cerr << ' ' << head;
-	_dump(tail...);
+template<typename T>
+void _dump(T a) {
+	cerr << a;
+}
+
+template<typename T1, typename T2, typename ...Tail>
+void _dump(T1 a, T2 b, Tail... tail) {
+	cerr << a << ", ";
+	_dump(b, tail...);
 }

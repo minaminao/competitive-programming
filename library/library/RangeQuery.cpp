@@ -1,5 +1,4 @@
-class RangeMinimumQuery {
-public:
+struct RangeMinimumQuery {
 	int n;
 	vector<int> d;
 	RangeMinimumQuery(int m) {
@@ -23,8 +22,7 @@ public:
 	int get(int i) { return d[n + i]; }
 };
 
-class RangeSumQuery {
-public:
+struct RangeSumQuery {
 	int n;
 	vector<int> d;
 	RangeSumQuery(int m) {
@@ -49,8 +47,7 @@ public:
 };
 
 //最適か不明
-class RangeUpdateQuery {
-public:
+struct RangeUpdateQuery {
 	int n;
 	vector<int> d;
 	vector<int> timestamp;
@@ -86,8 +83,7 @@ public:
 };
 
 //最適か不明
-class RangeAddQuery {
-public:
+struct RangeAddQuery {
 	int n;
 	vector<int> d;
 	int time;

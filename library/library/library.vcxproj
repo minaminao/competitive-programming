@@ -159,6 +159,8 @@
     <ClCompile Include="Parsing.cpp" />
     <ClCompile Include="RangeQuery.cpp" />
     <ClCompile Include="Regex.cpp" />
+    <ClCompile Include="NumericalAnalysis.cpp" />
+    <ClCompile Include="Search.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Time.cpp" />

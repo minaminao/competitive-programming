@@ -143,6 +143,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\aoj\2663.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_3_D.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_4_D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
