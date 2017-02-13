@@ -147,6 +147,25 @@ bool warshall_floyd(const Graph &g, Matrix &dist) {
 	return !negative_cycle;
 }
 
+//全点対間最短経路 
+void all_pairs_shortest_paths_by_dijkstra(const Graph &g, Matrix &dists) {
+	int n = g.size();
+	dists.resize(n);
+	for (int i = 0; i < n; i++)
+		dijkstra(g, i, dists[i]);
+}
+
+//最短経路DAGを構築
+//どのような経路を通っても最短経路になる
+Graph build_dag(const Graph &g, int s) {
+	Graph dag(g.size());
+	Array dist; dijkstra(g, s, dist);
+	for (auto &es : g)for (auto &e : es)
+		if (dist[e.s] + e.w == dist[e.d])
+			dag[e.s].emplace_back(e);
+	return dag;
+}
+
 //トポロジカルソート O(E+V)
 //入次数が0の点と辺を取り除きながらretに突っ込む
 vector<int> topological_sort(const Graph &g) {
