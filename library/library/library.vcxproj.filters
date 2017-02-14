@@ -96,6 +96,9 @@
     <ClCompile Include="Sort.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">
@@ -164,6 +167,30 @@
       <Filter>snippet</Filter>
     </None>
     <None Include="snippet\ll.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\pii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vs.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vvc.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vvi.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vb.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vc.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vi.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\vpii.snippet">
       <Filter>snippet</Filter>
     </None>
   </ItemGroup>

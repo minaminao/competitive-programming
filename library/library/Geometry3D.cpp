@@ -75,7 +75,7 @@ struct Sphere {
 
 //•½–Ê
 struct Plane {
-	double a, b, c, d;// ax+by+cz+d=0
+	double a, b, c, d;//ax+by+cz+d=0
 	Plane() {}
 	Plane(double a, double b, double c, double d) :a(a), b(b), c(c), d(d) {}
 	Plane(const Vector &n, const Point &p) :a(n.x), b(n.y), c(n.z) {

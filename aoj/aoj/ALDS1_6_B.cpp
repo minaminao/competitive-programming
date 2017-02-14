@@ -15,9 +15,27 @@ const int MOD = (int)(1e9 + 7);
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
-signed main() {
-	cin.tie(0);
-	ios::sync_with_stdio(false);
+// v[i] <= x <= v[j] ‚É‚·‚é (i<=j)
+// O(N) STL ‚É‚ ‚é
+int stable_partition(vector<int> &v, int l, int r, int x) {
+	int i = l;
+	for (int j = l; j < r; j++) {
+		if (v[j] <= x) {
+			swap(v[i], v[j]);
+			i++;
+		}
+	}
+	return i - 1;
+}
 
+signed main() {
+	int n; cin >> n;
+	vector<int> v(n); rep(i, 0, n) { cin >> v[i]; }
+	int b = stable_partition(v, 0, n, v[n - 1]);
+	dump(b);
+	cout << v[0]; rep(i, 1, v.size()) {
+		if (b == i)cout << " [" << v[i] << "]";
+		else cout << " " << v[i];
+	} cout << endl;
 	return 0;
 }

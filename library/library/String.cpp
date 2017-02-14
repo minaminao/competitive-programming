@@ -163,7 +163,7 @@ string fill(const string &s, int length, char c = '0') {
 }
 
 signed main() {
-	// http://sarudeki.jp/fernweh/cpp-stdstring/
+	//http://sarudeki.jp/fernweh/cpp-stdstring/
 	char c;
 	string s, t;
 	//s‚Ét‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©
@@ -176,8 +176,8 @@ signed main() {
 
 	s.size();
 	{
-		s.length(); // s.size()
-		s.empty(); // s.size() == 0
+		s.length(); //s.size()
+		s.empty(); //s.size() == 0
 	}
 	s.front();
 	s.back();

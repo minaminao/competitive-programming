@@ -15,9 +15,24 @@ const int MOD = (int)(1e9 + 7);
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
-signed main() {
-	cin.tie(0);
-	ios::sync_with_stdio(false);
+// 計数ソート O(n+k)
+// 制約: 0 <= v[i] <= k
+void counting_sort(vector<int> &v) {
+	int n = v.size(), k = *max_element(v.begin(), v.end());
+	vector<int> cnt(k + 1), tmp(v);
+	cnt[0]--;
+	for (int x : v)cnt[x]++;
+	for (int i = 0; i < k; i++)cnt[i + 1] += cnt[i];
+	for (int i = n - 1; i >= 0; i--) {
+		v[cnt[tmp[i]]] = tmp[i];
+		cnt[tmp[i]]--;
+	}
+}
 
+signed main() {
+	int n; cin >> n;
+	vector<int> A(n); rep(i, 0, n) { scanf("%d", &A[i]); }
+	counting_sort(A);
+	cout << A[0]; rep(i, 1, A.size()) { printf(" %d", A[i]); } cout << endl;
 	return 0;
 }

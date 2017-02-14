@@ -14,8 +14,8 @@ struct Point {
 	Point operator*(double a)const { return Point(a * x, a * y); }
 	Point operator/(double a)const { return Point(x / a, y / a); }
 	bool operator<(const Point &p)const {
-		//return y != p.y ? y < p.y : x < p.x; // y昇順 -> x昇順
-		return x != p.x ? x < p.x : y < p.y; // x昇順 -> y昇順
+		//return y != p.y ? y < p.y : x < p.x; //y昇順 -> x昇順
+		return x != p.x ? x < p.x : y < p.y; //x昇順 -> y昇順
 	}
 	bool operator==(const Point &p)const { return equals(x, p.x) && equals(y, p.y); }
 
@@ -234,7 +234,7 @@ Polygon convex_hull(Polygon P) {
 		while (down.size() > 1 && ccw(down[down.size() - 2], down[down.size() - 1], p) != COUNTER_CLOCKWISE)down.pop_back();
 		down.emplace_back(p);
 	}
-	reverse(up.begin(), up.end()); // 反時計回りに
+	reverse(up.begin(), up.end()); //反時計回りに
 	down.insert(down.end(), up.begin() + 1, up.end() - 1);
 	return down;
 }
@@ -258,7 +258,7 @@ Polygon convex_hull_with_points_online(Polygon P) {
 			down.pop_back();
 		down.emplace_back(p);
 	}
-	reverse(up.begin(), up.end()); // 反時計回りに
+	reverse(up.begin(), up.end()); //反時計回りに
 	down.insert(down.end(), up.begin() + 1, up.end() - 1);
 	return down;
 }

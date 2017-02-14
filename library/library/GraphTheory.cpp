@@ -95,8 +95,8 @@ vector<int> get_path(int s, int g, vector<int> prev) {
 ////全点対間最短経路 All Pairs Shortest Path バグあり
 ////Warshall Floyd O(V^3)
 ////戻り値:
-//// next[i][j]: iからjへの最短経路におけるiの1つ後の点 辞書順最小
-//// 負閉路なし:true あり:false
+////next[i][j]: iからjへの最短経路におけるiの1つ後の点 辞書順最小
+////負閉路なし:true あり:false
 //pair<vector<vector<int>>, bool> warshall_floyd(const Graph &g, Matrix &dist) {
 //	int n = g.size();
 //	dist.assign(n, Array(n, INF));

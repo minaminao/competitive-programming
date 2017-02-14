@@ -165,6 +165,7 @@
     <ClCompile Include="String.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tricks.cpp" />
     <ClCompile Include="UnionFind.cpp" />
     <ClCompile Include="平均最大化.cpp" />
@@ -193,7 +194,15 @@
     <None Include="snippet\ooo.snippet" />
     <None Include="snippet\ov.snippet" />
     <None Include="snippet\ovv.snippet" />
+    <None Include="snippet\pii.snippet" />
     <None Include="snippet\tmp.snippet" />
+    <None Include="snippet\vb.snippet" />
+    <None Include="snippet\vc.snippet" />
+    <None Include="snippet\vi.snippet" />
+    <None Include="snippet\vpii.snippet" />
+    <None Include="snippet\vs.snippet" />
+    <None Include="snippet\vvc.snippet" />
+    <None Include="snippet\vvi.snippet" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
