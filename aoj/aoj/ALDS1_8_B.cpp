@@ -44,6 +44,16 @@
 //	}
 //}
 //
+//Node *find(Node *u, int v) {
+//	while (u != nullptr && v != u->v) {
+//		if (v < u->v)
+//			u = u->l;
+//		else
+//			u = u->r;
+//	}
+//	return u;
+//}
+//
 //void inorder(Node *u) {
 //	if (u == nullptr)return;
 //	inorder(u->l);
@@ -68,6 +78,11 @@
 //		if (com[0] == 'i') {
 //			int key; cin >> key;
 //			insert(key);
+//		}
+//		else if (com[0] == 'f') {
+//			int key; cin >> key;
+//			if (find(root, key))cout << "yes" << endl;
+//			else cout << "no" << endl;
 //		}
 //		else {
 //			inorder(root); cout << endl;

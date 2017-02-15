@@ -150,6 +150,8 @@
     <ClCompile Include="2665.cpp" />
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_A.cpp" />
+    <ClCompile Include="ALDS1_8_B.cpp" />
+    <ClCompile Include="ALDS1_8_C.cpp" />
     <ClCompile Include="source.cpp" />
   </ItemGroup>
   <ItemGroup>
