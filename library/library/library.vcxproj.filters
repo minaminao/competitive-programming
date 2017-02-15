@@ -193,5 +193,8 @@
     <None Include="snippet\vpii.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\oaa.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>

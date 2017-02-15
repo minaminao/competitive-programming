@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\aoj\2663.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_13_A.cpp" />
     <ClCompile Include="..\aoj\ALDS1_3_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_4_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_5_B.cpp" />
@@ -151,6 +152,8 @@
     <ClCompile Include="..\aoj\ALDS1_6_B.cpp" />
     <ClCompile Include="..\aoj\ALDS1_6_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_7_D.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_8_A.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_8_B.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

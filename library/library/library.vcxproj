@@ -190,6 +190,7 @@
     <None Include="snippet\memset.snippet" />
     <None Include="snippet\modint.snippet" />
     <None Include="snippet\o.snippet" />
+    <None Include="snippet\oaa.snippet" />
     <None Include="snippet\oo.snippet" />
     <None Include="snippet\ooo.snippet" />
     <None Include="snippet\ov.snippet" />
