@@ -27,7 +27,7 @@
     <ClCompile Include="ALDS1_8_C.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ALDS1_13_B.cpp">
+    <ClCompile Include="2170.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

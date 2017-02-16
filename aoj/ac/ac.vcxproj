@@ -142,8 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\aoj\0539.cpp" />
+    <ClCompile Include="..\aoj\1030.cpp" />
+    <ClCompile Include="..\aoj\2104.cpp" />
     <ClCompile Include="..\aoj\2663.cpp" />
     <ClCompile Include="..\aoj\ALDS1_13_A.cpp" />
+    <ClCompile Include="..\aoj\ALDS1_13_B.cpp" />
     <ClCompile Include="..\aoj\ALDS1_3_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_4_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_5_B.cpp" />

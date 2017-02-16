@@ -17,11 +17,17 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 
 const int N = 3;
 const int NN = N*N;
+const int dx[4] = { -1,0,1,0 };
+const int dy[4] = { 0,-1,0,1 };
+const char dir[4] = { 'u','l','d','r' };
 
+
+//n puzzle
 struct Puzzle {
 	int f[NN];
 	int space;
 	string path;
+	Puzzle() :path("") {};
 
 	bool operator<(const Puzzle &p)const {
 		for (int i = 0; i < NN; i++) {
@@ -30,29 +36,36 @@ struct Puzzle {
 		}
 		return false;
 	}
+	void input() {
+		for (int i = 0; i < NN; i++) {
+			cin >> f[i];
+			if (f[i] == 0) {
+				f[i] = NN;
+				space = i;
+			}
+		}
+	}
+	void slide(int t) {
+		swap(f[space], f[t]);
+		space = t;
+	}
 };
 
-const int dx[4] = { -1,0,1,0 };
-const int dy[4] = { 0,-1,0,1 };
-const char dir[4] = { 'u','l','d','r' };
-
 bool is_target(const Puzzle &p) {
-	for (int i = 0; i < NN; i++) {
-		if (p.f[i] != (i + 1))return false;
-	}
+	for (int i = 0; i < NN; i++)
+		if (p.f[i] != (i + 1))
+			return false;
 	return true;
 }
 
 string bfs(Puzzle s) {
-	queue<Puzzle> Q;
-	map<Puzzle, bool> V;
+	queue<Puzzle> q;
+	map<Puzzle, bool> mp;
 	Puzzle u, v;
-	s.path = "";
-	Q.emplace(s);
-	V[s] = true;
-
-	while (Q.size()) {
-		u = Q.front(); Q.pop();
+	q.emplace(s);
+	mp[s] = true;
+	while (q.size()) {
+		u = q.front(); q.pop();
 		if (is_target(u))return u.path;
 		int sx = u.space / N;
 		int sy = u.space%N;
@@ -61,13 +74,11 @@ string bfs(Puzzle s) {
 			int ty = sy + dy[r];
 			if (tx < 0 || ty < 0 || tx >= N || ty >= N)continue;
 			v = u;
-			swap(v.f[u.space], v.f[tx*N + ty]);
-			v.space = tx*N + ty;
-			if (!V[v]) {
-				V[v] = true;
-				v.path += dir[r];
-				Q.emplace(v);
-			}
+			v.slide(tx*N + ty);
+			if (mp[v])continue;
+			mp[v] = true;
+			v.path += dir[r];
+			q.emplace(v);
 		}
 	}
 	return "unsolvable";
@@ -77,15 +88,9 @@ signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 
-	Puzzle in;
-	for (int i = 0; i < NN; i++) {
-		cin >> in.f[i];
-		if (in.f[i] == 0) {
-			in.f[i] = NN;
-			in.space = i;
-		}
-	}
-	string ans = bfs(in);
+	Puzzle p;
+	p.input();
+	string ans = bfs(p);
 	cout << ans.size() << endl;
 
 	return 0;

@@ -5,6 +5,14 @@
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
+//ソート済み配列の要素との差の最小値
+template<typename T>
+T min_diff(const vector<T> &v, T x) {
+	auto u = upper_bound(v.begin(), v.end(), x);
+	if (u == v.begin())return v.front() - x;
+	if (u == v.end())return x - v.back();
+	return min(*u - x, x - *(u - 1));
+}
 
 //座標圧縮(map)
 //v: 圧縮前の座標配列 が昇順に
