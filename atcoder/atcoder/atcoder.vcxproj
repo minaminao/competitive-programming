@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="abc014_3.cpp" />
     <ClCompile Include="abc025_c.cpp" />
     <ClCompile Include="source.cpp" />
   </ItemGroup>

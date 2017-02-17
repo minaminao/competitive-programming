@@ -144,6 +144,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\atcoder\abc010_3.cpp" />
+    <ClCompile Include="..\atcoder\abc011_3.cpp" />
+    <ClCompile Include="..\atcoder\abc012_3.cpp" />
+    <ClCompile Include="..\atcoder\abc013_3.cpp" />
+    <ClCompile Include="..\atcoder\abc014_3.cpp" />
     <ClCompile Include="..\atcoder\abc015_3.cpp" />
     <ClCompile Include="..\atcoder\abc017_3.cpp" />
     <ClCompile Include="..\atcoder\abc021_c.cpp" />
