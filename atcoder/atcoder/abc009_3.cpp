@@ -18,26 +18,27 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//	int N, K; cin >> N >> K;
-//	string s; cin >> s;
-//	vector<bool> f(N);
-//	rep(i, 0, N) {
-//		if (K == 0)break;
-//		char m = s[i];
-//		int k = -1;
-//		rep(j, i + 1, N) {
-//			if (K == 0 && !(f[i] && f[j]))continue;
-//			if (K == 1 && !(f[i] || f[j]))continue;
-//			if (chmin(m, s[j])) {
-//				k = j;
+//	for (int N, K; cin >> N >> K;) {
+//		string s; cin >> s;
+//		vector<bool> f(N);
+//		rep(i, 0, N) {
+//			char m = s[i];
+//			int k = -1;
+//			rrep(j, i + 1, N) {
+//				if (K == 0 && !(f[i] && f[j]))continue;
+//				if (K == 1 && !(f[i] || f[j]))continue;
+//				if (chmin(m, s[j])) {
+//					k = j;
+//				}
 //			}
+//			if (k == -1)continue;
+//			K -= (int)!f[i] + !f[k];
+//			f[i] = f[k] = true;
+//			swap(s[i], s[k]);
+//			dump(s, K);
 //		}
-//		if (k == -1)continue;
-//		K -= (int)!f[i] + !f[k];
-//		f[i] = f[k] = true;
-//		swap(s[i], s[k]);
-//		dump(s, K);
+//		assert(K >= 0);
+//		cout << s << endl;
 //	}
-//	cout << s << endl;
 //	return 0;
 //}
