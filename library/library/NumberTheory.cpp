@@ -56,6 +56,7 @@ int modulo(int x, int mod) {
 }
 
 //高速累乗 繰り返し自乗法
+//オーバーフローする可能性があれば掛け算にmodmul()を使う
 long long modpow(long long base, long long exponent, long long mod) {
 	long long res = 1;
 	while (exponent > 0) {
