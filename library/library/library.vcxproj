@@ -161,6 +161,7 @@
     <ClCompile Include="RangeQuery.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="NumericalAnalysis.cpp" />
+    <ClCompile Include="reversi.cpp" />
     <ClCompile Include="Search.cpp" />
     <ClCompile Include="Sort.cpp" />
     <ClCompile Include="String.cpp" />

@@ -102,6 +102,9 @@
     <ClCompile Include="Matrix.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="reversi.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">
