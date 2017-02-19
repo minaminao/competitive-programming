@@ -1,5 +1,3 @@
-//by anta
-
 using Num = unsigned long long;
 struct Matrix {
 	vector<vector<Num>> v, w;

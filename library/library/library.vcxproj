@@ -169,6 +169,7 @@
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tricks.cpp" />
+    <ClCompile Include="TwoSatisfiability.cpp" />
     <ClCompile Include="UnionFind.cpp" />
     <ClCompile Include="平均最大化.cpp" />
   </ItemGroup>

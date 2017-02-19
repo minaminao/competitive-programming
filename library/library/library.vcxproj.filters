@@ -105,6 +105,9 @@
     <ClCompile Include="reversi.cpp">
       <Filter>ソース ファイル\typical problem</Filter>
     </ClCompile>
+    <ClCompile Include="TwoSatisfiability.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">
