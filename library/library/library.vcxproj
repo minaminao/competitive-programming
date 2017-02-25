@@ -148,6 +148,7 @@
     <ClCompile Include="DP.cpp" />
     <ClCompile Include="DP_keta.cpp" />
     <ClCompile Include="FenwickTree.cpp" />
+    <ClCompile Include="Field.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Geometry3D.cpp" />
     <ClCompile Include="GraphTheory.cpp" />
