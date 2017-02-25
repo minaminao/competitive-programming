@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="Bit.cpp" />
     <ClCompile Include="CompleteSearch.cpp" />
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DP.cpp" />
     <ClCompile Include="DP_keta.cpp" />
     <ClCompile Include="FenwickTree.cpp" />
