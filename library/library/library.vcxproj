@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\aoj\aoj\n_puzzle.cpp" />
     <ClCompile Include="Bit.cpp" />
     <ClCompile Include="CompleteSearch.cpp" />
     <ClCompile Include="Debug.cpp" />

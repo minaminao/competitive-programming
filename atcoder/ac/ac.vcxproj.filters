@@ -102,5 +102,8 @@
     <ClCompile Include="..\atcoder\abc055_b.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\atcoder\abc032_d.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

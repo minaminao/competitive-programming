@@ -147,9 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="abc008_4.cpp" />
     <ClCompile Include="abc009_3.cpp" />
+    <ClCompile Include="abc009_3_2.cpp" />
     <ClCompile Include="abc009_4.cpp" />
     <ClCompile Include="abc025_c.cpp" />
+    <ClCompile Include="abc036_d.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
     <ClCompile Include="mujin_b.cpp" />

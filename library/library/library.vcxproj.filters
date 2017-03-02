@@ -114,6 +114,9 @@
     <ClCompile Include="Debug.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\aoj\aoj\n_puzzle.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">

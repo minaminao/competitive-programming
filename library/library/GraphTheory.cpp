@@ -9,9 +9,7 @@ using Graph = vector<Edges>;
 using Array = vector<Weight>;
 using Matrix = vector<Array>;
 
-ostream &operator<<(ostream &os, const Edge &e) {
-	return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')');
-}
+inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
 
 //–¢’Tõ, ’Tõ’†, ’TõÏ
 enum { WHITE, GRAY, BLACK };

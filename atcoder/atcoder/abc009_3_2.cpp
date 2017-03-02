@@ -15,30 +15,31 @@
 //template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 //template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 //
-//signed main() {
-//	cin.tie(0);
-//	ios::sync_with_stdio(false);
-//	for (int N, K; cin >> N >> K;) {
-//		string s; cin >> s;
-//		vector<bool> f(N);
-//		rep(i, 0, N) {
-//			char m = s[i];
-//			int k = -1;
-//			rrep(j, i + 1, N) {
-//				if (K == 0 && !(f[i] && f[j]))continue;
-//				if (K == 1 && !(f[i] || f[j]))continue;
-//				if (chmin(m, s[j])) {
-//					k = j;
-//				}
+//int main() {
+//	int N, K; cin >> N >> K;
+//	string s; cin >> s;
+//	string S(N, '?'), T(N, '?');
+//	vector<int> Tcnt(26);
+//	rep(i, 0, N) Tcnt[S[i] - 'a']++;
+//	rep(i, 0, N) {
+//		rep(a, 'a', 'z' + 1)
+//			if (Tcnt[a - 'a'] > 0) {
+//				T[i] = a;
+//				Tcnt[a - 'a'] --;
+//				int x = 0;
+//				rep(j, 0, i + 1) x += S[j] != T[j];
+//				vector<int> Scnt(26);
+//				rep(j, i + 1, N)
+//					Scnt[S[j] - 'a']++;
+//				int y = 0;
+//				rep(j, 0, 26) y += max(Scnt[j], Tcnt[j]) - min(Scnt[j], Tcnt[j]);
+//				x += y / 2;
+//				if (x <= K)
+//					break;
+//				Tcnt[a - 'a']++;
+//				T[i] = '?';
 //			}
-//			if (k == -1)continue;
-//			if (!f[i])K--;
-//			if (!f[k])K--;
-//			f[i] = f[k] = true;
-//			swap(s[i], s[k]);
-//			dump(s, K);
-//		}
-//		cout << s << endl;
 //	}
+//	cout << T << endl;
 //	return 0;
 //}
