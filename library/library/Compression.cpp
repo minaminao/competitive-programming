@@ -1,4 +1,4 @@
-//座標圧縮(map) 1次元
+//座標圧縮(map)
 //戻り値: zip[圧縮前の座標]:圧縮後の座標 (zip.size()<=10^5なら高速に動作)
 template<typename T>
 map<T, T> compress(vector<T> v) {

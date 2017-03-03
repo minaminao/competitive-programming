@@ -16,31 +16,27 @@ template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
 int W, H, N;
-int X[33], Y[33];
+vector<int> X, Y;
 int dp[88][88][88][88];
-using pii = pair<int, int>;
-vector<pii> v;
-vector<int> res;
+map<int, int> zipx, zipy;
 
-//座標圧縮（破壊的）
-//index()と合わせて使う
+//座標圧縮(map)
+//戻り値: zip[圧縮前の座標]:圧縮後の座標 (zip.size()<=10^5なら高速に動作)
 template<typename T>
-vector<int> compress(vector<T> &v) {
+map<T, T> compress(vector<T> v) {
+	map<T, T> zip;
 	sort(v.begin(), v.end());
 	v.erase(unique(v.begin(), v.end()), v.end());
-	return v;
+	for (T i = 0; i < v.size(); i++) zip[v[i]] = i;
+	return zip;
 }
 
-//圧縮後の座標
-//index(圧縮前の座標の配列(昇順), 圧縮前の座標)
-template<typename T>
-int index(const vector<T> &v, T i) { return lower_bound(v.begin(), v.end(), i) - v.begin(); }
-
 int dfs(int p, int q, int r, int s) {
-	if (dp[p][q][r][s] != INF)return dp[p][q][r][s];
+	int zp = zipx[p], zq = zipy[q], zr = zipx[r], zs = zipy[s];
+	if (dp[zp][zq][zr][zs] != INF)return dp[zp][zq][zr][zs];
 	int ret = 0;
 	rep(i, 0, N) {
-		if (p <= X[i] && X[i] < r&&q <= Y[i] && Y[i] <= s) {
+		if (p <= X[i] && X[i] < r&&q <= Y[i] && Y[i] < s) {
 			int res =
 				dfs(p, q, X[i], Y[i])
 				+ dfs(X[i] + 1, q, r, Y[i])
@@ -50,7 +46,8 @@ int dfs(int p, int q, int r, int s) {
 			chmax(ret, res);
 		}
 	}
-	return dp[p][q][r][s] = ret;
+	dump(zp, zq, zr, zs, ret);
+	return dp[zp][zq][zr][zs] = ret;
 }
 
 signed main() {
@@ -59,12 +56,21 @@ signed main() {
 	cin >> W >> H;
 	cin >> N;
 	memset(dp, 0x3f, sizeof(dp));
-
+	X.resize(N); Y.resize(N);
+	rep(i, 0, N) { cin >> X[i] >> Y[i]; X[i]--, Y[i]--; }
+	vector<int> XX = X, YY = Y;
 	rep(i, 0, N) {
-		v.emplace_back(X[i], Y[i]);
+		XX.emplace_back(X[i] + 1);
+		YY.emplace_back(Y[i] + 1);
 	}
-	res = compress(v);
+	XX.emplace_back(0);
+	YY.emplace_back(0);
+	XX.emplace_back(W);
+	YY.emplace_back(H);
 
-	cout << dfs(0, 0, N, N) << endl;
+	zipx = compress(XX), zipy = compress(YY);
+	dump(zipx);
+	dump(zipy);
+	cout << dfs(0, 0, W, H) << endl;
 	return 0;
 }
