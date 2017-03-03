@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\aoj\aoj\n_puzzle.cpp" />
     <ClCompile Include="Bit.cpp" />
     <ClCompile Include="CompleteSearch.cpp" />
+    <ClCompile Include="Compression.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DP.cpp" />
     <ClCompile Include="DP_keta.cpp" />
