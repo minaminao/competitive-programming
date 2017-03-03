@@ -142,7 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\aoj\0514.cpp" />
+    <ClCompile Include="..\aoj\0523.cpp" />
+    <ClCompile Include="..\aoj\0524.cpp" />
+    <ClCompile Include="..\aoj\0525.cpp" />
     <ClCompile Include="..\aoj\0539.cpp" />
+    <ClCompile Include="..\aoj\0545.cpp" />
+    <ClCompile Include="..\aoj\0556.cpp" />
+    <ClCompile Include="..\aoj\0558.cpp" />
+    <ClCompile Include="..\aoj\0566.cpp" />
+    <ClCompile Include="..\aoj\0567.cpp" />
+    <ClCompile Include="..\aoj\0594.cpp" />
     <ClCompile Include="..\aoj\1030.cpp" />
     <ClCompile Include="..\aoj\2104.cpp" />
     <ClCompile Include="..\aoj\2311.cpp" />
