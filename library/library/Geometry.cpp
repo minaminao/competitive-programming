@@ -1,5 +1,6 @@
 //#define double long double
 const double EPS = 1e-8; //–â‘è‚²‚Æ‚É•ÏX
+const double PI = acos(-1);
 #define equals(a,b) (fabs((a)-(b)) < EPS)
 #define next(P,i) P[(i+1)%P.size()]
 #define prev(P,i) P[(i+P.size()-1)%P.size()]
@@ -22,8 +23,8 @@ struct Point {
 	double abs() { return sqrt(norm()); }
 	double norm() { return x*x + y*y; }
 };
-inline ostream &operator << (ostream &os, const Point &p) { os << p.x << " " << p.y; return os; }
 inline istream &operator >> (istream &is, Point &p) { double x, y; is >> x >> y; p = Point(x, y); return is; }
+inline ostream &operator << (ostream &os, const Point &p) { os << p.x << ' ' << p.y; return os; }
 
 struct Vector :public Point {
 	using Point::Point;
@@ -60,9 +61,9 @@ struct Circle {
 using Polygon = vector<Point>;
 
 //degree to radian
-double rad(double deg) { return acos(-1)*deg / 180; }
+double rad(double deg) { return PI*deg / 180; }
 //radian to degree
-double deg(double rad) { return rad / acos(-1) * 180; }
+double deg(double rad) { return rad / PI * 180; }
 //•ÎŠp argument
 double arg(Vector p) { return atan2(p.y, p.x); }
 //‹ÉŒ`® polar form
