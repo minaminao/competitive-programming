@@ -159,6 +159,7 @@
     <ClCompile Include="GraphTheory.cpp" />
     <ClCompile Include="inclusion-exclusion principle.cpp" />
     <ClCompile Include="is_eulerian_graph.cpp" />
+    <ClCompile Include="Macro.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="miller_rabin_primality_test.cpp" />
     <ClCompile Include="ModInt.cpp" />

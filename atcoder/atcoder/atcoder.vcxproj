@@ -151,7 +151,6 @@
     <ClCompile Include="abc009_3_2.cpp" />
     <ClCompile Include="abc009_4.cpp" />
     <ClCompile Include="abc025_c.cpp" />
-    <ClCompile Include="abc031_d.cpp" />
     <ClCompile Include="abc033_d.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />

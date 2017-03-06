@@ -167,6 +167,7 @@
     <ClCompile Include="..\atcoder\abc030_c.cpp" />
     <ClCompile Include="..\atcoder\abc030_d.cpp" />
     <ClCompile Include="..\atcoder\abc031_c.cpp" />
+    <ClCompile Include="..\atcoder\abc031_d.cpp" />
     <ClCompile Include="..\atcoder\abc032_c.cpp" />
     <ClCompile Include="..\atcoder\abc032_d.cpp" />
     <ClCompile Include="..\atcoder\abc035_d.cpp" />

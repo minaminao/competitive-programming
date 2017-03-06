@@ -1,7 +1,3 @@
-#define idx(i) (i+25)
-#define UNIQUE(v) v.erase(unique(v.begin(),v.end()),v.end())
-#define REMOVE(v,a) v.erase(remove(v.begin(),v.end(),a),v.end())
-
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
