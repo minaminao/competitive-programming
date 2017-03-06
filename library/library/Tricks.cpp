@@ -223,6 +223,9 @@ signed main() {
 	dump(is_array<int>::value);
 	dump(is_array<int[]>::value);
 
+	//部分点のみジャッジしたいとき
+	assert(N <= 1000);
+
 	return 0;
 }
 
