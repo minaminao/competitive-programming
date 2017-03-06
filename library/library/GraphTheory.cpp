@@ -1,7 +1,9 @@
 using Weight = int;
+using Flow = int;
 struct Edge {
-	int s, d; Weight w;
-	Edge(int s, int d, Weight w = 1) : s(s), d(d), w(w) {};
+	int s, d; Weight w; Flow c;
+	Edge() {};
+	Edge(int s, int d, Weight w = 1) : s(s), d(d), w(w), c(w) {};
 	bool operator<(const Edge &e)const { return w < e.w; }
 };
 using Edges = vector<Edge>;
@@ -10,6 +12,12 @@ using Array = vector<Weight>;
 using Matrix = vector<Array>;
 
 inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
+
+void add_edge(Graph &g, int a, int b, Weight w = 1) {
+	g[a].emplace_back(a, b, w);
+	g[b].emplace_back(b, a, w);
+}
+void add_arc(Graph &g, int s, int d, Weight w = 1) { g[s].emplace_back(s, d, w); }
 
 //–¢’Tõ, ’Tõ’†, ’TõÏ
 enum { WHITE, GRAY, BLACK };

@@ -180,17 +180,35 @@ int euler_totient(int n) {
 	return ret;
 }
 
-//パスカルの三角形のn段目
-vector<int> pascal_triangle(int n) {
-	vector<int> a(n, 1), b(n, 1);
-	//3段目からn段目まで計算
-	for (int i = 3; i < n + 1; i++) {
+//nCr配列をパスカルの三角形から生成
+//double なら 10^308 くらいまでOK
+using Num = double;
+vector<vector<Num>> nCr;
+void compute_nCr(int n) {
+	vector<Num> a(1, 1), b(2, 1);
+	nCr = { a,b };
+	for (int i = 3; i <= n + 1; i++) {
 		swap(a, b);
-		a[0] = 1; a[i - 1] = 1;
+		b.resize(i);
+		b[0] = 1; b[i - 1] = 1;
 		for (int j = 1; j < i - 1; j++)
-			a[j] = b[j - 1] + b[j];
+			b[j] = a[j - 1] + a[j];
+		nCr.emplace_back(b);
 	}
-	return a;
+}
+//確率版
+//i段目の和は必ず1.0
+void compute_nCr_probability(int n) {
+	vector<Num> a(1, 1.0), b(2, 1.0 / 2.0);
+	nCr = { a,b };
+	for (int i = 3; i <= n + 1; i++) {
+		swap(a, b);
+		b.resize(i);
+		b.front() = a.front() / 2.0; b.back() = a.back() / 2.0;
+		for (int j = 1; j < i - 1; j++)
+			b[j] = a[j - 1] / 2.0 + a[j] / 2.0;
+		nCr.emplace_back(b);
+	}
 }
 
 //n進法

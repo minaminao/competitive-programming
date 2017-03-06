@@ -120,6 +120,12 @@
     <ClCompile Include="Compression.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Flow.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Boost.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">
@@ -220,5 +226,12 @@
     <None Include="snippet\oa.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\iiiiv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\iiiiiv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

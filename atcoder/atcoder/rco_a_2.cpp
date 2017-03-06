@@ -34,6 +34,7 @@
 //	while (ret.size() != 8 && pq.size()) {
 //		int s, s2; P p, p2;
 //		tie(s, p) = pq.top(); pq.pop();
+//		dump(p.first, p.second);
 //		if (pq.size()) {
 //			tie(s2, p2) = pq.top(); pq.pop();
 //			int maxi = 0, maxi2 = 0;
@@ -41,21 +42,22 @@
 //				int ti = p.first + di[i], tj = p.second + dj[i];
 //				int ti2 = p2.first + di[i], tj2 = p2.second + dj[i];
 //				if (!inrange(ti, tj) || !inrange(ti2, tj2))continue;
-//				chmax(maxi, t[ti][tj]);
-//				chmax(maxi2, t[ti2][tj2]);
+//				if (!f[ti][tj])chmax(maxi, t[ti][tj]);
+//				if (!f[ti2][tj2])chmax(maxi2, t[ti2][tj2]);
 //			}
-//			//dump(s, maxi, s2, maxi2);
+//			dump(s, maxi, s2, maxi2);
 //			maxi *= s; maxi2 *= s2;
 //			if (maxi < maxi2) {
 //				pq.emplace(s, p);
 //				s = s2, p = p2;
-//				//dump("maxi<max2");
+//				dump("maxi<max2");
 //			}
 //			else {
 //				pq.emplace(s2, p2);
 //			}
 //		}
 //		int ci = p.first, cj = p.second;
+//		dump(p.first, p.second);
 //		if (f[ci][cj])continue;
 //		f[ci][cj] = true;
 //		ret.emplace_back(ci, cj);

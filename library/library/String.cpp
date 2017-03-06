@@ -192,5 +192,9 @@ signed main() {
 	sort(s.begin(), s.end());
 	reverse(s.begin(), s.end());
 
+	s = { c };
+	s = "" + c;
+	s = string(1, c);
+
 	return 0;
 }

@@ -211,6 +211,18 @@ signed main() {
 	dump(bs << 1);
 	dump(bs >> 1);
 
+	//3^N‚Ìó‘Ô‚ğ—ñ‹“
+	int N;
+	vector<int> pow3(N + 1, 1);
+	rep(i, 0, N)pow3[i + 1] *= pow3[i] * 3;
+	vector<int> a(N);
+	auto f = [&](int mask) {
+		rep(i, 0, N)a[i] = (mask / pow3[i]) % 3;
+		dump(a);
+	};
+	for (int mask = 0; mask < pow3[N]; mask++) {
+		f(mask);
+	}
 	return 0;
 }
 
