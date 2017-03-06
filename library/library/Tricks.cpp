@@ -219,6 +219,10 @@ signed main() {
 	for (int mask = 0; mask < pow3[N]; mask++) {
 		f(mask);
 	}
+
+	dump(is_array<int>::value);
+	dump(is_array<int[]>::value);
+
 	return 0;
 }
 

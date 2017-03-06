@@ -55,10 +55,8 @@ ostream &operator<<(ostream &os, const pair<T1, T2> &p) {
 // function to print a container
 #define __INNER__ \
     os << '['; \
-    for (auto it = begin(c); it != end(c); it++) { \
-		if (it != begin(c))os << ", "; \
-        os << *it; \
-    } \
+    for (auto it = begin(c); it != end(c); it++) \
+		os << (it != begin(c) ? ", " : "") << *it; \
     return os << ']';
 
 template <typename T, size_t N>
@@ -102,6 +100,16 @@ void _dump() {}
 template<typename T>
 void _dump(T a) {
 	cerr << a;
+}
+
+template<class T, size_t N>
+void _dump(T(&a)[N]) {
+	cerr << '[';
+	for (auto i = 0; i < N; i++) {
+		cerr << (i ? ", " : "");
+		_dump(a[i]);
+	}
+	cerr << "]";
 }
 
 template<typename T1, typename T2, typename ...Tail>

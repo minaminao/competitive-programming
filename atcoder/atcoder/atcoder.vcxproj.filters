@@ -39,9 +39,6 @@
     <ClCompile Include="abc009_3_2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="abc033_d.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="rco_a.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
