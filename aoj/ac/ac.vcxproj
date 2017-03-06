@@ -155,6 +155,8 @@
     <ClCompile Include="..\aoj\0566.cpp" />
     <ClCompile Include="..\aoj\0567.cpp" />
     <ClCompile Include="..\aoj\0572.cpp" />
+    <ClCompile Include="..\aoj\0582.cpp" />
+    <ClCompile Include="..\aoj\0589.cpp" />
     <ClCompile Include="..\aoj\0594.cpp" />
     <ClCompile Include="..\aoj\1030.cpp" />
     <ClCompile Include="..\aoj\2104.cpp" />
