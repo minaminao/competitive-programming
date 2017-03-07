@@ -149,8 +149,12 @@
   <ItemGroup>
     <ClCompile Include="0121.cpp" />
     <ClCompile Include="0540.cpp" />
+    <ClCompile Include="1.cpp" />
     <ClCompile Include="2170.cpp" />
     <ClCompile Include="2665.cpp" />
+    <ClCompile Include="3.cpp" />
+    <ClCompile Include="4.cpp" />
+    <ClCompile Include="5.cpp" />
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_C.cpp" />
     <ClCompile Include="source.cpp" />
