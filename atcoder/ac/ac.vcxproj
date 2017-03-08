@@ -187,6 +187,9 @@
     <ClCompile Include="..\atcoder\arc069_c.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a_2.cpp" />
+    <ClCompile Include="..\atcoder\joi2007yo_a.cpp" />
+    <ClCompile Include="..\atcoder\joi2008yo_a.cpp" />
+    <ClCompile Include="..\atcoder\joi2009yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2010yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2011yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2012yo_a.cpp" />
@@ -194,6 +197,7 @@
     <ClCompile Include="..\atcoder\joi2014yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2015yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2016yo_a.cpp" />
+    <ClCompile Include="..\atcoder\joi2016yo_b.cpp" />
     <ClCompile Include="..\atcoder\joi2017yo_a.cpp" />
     <ClCompile Include="..\atcoder\yahoo-procon2017-qual_a.cpp" />
     <ClCompile Include="..\atcoder\yahoo-procon2017-qual_b.cpp" />

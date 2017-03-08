@@ -18,11 +18,8 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	rep(i, 0, 3) {
-		int h, m, s; cin >> h >> m >> s;
-		int h2, m2, s2; cin >> h2 >> m2 >> s2;
-		int t = (h2 - h) * 3600 + (m2 - m) * 60 + (s2 - s);
-		cout << t / 3600 << " " << (t / 60) % 60 << " " << t % 60 << endl;
-	}
+	vector<int> v(4); rep(i, 0, 4) { cin >> v[i]; }
+	vector<int> w(4); rep(i, 0, 4) { cin >> w[i]; }
+	cout << max(accumulate(all(v), 0), accumulate(all(w), 0)) << endl;
 	return 0;
 }

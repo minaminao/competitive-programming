@@ -63,7 +63,10 @@
     <ClCompile Include="abc027_d.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="joi2009yo_a.cpp">
+    <ClCompile Include="joi2006yo_a.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="joi2015yo_b.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

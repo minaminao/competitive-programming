@@ -18,11 +18,17 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	rep(i, 0, 3) {
-		int h, m, s; cin >> h >> m >> s;
-		int h2, m2, s2; cin >> h2 >> m2 >> s2;
-		int t = (h2 - h) * 3600 + (m2 - m) * 60 + (s2 - s);
-		cout << t / 3600 << " " << (t / 60) % 60 << " " << t % 60 << endl;
+	int N, M; cin >> N >> M;
+	vector<int> v(N); rep(i, 0, N) { cin >> v[i]; }
+	rep(k, 1, M+1) {
+		rep(i, 0, N-1) {
+			if (v[i] % k > v[i + 1] % k) {
+				swap(v[i], v[i + 1]);
+			}
+		}
+	}
+	rep(i, 0, N) {
+		cout << v[i] << endl;
 	}
 	return 0;
 }
