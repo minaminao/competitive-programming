@@ -19,6 +19,18 @@ signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	int N; cin >> N;
-
+	int M; cin >> M;
+	vector<int> A(M); rep(i, 0, M) { cin >> A[i]; A[i]--; }
+	vector<int> ans(N);
+	rep(i, 0, M) {
+		rep(j, 0, N) {
+			int b; cin >> b; b--;
+			if (b == A[i])ans[j]++;
+			else ans[A[i]]++;
+		 }
+	}
+	rep(i, 0, N) {
+		cout << ans[i] << endl;
+	}
 	return 0;
 }

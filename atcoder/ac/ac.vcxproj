@@ -196,6 +196,7 @@
     <ClCompile Include="..\atcoder\joi2013yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2014yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2015yo_a.cpp" />
+    <ClCompile Include="..\atcoder\joi2015yo_b.cpp" />
     <ClCompile Include="..\atcoder\joi2016yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2016yo_b.cpp" />
     <ClCompile Include="..\atcoder\joi2017yo_a.cpp" />
