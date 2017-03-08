@@ -18,9 +18,7 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	vector<int> v(5); rep(i, 0, 5) {
-		cin >> v[i]; chmax(v[i], 40);
-	}
-	cout << accumulate(all(v), 0) / 5 << endl;
+
+
 	return 0;
 }
