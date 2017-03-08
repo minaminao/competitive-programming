@@ -18,8 +18,8 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	vector<int> v(4); rep(i, 0, 4) { cin >> v[i]; }
-	int sum = accumulate(all(v), 0);
-	cout << sum / 60 << endl << sum % 60 << endl;
+	int sum; cin >> sum;
+	vector<int> v(9); rep(i, 0, 9) { cin >> v[i]; }
+	cout << sum - accumulate(all(v), 0) << endl;
 	return 0;
 }

@@ -187,6 +187,8 @@
     <ClCompile Include="..\atcoder\arc069_c.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a_2.cpp" />
+    <ClCompile Include="..\atcoder\joi2010yo_a.cpp" />
+    <ClCompile Include="..\atcoder\joi2011yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2012yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2013yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2014yo_a.cpp" />
