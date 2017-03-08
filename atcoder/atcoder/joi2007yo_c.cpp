@@ -18,14 +18,10 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int N; cin >> N;
-	int a = 0, b = 0;
-	rep(i, 0, N) {
-		int x, y; cin >> x >> y;
-		if (x > y)a += x + y;
-		else if (x < y)b += x + y;
-		else a += x, b += y;
+	string s; cin >> s;
+	for (auto &c : s) {
+		c = (c - 'A' - 3 + 26) % 26 + 'A';
 	}
-	cout << a << " " << b << endl;
+	cout << s << endl;
 	return 0;
 }

@@ -19,13 +19,19 @@ signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	int N; cin >> N;
-	int a = 0, b = 0;
+	int A, B; cin >> A >> B;
+	int C; cin >> C;
+	vector<int> D(N); rep(i, 0, N) { cin >> D[i]; }
+	sort(all(D)); reverse(all(D));
+	int cal = C;
 	rep(i, 0, N) {
-		int x, y; cin >> x >> y;
-		if (x > y)a += x + y;
-		else if (x < y)b += x + y;
-		else a += x, b += y;
+		if ((cal + D[i]) / (A + (i + 1)*B) >= cal / (A + i*B)) {
+			cal += D[i];
+		}
+		else {
+			cout << cal / (A + i*B) << endl;
+			break;
+		}
 	}
-	cout << a << " " << b << endl;
 	return 0;
 }

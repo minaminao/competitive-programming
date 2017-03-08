@@ -18,14 +18,20 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int N; cin >> N;
-	int a = 0, b = 0;
-	rep(i, 0, N) {
-		int x, y; cin >> x >> y;
-		if (x > y)a += x + y;
-		else if (x < y)b += x + y;
-		else a += x, b += y;
+	int N, M; cin >> N >> M;
+	vector<int> a(M), b(M); rep(i, 0, M) { cin >> a[i] >> b[i]; a[i]--, b[i]--; if (a[i] > b[i])swap(a[i], b[i]); }
+	vector<bool> v(N);
+	rep(i, 0, M) {
+		if (a[i] == 0)v[b[i]] = true;
 	}
-	cout << a << " " << b << endl;
+	vector<int> w;
+	rep(i, 0, M) {
+		if (v[a[i]])w.emplace_back(b[i]);
+		if (v[b[i]])w.emplace_back(a[i]);
+	}
+	rep(i, 0, w.size()) {
+		v[w[i]] = true;
+	}
+	cout << count(v.begin() + 1, v.end(), true) << endl;
 	return 0;
 }
