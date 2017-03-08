@@ -164,6 +164,7 @@
     <ClCompile Include="..\atcoder\abc024_c.cpp" />
     <ClCompile Include="..\atcoder\abc026_c.cpp" />
     <ClCompile Include="..\atcoder\abc027_c.cpp" />
+    <ClCompile Include="..\atcoder\abc027_d.cpp" />
     <ClCompile Include="..\atcoder\abc028_c.cpp" />
     <ClCompile Include="..\atcoder\abc028_d.cpp" />
     <ClCompile Include="..\atcoder\abc029_c.cpp" />
@@ -202,6 +203,7 @@
     <ClCompile Include="..\atcoder\joi2011yo_b.cpp" />
     <ClCompile Include="..\atcoder\joi2012yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2012yo_c.cpp" />
+    <ClCompile Include="..\atcoder\joi2012yo_d.cpp" />
     <ClCompile Include="..\atcoder\joi2013yo_a.cpp" />
     <ClCompile Include="..\atcoder\joi2013yo_b.cpp" />
     <ClCompile Include="..\atcoder\joi2014yo_a.cpp" />

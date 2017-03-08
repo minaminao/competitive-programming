@@ -14,30 +14,44 @@ const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f
 const int MOD = (int)(1e9) + 7;
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
-
+int a[110] = {};
+int dp[110][3][3] = {};
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	string s; cin >> s;
-	int n = s.size();
-	int p, m; p = m = 0;
-	vector<int> P, M;
-	rrep(i, 0, n) {
-		if (s[i] == '+')p++;
-		else if (s[i] == '-')m++;
-		else {
-			P.emplace_back(p - m);
+	int N, K; cin >> N >> K;
+	memset(a, -1, sizeof(a));
+	rep(i, 0, K) {
+		int x, y; cin >> x >> y;
+		a[x - 1] = y - 1;
+	}
+	dp[0][0][0] = 1;
+	rep(i, 0, N) {
+		if (a[i] == -1) {
+			rep(j, 0, 3) {
+				rep(k, 0, 3) {
+					rep(l, 0, 3) {
+						if (j == 2 && k == l)continue;
+						(dp[i + 1][k == l ? j + 1 : 1][k] += dp[i][j][l]) %= 10000;
+					}
+				}
+			}
 		}
+		else {
+			rep(j, 0, 3) {
+				rep(l, 0, 3) {
+					if (j == 2 && a[i] == l)continue;
+					(dp[i + 1][a[i] == l ? j + 1 : 1][a[i]] += dp[i][j][l]) %= 10000;
+				}
+			}
+		}
+		dump(dp[i + 1]);
 	}
-	sort(all(P));
-	dump(P);
 	int ans = 0;
-	rep(i, 0, P.size() / 2) {
-		ans -= P[i];
+	rep(j, 0, 3)rep(k, 0, 3) {
+		ans += dp[N][j][k];
 	}
-	rep(i, P.size() / 2, P.size()) {
-		ans += P[i];
-	}
+	ans %= 10000;
 	cout << ans << endl;
 	return 0;
 }
