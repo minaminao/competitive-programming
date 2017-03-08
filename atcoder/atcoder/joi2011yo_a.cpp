@@ -18,8 +18,6 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int l, a, b, c, d; cin >> l >> a >> b >> c >> d;
-	l -= max(a / c + !!(a%c), b / d + !!(b%d));
-	cout << max(l, 0) << endl;
+
 	return 0;
 }
