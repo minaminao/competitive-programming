@@ -18,18 +18,9 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int N, M; cin >> N >> M;
-	vector<int> A(N); rep(i, 0, N) { cin >> A[i]; }
-	vector<int> B(M); rep(i, 0, M) { cin >> B[i]; }
-	vector<int> C(N);
-	rep(i, 0, M) {
-		rep(j, 0, N) {
-			if (A[j] <= B[i]) {
-				C[j]++;
-				break;
-			}
-		}
-	}
-	cout << max_element(all(C)) - C.begin() + 1 << endl;
+	vector<int> v(10); rep(i, 0, 10) { cin >> v[i]; }
+	vector<int> w(10); rep(i, 0, 10) { cin >> w[i]; }
+	sort(all(v)); sort(all(w));
+	cout << accumulate(v.begin() + 7, v.end(), 0) << " " << accumulate(w.begin() + 7, w.end(), 0) << endl;
 	return 0;
 }

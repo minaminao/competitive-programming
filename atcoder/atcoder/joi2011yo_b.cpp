@@ -18,18 +18,15 @@ template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int N, M; cin >> N >> M;
-	vector<int> A(N); rep(i, 0, N) { cin >> A[i]; }
-	vector<int> B(M); rep(i, 0, M) { cin >> B[i]; }
-	vector<int> C(N);
-	rep(i, 0, M) {
-		rep(j, 0, N) {
-			if (A[j] <= B[i]) {
-				C[j]++;
-				break;
-			}
-		}
+	string s; cin >> s;
+	int N; cin >> N;
+	int ans = 0;
+	rep(i, 0, N) {
+		string t; cin >> t;
+		t += t;
+		if (t.find(s) != string::npos)
+			ans++;
 	}
-	cout << max_element(all(C)) - C.begin() + 1 << endl;
+	cout << ans << endl;
 	return 0;
 }

@@ -156,7 +156,6 @@
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
     <ClCompile Include="joi2006yo_a.cpp" />
-    <ClCompile Include="joi2014yo_b.cpp" />
     <ClCompile Include="mujin_b.cpp" />
     <ClCompile Include="rco_a.cpp" />
     <ClCompile Include="rco_a_2.cpp" />

@@ -19,17 +19,21 @@ signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	int N, M; cin >> N >> M;
-	vector<int> A(N); rep(i, 0, N) { cin >> A[i]; }
-	vector<int> B(M); rep(i, 0, M) { cin >> B[i]; }
-	vector<int> C(N);
+	vector<int> v(N); rep(i, 0, N) { cin >> v[i]; }
+	vector<int> w(M); rep(i, 0, M) { cin >> w[i]; }
+	int c = 0;
 	rep(i, 0, M) {
-		rep(j, 0, N) {
-			if (A[j] <= B[i]) {
-				C[j]++;
-				break;
-			}
+		c += w[i];
+		if (c >= N - 1) {
+			cout << i + 1 << endl;
+			break;
 		}
+		c += v[c];
+		if (c >= N - 1) {
+			cout << i + 1 << endl;
+			break;
+		}
+		dump(c);
 	}
-	cout << max_element(all(C)) - C.begin() + 1 << endl;
 	return 0;
 }
