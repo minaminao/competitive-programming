@@ -36,6 +36,27 @@ void keta2() {
 	cout << ans << endl;
 }
 
+//S以下の非負整数 かつ 1が付く個数
+void keta2a() {
+	//i桁目
+	//S未満確定か
+	//1が付く個数
+	int dp[15][2][15] = {};
+	string S; cin >> S;
+	dp[0][0][0] = 1;
+	rep(i, 0, S.size()) rep(j, 0, 2) rep(k, 0, 14) {
+		int lim = j ? 9 : S[i] - '0';
+		rep(d, 0, lim + 1) {
+			dp[i + 1][j || d < lim][k + (d == 1)] += dp[i][j][k];
+		}
+	}
+	int ans = 0;
+	rep(k, 1, 15) {
+		ans += (dp[S.size()][0][k] + dp[S.size()][1][k])*k;
+	}
+	cout << ans << endl;
+}
+
 //S以下の非負整数 かつ (3が付く または 3の倍数)
 void keta3() {
 	//i桁目
