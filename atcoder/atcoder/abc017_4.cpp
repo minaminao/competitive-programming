@@ -15,6 +15,8 @@ const int MOD = (int)(1e9) + 7;
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
+int N, M;
+
 template<int MOD>
 struct ModInt {
 	static const int Mod = MOD;
@@ -62,27 +64,27 @@ template<int MOD> ModInt<MOD> operator^(ModInt<MOD> a, unsigned long long k) {
 
 using mint = ModInt<1000000007>;
 
-int N, M;
-int f[100010];
-mint dp[100010] = {};
-mint dfs(int x) {
-	if (dp[x].get() != 0)return dp[x];
-	if (x >= N - 1)return 1;
-	mint ret = 0;
-	unordered_set<int> st;
-	rep(i, x, N) {
-		if (st.count(f[i])) break;
-		st.insert(f[i]);
-		ret += dfs(i + 1);
-	}
-	return dp[x] = ret;
-}
-
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	cin >> N >> M;
+	vector<int> f(N), g(M + 1, -1), h(N);
 	rep(i, 0, N) { cin >> f[i]; }
-	cout << dfs(0) << endl;
+	int l = 0; g[f[0]] = 0; h[0] = 1;
+	rep(i, 1, N) {
+		if (l <= g[f[i]])l = g[f[i]] + 1;
+		g[f[i]] = i;
+		h[i] = i - l + 1;
+		dump(l, g, h);
+	}
+	dump(g, h);
+	vector<mint> dp(N + 1), sum(N + 1);
+	dp[0] = sum[0] = 1;
+	rep(i, 1, N + 1) {
+		dp[i] = sum[i - 1] - (i - 1 - h[i - 1] < 0 ? 0 : sum[i - 1 - h[i - 1]]);
+		sum[i] = sum[i - 1] + dp[i];
+	}
+	dump(dp, sum);
+	cout << dp[N] << endl;
 	return 0;
 }
