@@ -18,6 +18,21 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//
+//	int N, C, K; cin >> N >> C >> K;
+//	vector<int> T(N); rep(i, 0, N) { cin >> T[i]; }
+//	sort(all(T));
+//	int t = T[0];
+//	int ans = 1;
+//	int c = 1;
+//	rep(i, 1, N) {
+//		if (T[i] <= t + K && c < C) {
+//			c++;
+//			continue;
+//		}
+//		ans++;
+//		t = T[i];
+//		c = 1;
+//	}
+//	cout << ans << endl;
 //	return 0;
 //}
