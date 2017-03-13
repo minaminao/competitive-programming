@@ -1,3 +1,16 @@
+//Structure of Array (SoA) ÇÉ\Å[Ég
+template<class T, class ...Tail>
+void tied_sort(vector<T> &a, vector<Tail>&... tail) {
+	int n = a.size();
+	using S = tuple<T, Tail...>;
+	vector<S> s(n);
+	for (int i = 0; i < n; i++)
+		s[i] = make_tuple(a[i], tail[i]...);
+	sort(s.begin(), s.end());
+	for (int i = 0; i < n; i++)
+		tie(a[i], tail[i]...) = s[i];
+}
+
 //merge sort
 template <class It>
 void merge(It l, It m, It r) {
