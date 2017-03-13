@@ -26,4 +26,20 @@ double binary_search_(double l, double r, F f) {
 	}
 	return r; //f(l):false, f(r):true
 }
- 
+
+void solve() {
+	//ƒ‰ƒ€ƒ_Ž®
+	auto f = [&](int x) {return x > 0; };
+	auto binary_search = [&](int l, int r) {
+		if (f(l))return l; //exception f(l):true
+		while (l + 1 < r) {
+			int m = (l + r) / 2;
+			if (f(m))
+				r = m;
+			else
+				l = m;
+		}
+		//f(l):false, f(r):true
+		return r;
+	};
+}
