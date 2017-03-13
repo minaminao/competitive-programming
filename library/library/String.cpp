@@ -25,7 +25,7 @@ vector<string> split(const string& input, const char& delimiter) {
 		}
 		else w += c;
 	}
-	if (w.size())	ret.emplace_back(w);
+	if (w.size()) ret.emplace_back(w);
 	return ret;
 }
 
