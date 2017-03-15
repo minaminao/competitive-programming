@@ -21,9 +21,6 @@
     <ClCompile Include="abc009_3.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="abc025_c.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="abc009_4.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -63,7 +60,13 @@
     <ClCompile Include="agc011_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="abc021_d.cpp">
+    <ClCompile Include="abc023_c.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="abc020_c.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="abc018_3.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
