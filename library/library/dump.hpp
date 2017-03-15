@@ -1,4 +1,4 @@
-#define dump(...) cerr << #__VA_ARGS__ << ": "; _dump(__VA_ARGS__); cerr << endl;
+#define dump(...) { cerr << #__VA_ARGS__ << ": "; _dump(__VA_ARGS__); cerr << endl; }
 
 template <typename T1, typename T2>
 ostream &operator<<(ostream &, const pair<T1, T2> &);
