@@ -347,4 +347,14 @@ signed main_201609() {
 	rep(i, 0, 10)rep(j, 0, 10) { i = INF; break; }
 
 	dump(-1 / 2); //0 ‹C‚ğ‚Â‚¯‚é
+
+	//‘½dbreak‚Ì‘ã‚í‚è‚Éƒ‰ƒ€ƒ_®
+	rep(i, 0, 10)rep(j, 0, 10) {
+		auto f = [&]() {
+			rep(k, 0, 10)rep(l, 0, 10) {
+				return;
+			}
+		};
+		f();
+	}
 }

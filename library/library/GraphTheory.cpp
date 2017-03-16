@@ -26,7 +26,7 @@ enum { WHITE, GRAY, BLACK };
 //Dijkstra O((E+V)logV)
 //dist: 始点から各頂点までの最短距離
 //戻り値: 最短経路木の親頂点(根は-1)
-vector<int> dijkstra(const Graph &g, int s, vector<Weight> &dist) {
+vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 	int n = g.size();
 	vector<int> color(n, WHITE); color[s] = GRAY;
 	vector<int> prev(n, -1);
@@ -55,7 +55,7 @@ vector<int> dijkstra(const Graph &g, int s, vector<Weight> &dist) {
 //Bellman-Ford O(VE)
 //dist: 始点から各頂点までの最短距離
 //戻り値: 最短経路木の親頂点, 負閉路なし:true あり:false
-pair<vector<int>, bool> bellman_ford(const Graph &g, int s, vector<Weight> &dist) {
+pair<vector<int>, bool> bellman_ford(const Graph &g, int s, Array &dist) {
 	int n = g.size();
 	vector<int> prev(n, -1);
 	Edges es; for (int i = 0; i < n; i++) for (auto &e : g[i]) es.emplace_back(e);
@@ -359,3 +359,39 @@ private:
 		return false;
 	}
 };
+
+//二次元配列からGraphを生成
+Graph build(const vector<vector<char>> &v) {
+	const int H = v.size(), W = v[0].size();
+	static const int di[4] = { 1,0,-1,0 }, dj[4] = { 0,1,0,-1 };
+	auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };
+	auto idx = [&](int i, int j) {return i*W + j; };
+	Graph g(H*W);
+	rep(i, 0, H)rep(j, 0, W) {
+		rep(k, 0, 4) {
+			int ni = i + di[k], nj = j + dj[k];
+			if (!inrange(ni, nj))continue;
+			int s = idx(i, j), d = idx(ni, nj);
+			add_arc(g, s, d);
+		}
+	}
+	return g;
+}
+
+Graph build(const vector<vector<char>> &v, int w) {
+	const int H = v.size(), W = v[0].size();
+	static const int di[4] = { 1,0,-1,0 }, dj[4] = { 0,1,0,-1 };
+	auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };
+	auto idx = [&](int i, int j) {return i*W + j; };
+	Graph g(H*W);
+	rep(i, 0, H)rep(j, 0, W) {
+		rep(k, 0, 4) {
+			int ni = i + di[k], nj = j + dj[k];
+			if (!inrange(ni, nj))continue;
+			int s = idx(i, j), d = idx(ni, nj);
+			if (v[ni][nj] == '#')add_arc(g, s, d, w);
+			else add_arc(g, s, d, 1);
+		}
+	}
+	return g;
+}

@@ -165,6 +165,7 @@
     <ClCompile Include="ModInt.cpp" />
     <ClCompile Include="NumberTheory.cpp" />
     <ClCompile Include="Parsing.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="RangeQuery.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="NumericalAnalysis.cpp" />
@@ -187,6 +188,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="snippet\all.snippet" />
+    <None Include="snippet\didj.snippet" />
     <None Include="snippet\i.snippet" />
     <None Include="snippet\ii.snippet" />
     <None Include="snippet\iii.snippet" />

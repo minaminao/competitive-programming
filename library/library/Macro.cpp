@@ -17,3 +17,6 @@ using P = pair<int, int>;
 //#define _rrep2(i,a,b) for(int i=(b)-1;i>=(a);i--)
 //#define rep(...) _overload(__VA_ARGS__,_rep2,_rep,)(__VA_ARGS__)
 //#define rrep(...) _overload(__VA_ARGS__,_rrep2,_rrep,)(__VA_ARGS__)
+
+stringstream _cerr;
+#define cerr _cerr;

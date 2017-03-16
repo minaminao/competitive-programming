@@ -14,6 +14,18 @@ void diff(F f1, F f2) {
 	}
 }
 
+#include "Random.cpp"
+template<class F>
+void diff(F f1, F f2) {
+	static const int N = 5;
+	for (int i = 0; i < 1000; i++) {
+		string s = random(N);
+		string res1 = solve(s), res2 = solve2(s);
+		if (res1 == res2)continue;
+		dump(s, res1, res2);
+	}
+}
+
 #include "Geometry.cpp"
 void debug(const vector<Point> &v) {
 	if (!_DEBUG)return;

@@ -1,3 +1,7 @@
+/*
+オブジェクト名を出力したくない場合は素直にcerrする
+*/
+
 #define dump(...) { cerr << #__VA_ARGS__ << ": "; _dump(__VA_ARGS__); cerr << endl; }
 
 template <typename T1, typename T2>
@@ -94,6 +98,13 @@ __DEFINEM__(unordered_map)
 __DEFINE__(unordered_set)
 __DEFINE__(vector)
 // end
+
+//vector<bool>
+ostream &operator<<(ostream &os, const vector<bool> &v) {
+	for (auto e : v)
+		os << e;
+	return os;
+}
 
 void _dump() {}
 

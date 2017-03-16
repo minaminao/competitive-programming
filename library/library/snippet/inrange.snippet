@@ -24,18 +24,18 @@
           <ToolTip></ToolTip>
         </Literal>
         <Literal>
-          <ID>R</ID>
-          <Default>R</Default>
+          <ID>H</ID>
+          <Default>H</Default>
           <ToolTip></ToolTip>
         </Literal>
         <Literal>
-          <ID>C</ID>
-          <Default>C</Default>
+          <ID>W</ID>
+          <Default>W</Default>
           <ToolTip></ToolTip>
         </Literal>
       </Declarations>
 			<Code Language="cpp">
-        <![CDATA[bool inrange(int $i$, int $j$) { return $i$ >= 0 && $i$ < $R$ && $j$ >= 0 && $j$ < $C$; }$end$]]>
+        <![CDATA[auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

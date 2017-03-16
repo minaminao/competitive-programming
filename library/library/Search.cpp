@@ -1,5 +1,12 @@
-//例) l=-INF: false, r=INF: true または l=INF: false, r=-INF: true になるようにする
+/*
+false  ... false [true] ...  true
+[true]のインデックスを返す
 
+true ... (true) false ... false
+(true)が欲しいなら条件を反転して
+false ... (false) [true] ... true
+[true]のインデックスから1を引く
+*/
 template<class F>
 int binary_search_(int l, int r, F f) {
 	if (f(l))return l; //exception f(l):true
