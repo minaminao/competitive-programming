@@ -11,6 +11,11 @@ vector<int> divisor(int x) {
 	return ret;
 }
 
+/*
+gcd(x%y,y) == gcd(x,y)
+y‚Ì”‚ª¬‚³‚¢‚Æ‚«Agcd(x%y,y) ‚Ì’l‚Åê‡•ª‚¯‚·‚é‚±‚Æ‚ğl‚¦‚é
+*/
+
 //Å‘åŒö–ñ”
 int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }
 //Å¬Œö”{”
@@ -151,7 +156,7 @@ vector<int> get_primes(int n) {
 			primes.emplace_back(i);
 	return primes;
 }
-//‘fˆö”•ª‰ğ
+//‘fˆö”•ª‰ğ ¸‡
 vector<int> prime_factorization(int x) {
 	vector<int> primes = get_primes(sqrt(x)); //ãxˆÈ‰º‚Ì‘f”‚É‚Â‚¢‚Ä’²‚×‚ê‚Î—Ç‚¢
 	vector<int> factors;

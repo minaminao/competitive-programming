@@ -229,6 +229,13 @@ signed main() {
 
 	//‰‰Zq‚Ì—Dæ‡ˆÊ
 
+
+	//11111.....
+	dump(bitset<100>(~0ULL)); //64bit
+	dump(bitset<100>(~0)); //64bit
+	dump(bitset<100>(-1)); //64bit
+	dump(bitset<100>(~0U)); //32bit
+
 	return 0;
 }
 
