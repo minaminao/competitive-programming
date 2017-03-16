@@ -60,9 +60,6 @@
     <ClCompile Include="agc011_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="abc023_c.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="abc020_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
