@@ -30,6 +30,9 @@
     <ClCompile Include="rco_contest_2017_qual_b_2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="rco_contest_2017_qual_b_anta.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">

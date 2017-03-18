@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="rco_contest_2017_qual_b.cpp" />
     <ClCompile Include="rco_contest_2017_qual_b_2.cpp" />
+    <ClCompile Include="rco_contest_2017_qual_b_anta.cpp" />
     <ClCompile Include="rco_contest_2017_qual_b_tsp_greedy.cpp" />
     <ClCompile Include="rco_contest_2017_qual_b_tsp_nearest_insertion.cpp" />
     <ClCompile Include="stdafx.cpp">
