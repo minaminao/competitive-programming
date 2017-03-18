@@ -1,6 +1,13 @@
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
 
+
+//イテレータから型を取得
+template<class It>
+void f() {
+	using T = typename iterator_traits<It>::value_type;
+}
+
 //ソート済み配列の要素との差の最小値
 template<typename T>
 T min_diff(const vector<T> &v, T x) {
@@ -235,6 +242,7 @@ signed main() {
 	dump(bitset<100>(~0)); //64bit
 	dump(bitset<100>(-1)); //64bit
 	dump(bitset<100>(~0U)); //32bit
+
 
 	return 0;
 }
