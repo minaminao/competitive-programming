@@ -84,9 +84,7 @@ int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }
 //最小公倍数
 int lcm(int x, int y) { return x*y / gcd(x, y); }
 
-signed main() {
-	cin.tie(0);
-	ios::sync_with_stdio(false);
+void solve1() {
 	int N, K; cin >> N >> K;
 	assert(K <= 100);
 	mint ans = 0;
@@ -100,6 +98,124 @@ signed main() {
 	}
 	else {
 		rep(i, 1, N + 1)ans += lcm(i, K);
+	}
+	cout << ans << endl;
+}
+
+//約数を求める 未ソート
+vector<int> divisor(int x) {
+	vector<int> ret;
+	int i;
+	for (i = 1; i*i < x; i++) {
+		if (x%i)continue;
+		ret.emplace_back(i);
+		ret.emplace_back(x / i);
+	}
+	if (i*i == x)ret.emplace_back(i);
+	return ret;
+}
+
+//エラトステネスの篩
+vector<char> eratos(int n) {
+	vector<char> is_prime(n + 1, true);
+	is_prime[0] = is_prime[1] = false;
+	for (int i = 2; i*i <= n; i++)
+		if (is_prime[i]) {
+			int j = i + i;
+			while (j <= n) {
+				is_prime[j] = false;
+				j += i;
+			}
+		}
+	return is_prime;
+}
+//戻り値: n以下の素数
+vector<int> get_primes(int n) {
+	vector<char> is_prime = eratos(n);
+	vector<int> primes;
+	for (int i = 0; i < n + 1; i++)
+		if (is_prime[i])
+			primes.emplace_back(i);
+	return primes;
+}
+//素因数分解 昇順
+vector<int> prime_factorization(int x) {
+	vector<int> primes = get_primes(sqrt(x)); //√x以下の素数について調べれば良い
+	vector<int> factors;
+	for (auto &p : primes) {
+		while (x%p == 0) {
+			x /= p;
+			factors.emplace_back(p);
+		}
+	}
+	if (x != 1)factors.emplace_back(x);
+	return factors;
+}
+
+//population count
+//立っているbitの数を数える
+int popcount(int x) {
+	int ret = 0;
+	//後ろから立っているbitを降ろす
+	while (x) {
+		x &= x - 1;
+		ret++;
+	}
+	return ret;
+}
+
+mint arithsum(int x) {
+	return (mint)x*(x + 1) / 2;
+}
+
+//gcd(a, K) = 1, a <= N を満たす a の総和
+mint solve(int N, int K) {
+	vector<int> factors = prime_factorization(K);
+	factors.erase(unique(factors.begin(), factors.end()), factors.end());
+	int n = factors.size();
+	mint ret = arithsum(N);
+	rep(mask, 1, 1 << n) {
+		int x = 1;
+		rep(i, 0, n)
+			if (mask >> i & 1)
+				x *= factors[i];
+		if (popcount(mask) & 1)
+			ret -= arithsum(N / x)*x;
+		else
+			ret += arithsum(N / x)*x;
+	}
+	return ret;
+}
+
+//gcd(a, K) = g, a <= N を満たす a の総和
+mint solve(int N, int K, int g) {
+	if (K%g)return 0;
+	return solve(N / g, K / g)*g;
+}
+
+signed main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	int N, K; cin >> N >> K;
+	vector<int> d = divisor(K);
+	mint ans = 0;
+	/*
+		lcm(x1, K) + lcm(x2, K) + ...
+		= x1 * K / gcd(x1, K) + x2 * K / gcd(x2, K) + ...
+		
+		gcd(a1, K) = gcd(a2, K) = ... = g とする 
+		(a1 + a2 + ... ) * K / gcd(a, K)
+		= (Σa) * K / g
+
+		gcd(a, K) のとりうる値は K の約数全てである
+
+		約数の個数を d、素因数の個数を p とする
+		O( d(K) * 2^p(K) * p(K) )
+		
+		K<=10^9 のとき d(K) <= 1344, p(K) <= 9
+	*/
+	rep(i, 0, d.size()) {
+		ans += solve(N, K, d[i])*K / d[i];
 	}
 	cout << ans << endl;
 	return 0;

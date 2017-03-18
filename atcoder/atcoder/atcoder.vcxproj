@@ -84,8 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -93,6 +92,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)..\library\library\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="abc020_d.cpp" />
     <ClCompile Include="agc011_c.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
@@ -155,7 +154,11 @@
     <ClCompile Include="rco_a.cpp" />
     <ClCompile Include="rco_a_2.cpp" />
     <ClCompile Include="rco_b.cpp" />
+    <ClCompile Include="rco_b_2.cpp" />
     <ClCompile Include="source.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="yahoo-procon2017-qual_c.cpp" />
     <ClCompile Include="yahoo-procon2017-qual_d.cpp" />
     <ClCompile Include="yahoo-procon2017-qual_e.cpp" />

@@ -160,6 +160,7 @@
     <ClCompile Include="inclusion-exclusion principle.cpp" />
     <ClCompile Include="is_eulerian_graph.cpp" />
     <ClCompile Include="Macro.cpp" />
+    <ClCompile Include="Marathon.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="miller_rabin_primality_test.cpp" />
     <ClCompile Include="ModInt.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Search.cpp" />
     <ClCompile Include="Sort.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="Sum.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Tree.cpp" />
@@ -184,6 +186,8 @@
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h" />
     <ClInclude Include="dump.hpp" />
+    <ClInclude Include="local.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

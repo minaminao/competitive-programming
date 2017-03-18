@@ -110,6 +110,7 @@ signed main() {
 			chmin(ans, dp[R - 1][i]);
 		}
 		cout << ans << endl;
+
 	}
 	return 0;
 }

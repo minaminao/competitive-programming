@@ -1,3 +1,15 @@
+/*
+
+計算量を落とす
+
+gcd(x%y,y) == gcd(x,y)
+yの数が小さいとき、gcd(x%y,y) の値で場合分け
+
+約数の個数 N<=10^9 のとき 高々1344個
+素因数の個数 N<=10^9 のとき 高々9個
+
+*/
+
 //約数を求める 未ソート
 vector<int> divisor(int x) {
 	vector<int> ret;
@@ -10,11 +22,6 @@ vector<int> divisor(int x) {
 	if (i*i == x)ret.emplace_back(i);
 	return ret;
 }
-
-/*
-gcd(x%y,y) == gcd(x,y)
-yの数が小さいとき、gcd(x%y,y) の値で場合分けすることを考える
-*/
 
 //最大公約数
 int gcd(int x, int y) { return y ? gcd(y, x%y) : x; }

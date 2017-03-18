@@ -13,7 +13,7 @@ using namespace std;
 const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
 const int MOD = (int)(1e9) + 7;
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
-template<class T> bool chmin(T &a, const T &b) { if (a > b) { a = b; return true; } return false; }
+template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 
 signed main() {
 	cin.tie(0);

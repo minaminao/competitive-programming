@@ -2,6 +2,7 @@
 オブジェクト名を出力したくない場合は素直にcerrする
 */
 
+using namespace std;
 #define dump(...) { cerr << #__VA_ARGS__ << ": "; _dump(__VA_ARGS__); cerr << endl; }
 
 template <typename T1, typename T2>
