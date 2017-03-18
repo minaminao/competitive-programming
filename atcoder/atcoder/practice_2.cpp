@@ -15,6 +15,15 @@ const int MOD = (int)(1e9) + 7;
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 
+int N, Q;
+bool f(char a, char b) {
+	if (Q == 0)return true;
+	cout << "? " << a << " " << b << endl;
+	char c; cin >> c;
+	Q--;
+	return c == '<';
+}
+
 template <class It>
 bool f(It a, It b) {
 	cout << "? " << *a << " " << *b << endl;
@@ -50,7 +59,7 @@ void merge_sort(It l, It r) {
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	int N, Q; cin >> N >> Q;
+	cin >> N >> Q;
 	vector<char> v(N);
 	auto a = v.begin();
 	iota(v.begin(), v.end(), 'A');

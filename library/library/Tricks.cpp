@@ -8,6 +8,14 @@ void f() {
 	using T = typename iterator_traits<It>::value_type;
 }
 
+//インタラクティブな問題は問答部分を関数かするとやりやすい
+template <class It>
+bool f(It a, It b) {
+	cout << "? " << *a << " " << *b << endl;
+	char c; cin >> c;
+	return c == '<';
+}
+
 //ソート済み配列の要素との差の最小値
 template<typename T>
 T min_diff(const vector<T> &v, T x) {
