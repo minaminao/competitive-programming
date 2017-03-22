@@ -148,6 +148,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="agc011_c.cpp" />
+    <ClCompile Include="arc005_1.cpp" />
+    <ClCompile Include="arc006_1.cpp" />
+    <ClCompile Include="arc007_1.cpp" />
+    <ClCompile Include="arc009_1.cpp" />
+    <ClCompile Include="arc010_1.cpp" />
+    <ClCompile Include="arc011_1.cpp" />
+    <ClCompile Include="arc012_1.cpp" />
+    <ClCompile Include="arc013_1.cpp" />
+    <ClCompile Include="arc015_1.cpp" />
+    <ClCompile Include="arc017_1.cpp" />
+    <ClCompile Include="arc019_1.cpp" />
+    <ClCompile Include="arc021_1.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
     <ClCompile Include="arc070_c.cpp" />

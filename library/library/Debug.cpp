@@ -53,3 +53,8 @@ void debug(const vector<Point> &v) {
 	}
 	cout << '(' << xmin << ',' << ymin << ')' << endl;
 }
+
+signed main() {
+	dump(__LINE__);
+	return 0;
+}

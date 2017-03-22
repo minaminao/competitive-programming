@@ -6,3 +6,9 @@ int longest_increasing_subsequence(const vector<int> &v) {
 		*lower_bound(dp.begin(), dp.end(), v[i]) = v[i];
 	return find(dp.begin(), dp.end(), INF) - dp.begin();
 }
+
+void solve() {
+	//dp‚Í %2 ‚ğg‚¤‚Æ‹óŠÔ‚ª 2‚Â ‚ÅÏ‚Ş
+	int dp[2];
+	int i; dp[i % 2];
+}

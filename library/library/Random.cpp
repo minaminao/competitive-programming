@@ -4,3 +4,7 @@ string random(size_t N) {
 		res.push_back('a' + rand() % 26);
 	return res;
 }
+
+void solve() {
+	rand(); //[0,32767]
+}
