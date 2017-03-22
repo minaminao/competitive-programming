@@ -79,10 +79,8 @@ int blur[3][5][5] = {
 };
 
 //ÉTÉCÉRÉç
-class Dice {
-private:
+struct Dice {
 	map<char, string> mp;
-public:
 	//string d = "UFRLBD";
 	string d = "RENSWL";
 	vector<int> v; //UFRLBD:123456
@@ -119,6 +117,7 @@ signed main() {
 	cout << setw(4) << setfill('0') << 1 << endl; //0001
 	bool flag = true;
 	cout << (flag ? "YES" : "NO") << endl;
+	string s; getline(cin, s);
 	return 0;
 }
 
@@ -178,6 +177,7 @@ void f() {
 
 	string s;
 	string(3, 'a'); //"aaa"
+	"URDL"[1] //'R'
 
 	;//å^ïœä∑
 	//charÅ®string

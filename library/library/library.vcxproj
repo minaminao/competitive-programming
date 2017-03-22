@@ -148,6 +148,7 @@
     <ClCompile Include="Boost.cpp" />
     <ClCompile Include="CompleteSearch.cpp" />
     <ClCompile Include="Compression.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Flow.cpp" />
     <ClCompile Include="DP.cpp" />

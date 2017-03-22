@@ -125,6 +125,9 @@ bool is_prime(int x) {
 	return true;
 }
 
+//1は合成数ではない
+//1+素数+合成数
+
 //旧 エラトステネスの篩
 //n以下の正整数を素数か合成数か判定してis_prime[]に格納
 void eratos(int n, bool is_prime[]) {
