@@ -117,6 +117,8 @@ signed main() {
 	ios::sync_with_stdio(false);
 	cout << fixed << setprecision(10);
 	cout << setw(4) << setfill('0') << 1 << endl; //0001
+	bool flag = true;
+	cout << (flag ? "YES" : "NO") << endl;
 	return 0;
 }
 
@@ -331,6 +333,8 @@ void f() {
 		f();
 	}
 
+	//—j“ú
+	vector<string> v = { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday" };
 }
 
 /*
