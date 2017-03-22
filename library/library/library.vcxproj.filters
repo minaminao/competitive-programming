@@ -152,6 +152,9 @@
     <ClInclude Include="stdafx.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="clang.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="snippet\all.snippet">

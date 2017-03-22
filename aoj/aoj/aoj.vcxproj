@@ -152,11 +152,17 @@
     <ClCompile Include="1.cpp" />
     <ClCompile Include="2170.cpp" />
     <ClCompile Include="2665.cpp" />
+    <ClCompile Include="2662.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
     <ClCompile Include="5.cpp" />
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_C.cpp" />
+    <ClCompile Include="RitsCamp17Day1_D.cpp" />
+    <ClCompile Include="RitsCamp17Day1_A.cpp" />
+    <ClCompile Include="RitsCamp17Day1_B.cpp" />
+    <ClCompile Include="RitsCamp17Day1_E.cpp" />
+    <ClCompile Include="RitsCamp17Day1_F.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
