@@ -235,6 +235,10 @@ signed main() {
 		f(mask);
 	}
 
+	//a b c ... z aa ab ...
+	int N;
+	vector<int> pow27(N + 1, 1);
+
 	dump(is_array<int>::value);
 	dump(is_array<int[]>::value);
 
@@ -250,6 +254,7 @@ signed main() {
 	dump(bitset<100>(~0)); //64bit
 	dump(bitset<100>(-1)); //64bit
 	dump(bitset<100>(~0U)); //32bit
+
 
 
 	return 0;
