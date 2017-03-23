@@ -215,9 +215,13 @@
     <None Include="snippet\oaa.snippet" />
     <None Include="snippet\oo.snippet" />
     <None Include="snippet\ooo.snippet" />
+    <None Include="snippet\oooo.snippet" />
+    <None Include="snippet\ooooo.snippet" />
+    <None Include="snippet\oooooo.snippet" />
     <None Include="snippet\ov.snippet" />
     <None Include="snippet\ovv.snippet" />
     <None Include="snippet\pii.snippet" />
+    <None Include="snippet\pre.snippet" />
     <None Include="snippet\tmp.snippet">
       <SubType>Designer</SubType>
     </None>

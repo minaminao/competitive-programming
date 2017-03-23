@@ -260,5 +260,17 @@
     <None Include="snippet\didj.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\pre.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ooooo.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\oooooo.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\oooo.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>
