@@ -227,36 +227,32 @@ void compute_nCr_probability(int n) {
 }
 
 //n進法
-//Radix r("0123456789abcdef");
-//http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0208
-class Radix {
-private:
-	const char* s;
+//http://arc009.contest.atcoder.jp/submissions/1177495
+struct Radix {
+	string s;
 	int a[128];
-public:
-	Radix(const char* s = "0123456789ABCDEF") : s(s) {
-		for (int i = 0; s[i]; i++) a[(int)s[i]] = i;
+	Radix(string s = "0123456789ABCDEF") :s(s) {
+		for (int i = 0; i < s.size(); i++)
+			a[s[i]] = i;
 	}
-	//10進整数 → n進法文字列
+	//10進(long long) -> n進(string)
 	string format(long long x, int n) {
 		if (!x) return "0";
-		char t[64] = {};
-		int i;
-		for (i = 62; x; i--) {
-			t[i] = s[x % n];
-			x /= n;
-		}
-		return string(t + i + 1);
+		string ret;
+		for (; x; x /= n)
+			ret += s[x%n];
+		reverse(ret.begin(), ret.end());
+		return ret;
 	}
-	//m進法文字列 → n進法文字列
+	//m進(string) -> n進(string)
 	string format(const string &t, int m, int n) {
 		return format(format(t, m), n);
 	}
-	//m進法文字列 → 10進整数
+	//m進(string) -> 10進(long long)
 	long long format(const string &t, int m) {
-		long long sm = a[(int)t[0]];
-		for (int i = 1; i < (int)t.length(); i++)
-			sm = sm * m + a[(int)t[i]];
-		return sm;
+		long long x = a[t[0]];
+		for (int i = 1; i < t.size(); i++)
+			x = x * m + a[t[i]];
+		return x;
 	}
 };

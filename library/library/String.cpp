@@ -1,11 +1,11 @@
 //delimiter‚Å‹æØ‚é
-vector<string> split(const string& input, const char& delimiter) {
+vector<string> split(const string &input, const char &delimiter) {
 	vector<string> ret;
-	string w = "";
-	for (const char& c : input) {
+	string w;
+	for (const char &c : input) {
 		if (c == delimiter) {
 			ret.emplace_back(w);
-			w = "";
+			w.clear();
 		}
 		else w += c;
 	}
@@ -14,22 +14,22 @@ vector<string> split(const string& input, const char& delimiter) {
 	return ret;
 }
 
-//delimiter˜A‘±E—¼˜e‚Ìdelimiter‚Í–³‹
-vector<string> split(const string& input, const char& delimiter) {
+//delimiter‚Ì˜A‘± ‚Æ —¼˜e‚Ìdelimiter ‚Í–³‹
+vector<string> split(const string &input, const char &delimiter) {
 	vector<string> ret;
 	string w;
-	for (const char& c : input) {
+	for (const char &c : input) {
 		if (c == delimiter) {
-			if (w.size())	ret.emplace_back(w);
+			if (w.size())ret.emplace_back(w);
 			w.clear();
 		}
 		else w += c;
 	}
-	if (w.size()) ret.emplace_back(w);
+	if (w.size())ret.emplace_back(w);
 	return ret;
 }
 
-string join(const vector<string>& input, const char& separator) {
+string join(const vector<string> &input, const char &separator) {
 	string ret = input[0];
 	for (int i = 1; i < input.size(); i++) {
 		ret += separator;

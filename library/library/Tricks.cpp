@@ -117,6 +117,7 @@ signed main() {
 	cout << setw(4) << setfill('0') << 1 << endl; //0001
 	bool flag = true;
 	cout << (flag ? "YES" : "NO") << endl;
+	cin.ignore();
 	string s; getline(cin, s);
 	return 0;
 }
