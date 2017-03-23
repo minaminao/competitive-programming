@@ -204,10 +204,14 @@
     <ClCompile Include="..\atcoder\agc011_a.cpp" />
     <ClCompile Include="..\atcoder\agc011_b.cpp" />
     <ClCompile Include="..\atcoder\arc001_1.cpp" />
+    <ClCompile Include="..\atcoder\arc001_2.cpp" />
     <ClCompile Include="..\atcoder\arc002_1.cpp" />
+    <ClCompile Include="..\atcoder\arc002_2.cpp" />
     <ClCompile Include="..\atcoder\arc003_1.cpp" />
+    <ClCompile Include="..\atcoder\arc003_2.cpp" />
     <ClCompile Include="..\atcoder\arc004_1.cpp" />
     <ClCompile Include="..\atcoder\arc005_1.cpp" />
+    <ClCompile Include="..\atcoder\arc005_2.cpp" />
     <ClCompile Include="..\atcoder\arc006_1.cpp" />
     <ClCompile Include="..\atcoder\arc007_1.cpp" />
     <ClCompile Include="..\atcoder\arc009_1.cpp" />

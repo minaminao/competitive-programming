@@ -166,7 +166,7 @@ signed main() {
 	//http://sarudeki.jp/fernweh/cpp-stdstring/
 	char c;
 	string s, t;
-	//s‚Ét‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©
+	//s‚Ét‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚© if(s.find(t))‚Íƒ_ƒ
 	s.find(t) != string::npos;
 
 	isalpha(c); //alphabet‚©
