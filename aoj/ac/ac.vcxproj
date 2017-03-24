@@ -178,6 +178,7 @@
     <ClCompile Include="..\aoj\RitsCamp17Day1_B.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_C.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_D.cpp" />
+    <ClCompile Include="..\aoj\RitsCamp17Day1_E.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

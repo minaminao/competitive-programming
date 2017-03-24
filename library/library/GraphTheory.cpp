@@ -92,15 +92,15 @@ void solve() {
 //戻り値: 最短経路木の親頂点(根は-1)
 vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 	int n = g.size();
-	enum { WHITE, GRAY, BLACK }; //未探索, 探索中, 探索済
+	enum { WHITE, GRAY, BLACK };
 	vector<int> color(n, WHITE); color[s] = GRAY;
 	vector<int> prev(n, -1);
 	dist.assign(n, INF); dist[s] = 0;
 	using State = tuple<Weight, int, int>; //始点からの最短距離 子 親
 	priority_queue<State, vector<State>, greater<State>> pq; pq.emplace(0, s, -1);
 	while (pq.size()) {
-		Weight d; int v, u; tie(d, v, u) = pq.top(); pq.pop(); //distが最小となるStateを取り出す
-		if (dist[v] < d)continue; //すでに最短でなければ無視
+		Weight d; int v, u; tie(d, v, u) = pq.top(); pq.pop();
+		if (dist[v] < d)continue;
 		color[v] = BLACK; prev[v] = u;
 		for (auto &e : g[v]) {
 			if (color[e.d] == BLACK)continue;
