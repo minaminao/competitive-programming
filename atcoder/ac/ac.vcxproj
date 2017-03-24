@@ -230,7 +230,9 @@
     <ClCompile Include="..\atcoder\arc014_2.cpp" />
     <ClCompile Include="..\atcoder\arc015_1.cpp" />
     <ClCompile Include="..\atcoder\arc015_2.cpp" />
+    <ClCompile Include="..\atcoder\arc016_2.cpp" />
     <ClCompile Include="..\atcoder\arc017_1.cpp" />
+    <ClCompile Include="..\atcoder\arc017_2.cpp" />
     <ClCompile Include="..\atcoder\arc019_1.cpp" />
     <ClCompile Include="..\atcoder\arc021_1.cpp" />
     <ClCompile Include="..\atcoder\arc023_1.cpp" />
