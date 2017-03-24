@@ -227,7 +227,6 @@ void compute_nCr_probability(int n) {
 }
 
 //n進法
-//http://arc009.contest.atcoder.jp/submissions/1177495
 struct Radix {
 	string s;
 	int a[128];
@@ -236,23 +235,29 @@ struct Radix {
 			a[s[i]] = i;
 	}
 	//10進(long long) -> n進(string)
-	string format(long long x, int n) {
-		if (!x) return "0";
+	string format(long long x, int n, int len = 1) {
+		if (!x)return string(len, s[0]);
 		string ret;
-		for (; x; x /= n)
+		for (; x || len > 0; x /= n, len--)
 			ret += s[x%n];
 		reverse(ret.begin(), ret.end());
 		return ret;
 	}
+	using It = string::iterator;
 	//m進(string) -> n進(string)
-	string format(const string &t, int m, int n) {
-		return format(format(t, m), n);
+	string format(It l, It r, int m, int n, int len = 1) {
+		return format(format(l, r, m), n, len);
 	}
 	//m進(string) -> 10進(long long)
-	long long format(const string &t, int m) {
-		long long x = a[t[0]];
-		for (int i = 1; i < t.size(); i++)
-			x = x * m + a[t[i]];
+	long long format(It l, It r, int m) {
+		long long x = a[*l];
+		for (l++; l != r; l++)
+			x = x * m + a[*l];
 		return x;
 	}
 };
+/*
+例1) 文字列を数値として扱いたい時 27進法 Radix r(" abcdefghijklmnopqrstuvwxyz");
+http://judge.u-aizu.ac.jp/onlinejudge/creview.jsp?rid=2231361&cid=RitsCamp17Day1
+例2) http://arc009.contest.atcoder.jp/submissions/1177495
+*/

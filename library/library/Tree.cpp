@@ -1,3 +1,7 @@
+/*
+基本的には木もグラフ同様、Graphを使えばいい
+*/
+
 #include "GraphTheory.cpp"
 
 //preorder と inorder から postorder を構築
@@ -114,7 +118,7 @@ struct LowestCommonAncestor {
 
 //木の直径
 Edge diameter(const Graph &g, int s = 0) {
-	vector<Weight> dist;
+	Array dist;
 	dijkstra(g, s, dist);
 	int n = g.size(), u = -1, v = -1;
 	for (int i = 0; i < n; i++) if (dist[i] != INF && (u == -1 || dist[i] > dist[u])) u = i;
@@ -127,13 +131,13 @@ Edge diameter(const Graph &g, int s = 0) {
 
 //木の高さ
 //戻り値: 各頂点からの最遠距離
-vector<Weight> height(const Graph &g) {
+Array height(const Graph &g) {
 	Edge e = diameter(g);
-	vector<Weight> dist1, dist2;
+	Array dist1, dist2;
 	dijkstra(g, e.s, dist1);
 	dijkstra(g, e.d, dist2);
 	int n = g.size();
-	vector<Weight> height(n);
+	Array height(n);
 	for (int i = 0; i < n; i++)
 		height[i] = max(dist1[i], dist2[i]);
 	return height;
@@ -141,8 +145,8 @@ vector<Weight> height(const Graph &g) {
 
 //木の深さ
 //戻り値: 各ノードから根ノードまでのエッジ数
-vector<Weight> depth(const Graph &g, int root) {
-	vector<Weight> ret(g.size(), INF);
+vector<int> depth(const Graph &g, int root) {
+	vector<int> ret(g.size(), INF);
 	using State = tuple<int, int, int>;
 	stack<State> st; st.emplace(root, -1, 0);
 	while (st.size()) {

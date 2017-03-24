@@ -19,8 +19,72 @@ void add_edge(Graph &g, int a, int b, Weight w = 1) {
 }
 void add_arc(Graph &g, int s, int d, Weight w = 1) { g[s].emplace_back(s, d, w); }
 
-//–¢’Tõ, ’Tõ’†, ’TõÏ
-enum { WHITE, GRAY, BLACK };
+
+void dfs(const Graph &g, int root) {
+	int n = g.size();
+	vector<bool> f(n);
+	stack<int> st; st.emplace(root);
+	while (st.size()) {
+		int u = st.top(); st.pop();
+		f[u] = true;
+		/* ˆ— */
+		for (auto &e : g[u]) {
+			if (f[e.d])continue;
+			/* ˆ— */
+			st.emplace(e.d);
+		}
+	}
+}
+
+void bfs(const Graph &g, int root) {
+	int n = g.size();
+	vector<bool> f(n);
+	queue<int> q; q.emplace(root);
+	while (q.size()) {
+		int u = q.front(); q.pop();
+		f[u] = true;
+		/* ˆ— */
+		for (auto &e : g[u]) {
+			if (f[e.d])continue;
+			/* ˆ— */
+			q.emplace(e.d);
+		}
+	}
+}
+
+void solve() {
+	auto dfs = [&](const Graph &g, int root) {
+		int n = g.size();
+		vector<bool> f(n);
+		stack<int> st; st.emplace(root);
+		while (st.size()) {
+			int u = st.top(); st.pop();
+			f[u] = true;
+			/* ˆ— */
+			for (auto &e : g[u]) {
+				if (f[e.d])continue;
+				/* ˆ— */
+				st.emplace(e.d);
+			}
+		}
+	};
+	auto bfs = [&](const Graph &g, int root) {
+		int n = g.size();
+		vector<bool> f(n);
+		queue<int> q; q.emplace(root);
+		while (q.size()) {
+			int u = q.front(); q.pop();
+			f[u] = true;
+			/* ˆ— */
+			for (auto &e : g[u]) {
+				if (f[e.d])continue;
+				/* ˆ— */
+				q.emplace(e.d);
+			}
+		}
+	};
+}
+
 
 //’Pˆên“_Å’ZŒo˜H(•‰•Â˜H‚È‚µ)
 //Dijkstra O((E+V)logV)
@@ -28,6 +92,7 @@ enum { WHITE, GRAY, BLACK };
 //–ß‚è’l: Å’ZŒo˜H–Ø‚Ìe’¸“_(ª‚Í-1)
 vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 	int n = g.size();
+	enum { WHITE, GRAY, BLACK }; //–¢’Tõ, ’Tõ’†, ’TõÏ
 	vector<int> color(n, WHITE); color[s] = GRAY;
 	vector<int> prev(n, -1);
 	dist.assign(n, INF); dist[s] = 0;
@@ -48,8 +113,6 @@ vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 	}
 	return prev;
 }
-
-//–Ø‚Ì[‚³
 
 //’Pˆên“_Å’ZŒo˜H(•‰•Â˜H‚ ‚è)
 //Bellman-Ford O(VE)

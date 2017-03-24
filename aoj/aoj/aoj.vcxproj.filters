@@ -54,15 +54,6 @@
     <ClCompile Include="2662.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="RitsCamp17Day1_A.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="RitsCamp17Day1_B.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="RitsCamp17Day1_D.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="RitsCamp17Day1_E.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -82,6 +73,18 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="RitsCamp17Day2_G.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RitsCamp17Day3_C.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RitsCamp17Day3_E.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RitsCamp17Day3_D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RitsCamp17Day3_B.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
