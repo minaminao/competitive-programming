@@ -175,6 +175,8 @@
     <ClCompile Include="..\aoj\ALDS1_8_A.cpp" />
     <ClCompile Include="..\aoj\ALDS1_8_B.cpp" />
     <ClCompile Include="..\aoj\DSL_2_A.cpp" />
+    <ClCompile Include="..\aoj\DSL_2_B.cpp" />
+    <ClCompile Include="..\aoj\DSL_2_E.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_A.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_B.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_C.cpp" />

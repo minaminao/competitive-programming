@@ -17,30 +17,22 @@
 //
 //struct SqrtDecomposition {
 //	int n, sqrt_n, bucket_size;
-//	vector<int> A;
-//	vector<int> data_add;
-//	vector<int> bucket_add;
-//	int m;
-//	vector<vector<int>> modM;
-//	SqrtDecomposition(int n, int m, const vector<int> &A) :n(n), m(m), A(A), sqrt_n(sqrt(n)) {
+//	vector<int> data;
+//	vector<int> bucket;
+//	SqrtDecomposition(int n, int val = 0) :n(n), sqrt_n(sqrt(n)) {
 //		assert(n);
 //		bucket_size = 1 + (n - 1) / sqrt_n;
-//		data_add.assign(bucket_size * sqrt_n, 0);
-//		bucket_add.assign(bucket_size, 0);
-//		//A.resize(bucket_size * sqrt_n, 0);
-//		modM.assign(m, vector<int>(bucket_size, 0));
-//		rep(i, 0, n) {
-//			modM[A[i] % m][i / sqrt_n]++;
-//		}
+//		data.assign(bucket_size * sqrt_n, val);
+//		bucket.assign(bucket_size, val);
 //	}
-//	void add(int l, int r, int val) {
+//	void update(int l, int r, int val) {
 //		int k = x / sqrt_n;
-//		data_add[x] = val;
+//		data[x] = val;
 //		int mini = val;
 //		for (int i = k * sqrt_n; i < (k + 1) * sqrt_n; i++) {
-//			chmin(mini, data_add[i]);
+//			chmin(mini, data[i]);
 //		}
-//		bucket_add[k] = mini;
+//		bucket[k] = mini;
 //	}
 //	int query(int l, int r) {
 //		int ret;
@@ -49,11 +41,11 @@
 //			if (r <= bl || br <= l)
 //				continue;
 //			if (l <= bl && br <= r) {
-//				bucket_add[k];
+//				bucket[k];
 //			}
 //			else {
 //				for (int i = max(l, bl); i < min(r, br); i++) {
-//					data_add[i];
+//					data[i];
 //				}
 //			}
 //		}
@@ -64,12 +56,6 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//	int N, M, Q; cin >> N >> M >> Q;
-//	SqrtDecomposition sd(N);
-//	rep(i, 0, N) {
-//		int a; cin >> a;
-//		sd.update(i, a);
-//	}
 //
 //	return 0;
 //}
