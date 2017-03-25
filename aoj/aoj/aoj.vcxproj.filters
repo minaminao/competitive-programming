@@ -84,12 +84,12 @@
     <ClCompile Include="RitsCamp17Day1_H.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="DSL_2_D.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt">
+    <Text Include="in.txt">
+      <Filter>リソース ファイル</Filter>
+    </Text>
+    <Text Include="out.txt">
       <Filter>リソース ファイル</Filter>
     </Text>
   </ItemGroup>

@@ -158,7 +158,6 @@
     <ClCompile Include="5.cpp" />
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_C.cpp" />
-    <ClCompile Include="DSL_2_D.cpp" />
     <ClCompile Include="RitsCamp17Day1_H.cpp" />
     <ClCompile Include="RitsCamp17Day2_F.cpp" />
     <ClCompile Include="RitsCamp17Day2_D.cpp" />
@@ -175,7 +174,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
+    <Text Include="in.txt" />
+    <Text Include="out.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
