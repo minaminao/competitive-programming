@@ -132,5 +132,8 @@
     <ClCompile Include="..\aoj\RitsCamp17Day1_G.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\aoj\DSL_2_A.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

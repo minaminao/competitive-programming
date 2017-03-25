@@ -198,3 +198,14 @@ signed main() {
 
 	return 0;
 }
+
+//ハミング距離
+//等しい文字数を持つ２つの文字列の中で対応する位置にある異なった文字の個数
+int hamming_distance(string a, string b) {
+	assert(a.size() == b.size());
+	int ret = 0;
+	for (int i = 0; i < a.size(); i++)
+		if (a[i] != b[i])
+			ret++;
+	return ret;
+}

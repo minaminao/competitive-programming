@@ -168,12 +168,13 @@
     <ClCompile Include="NumberTheory.cpp" />
     <ClCompile Include="Parsing.cpp" />
     <ClCompile Include="Random.cpp" />
-    <ClCompile Include="RangeQuery.cpp" />
+    <ClCompile Include="SegmentTree.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="NumericalAnalysis.cpp" />
     <ClCompile Include="reversi.cpp" />
     <ClCompile Include="Search.cpp" />
     <ClCompile Include="Sort.cpp" />
+    <ClCompile Include="SqrtDecomposition.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Sum.cpp" />
     <ClCompile Include="template.cpp" />

@@ -162,6 +162,11 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="yahoo-procon2017-final_a.cpp" />
+    <ClCompile Include="yahoo-procon2017-final_b.cpp" />
+    <ClCompile Include="yahoo-procon2017-final_c.cpp" />
+    <ClCompile Include="yahoo-procon2017-final_d.cpp" />
+    <ClCompile Include="yahoo-procon2017-final_e.cpp" />
     <ClCompile Include="yahoo-procon2017-qual_c.cpp" />
     <ClCompile Include="yahoo-procon2017-qual_d.cpp" />
     <ClCompile Include="yahoo-procon2017-qual_e.cpp" />
