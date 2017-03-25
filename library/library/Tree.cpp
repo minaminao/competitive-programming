@@ -147,7 +147,7 @@ Array height(const Graph &g) {
 //戻り値: 各ノードから根ノードまでのエッジ数
 vector<int> depth(const Graph &g, int root) {
 	vector<int> ret(g.size(), INF);
-	using State = tuple<int, int, int>;
+	using State = tuple<int, int, int>; //ノード 親 深さ
 	stack<State> st; st.emplace(root, -1, 0);
 	while (st.size()) {
 		int s, p, d; tie(s, p, d) = st.top(); st.pop();
@@ -156,6 +156,32 @@ vector<int> depth(const Graph &g, int root) {
 			if (e.d == p)continue;
 			st.emplace(e.d, s, d + 1);
 		}
+	}
+	return ret;
+}
+
+//有向森（有向木）の深さ
+using P = pair<int, int>; //深さ 根
+vector<P> depth(const Graph &g) {
+	int n = g.size();
+	vector<P> ret(n);
+	for (int i = 0; i < n; i++)
+		ret[i] = P(0, i);
+	vector<bool> isroot(n, true);
+	for (int i = 0; i < n; i++)
+		for (auto &e : g[i])
+			isroot[e.d] = false;
+	using State = tuple<int, int, int>; //ノード 根 深さ
+	stack<State> st;
+	dump(isroot);
+	for (int i = 0; i < n; i++)
+		if (isroot[i])
+			st.emplace(i, i, 0);
+	while (st.size()) {
+		int s, r, d; tie(s, r, d) = st.top(); st.pop();
+		ret[s] = P(d, r);
+		for (auto &e : g[s])
+			st.emplace(e.d, d + 1);
 	}
 	return ret;
 }

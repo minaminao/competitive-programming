@@ -9,17 +9,24 @@ map<T, T> compress(vector<T> v) {
 	return zip;
 }
 
-//座標圧縮（破壊的）
+//普通は↓を使う
+
+//座標圧縮
 //index()と合わせて使う
 template<typename T>
-vector<int> compress(vector<T> &v) {
+vector<T> compress(vector<T> v) {
 	sort(v.begin(), v.end());
 	v.erase(unique(v.begin(), v.end()), v.end());
 	return v;
 }
 
-//圧縮後の座標
-//index(圧縮前の座標の配列(昇順), 圧縮前の座標)
+//圧縮後の配列のインデックス
+//index(圧縮後の配列, 要素)
 template<typename T>
 int index(const vector<T> &v, T i) { return lower_bound(v.begin(), v.end(), i) - v.begin(); }
-//#define index(v,i) lower_bound((v).begin(), (v).end(), (i)) - (v).begin();
+
+void solve() {
+	vector<int> v;
+	vector<int> compressed = compress(v);
+	int idx = index(compressed, INF);
+}

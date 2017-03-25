@@ -158,6 +158,7 @@
     <ClCompile Include="5.cpp" />
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_C.cpp" />
+    <ClCompile Include="RitsCamp17Day1_H.cpp" />
     <ClCompile Include="RitsCamp17Day2_F.cpp" />
     <ClCompile Include="RitsCamp17Day2_D.cpp" />
     <ClCompile Include="RitsCamp17Day2_E.cpp" />

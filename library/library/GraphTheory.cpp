@@ -92,6 +92,7 @@ void solve() {
 //戻り値: 最短経路木の親頂点(根は-1)
 vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 	int n = g.size();
+	assert(s < n);
 	enum { WHITE, GRAY, BLACK };
 	vector<int> color(n, WHITE); color[s] = GRAY;
 	vector<int> prev(n, -1);
