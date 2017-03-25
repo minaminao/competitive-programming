@@ -288,6 +288,7 @@
     <ClCompile Include="..\atcoder\joi2016yo_c.cpp" />
     <ClCompile Include="..\atcoder\joi2017yo_a.cpp" />
     <ClCompile Include="..\atcoder\practice_2.cpp" />
+    <ClCompile Include="..\atcoder\yahoo-procon2017-final_c.cpp" />
     <ClCompile Include="..\atcoder\yahoo-procon2017-qual_a.cpp" />
     <ClCompile Include="..\atcoder\yahoo-procon2017-qual_b.cpp" />
   </ItemGroup>
