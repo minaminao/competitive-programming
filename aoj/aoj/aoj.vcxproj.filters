@@ -86,11 +86,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="in.txt">
-      <Filter>リソース ファイル</Filter>
-    </Text>
-    <Text Include="out.txt">
-      <Filter>リソース ファイル</Filter>
-    </Text>
+    <Text Include="in.txt" />
+    <Text Include="out.txt" />
   </ItemGroup>
 </Project>

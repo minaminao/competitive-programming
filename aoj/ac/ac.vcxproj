@@ -180,6 +180,8 @@
     <ClCompile Include="..\aoj\DSL_2_E.cpp" />
     <ClCompile Include="..\aoj\DSL_2_F.cpp" />
     <ClCompile Include="..\aoj\DSL_2_G.cpp" />
+    <ClCompile Include="..\aoj\DSL_3_A.cpp" />
+    <ClCompile Include="..\aoj\DSL_3_C.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_A.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_B.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_C.cpp" />
