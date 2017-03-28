@@ -160,6 +160,7 @@
     <ClCompile Include="ALDS1_6_C.cpp" />
     <ClCompile Include="ALDS1_8_C.cpp" />
     <ClCompile Include="2812.cpp" />
+    <ClCompile Include="GRL_2_A_prim.cpp" />
     <ClCompile Include="RitsCamp17Day2_F.cpp" />
     <ClCompile Include="RitsCamp17Day2_D.cpp" />
     <ClCompile Include="RitsCamp17Day2_E.cpp" />

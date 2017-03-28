@@ -4,8 +4,10 @@ struct Edge {
 	int s, d; Weight w; Flow c;
 	Edge() {};
 	Edge(int s, int d, Weight w = 1) : s(s), d(d), w(w), c(w) {};
-	bool operator<(const Edge &e)const { return w < e.w; }
 };
+bool operator<(const Edge &e1, const Edge &e2) { return e1.w < e2.w; }
+bool operator>(const Edge &e1, const Edge &e2) { return e2 < e1; }
+
 using Edges = vector<Edge>;
 using Graph = vector<Edges>;
 using Array = vector<Weight>;
@@ -302,49 +304,13 @@ struct LowestCommonAncestor {
 	}
 };
 
-
-
 #include "UnionFind.cpp"
-
-//最小全域木
-//Kruskal O(|E|log|E|)
-pair<Weight, Edges> kruskal(const Graph &g) {
-	UnionFind UF(g.size());
-	Edges es;
-	for (int i = 0; i < g.size(); i++) for (auto &e : g[i]) es.emplace_back(e);
-	sort(es.begin(), es.end());
-	Weight total = 0;
-	Edges T;
-	for (auto &e : es) if (!UF.same(e.s, e.d)) {
-		T.push_back(e); total += e.w; UF.unite(e.s, e.d);
-	}
-	return make_pair(total, T);
-}
-
-//最小全域木
-//Prim O(ElogV)
-//rから到達可能な頂点が対象
-//Edgeを bool operator<(const Edge &e)const { return w > e.w; } にする必要がある
-pair<Weight, Edges> prim(const Graph &g, int r = 0) {
-	Edges T; Weight total = 0; vector<int> v(g.size());
-	priority_queue <Edge> q;
-	q.emplace(-1, r, 0);
-	while (q.size()) {
-		Edge e = q.top(); q.pop();
-		if (v[e.d]) continue;
-		v[e.d] = true;
-		total += e.w; if (e.s != -1) T.emplace_back(e);
-		for (auto &f : g[e.d]) if (!v[f.d]) q.emplace(f);
-	}
-	return make_pair(total, T);
-}
-
 //無向グラフが連結グラフか判定 O(Eα(E))
 bool is_connected_graph(const Graph &udg) {
 	int n = udg.size();
-	UnionFind UF(n);
-	for (auto &es : udg)for (auto &e : es) UF.unite(e.d, e.s);
-	return UF.size == 1;
+	UnionFind uf(n);
+	for (auto &es : udg)for (auto &e : es) uf.unite(e.d, e.s);
+	return uf.size == 1;
 }
 
 //無向グラフがオイラーグラフか判定（オイラー閉路を持つ）
