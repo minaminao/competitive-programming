@@ -162,6 +162,13 @@
     <ClCompile Include="..\aoj\2104.cpp" />
     <ClCompile Include="..\aoj\2311.cpp" />
     <ClCompile Include="..\aoj\2663.cpp" />
+    <ClCompile Include="..\aoj\2805.cpp" />
+    <ClCompile Include="..\aoj\2806.cpp" />
+    <ClCompile Include="..\aoj\2807.cpp" />
+    <ClCompile Include="..\aoj\2808.cpp" />
+    <ClCompile Include="..\aoj\2809.cpp" />
+    <ClCompile Include="..\aoj\2810.cpp" />
+    <ClCompile Include="..\aoj\2811.cpp" />
     <ClCompile Include="..\aoj\ALDS1_13_A.cpp" />
     <ClCompile Include="..\aoj\ALDS1_13_B.cpp" />
     <ClCompile Include="..\aoj\ALDS1_3_D.cpp" />
@@ -182,6 +189,10 @@
     <ClCompile Include="..\aoj\DSL_2_G.cpp" />
     <ClCompile Include="..\aoj\DSL_3_A.cpp" />
     <ClCompile Include="..\aoj\DSL_3_C.cpp" />
+    <ClCompile Include="..\aoj\GRL_3_A.cpp" />
+    <ClCompile Include="..\aoj\GRL_3_B.cpp" />
+    <ClCompile Include="..\aoj\GRL_3_C.cpp" />
+    <ClCompile Include="..\aoj\GRL_6_B.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_A.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_B.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_C.cpp" />

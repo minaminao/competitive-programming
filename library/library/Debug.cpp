@@ -14,6 +14,38 @@ void diff(F f1, F f2) {
 	}
 }
 
+#include "GraphTheory.cpp"
+void generate_dot(const Graph &g) {
+	int n = g.size();
+	cout << "digraph G {" << endl;
+	rep(i, 0, n) {
+		cout << "  " << i << ";" << endl;
+	}
+	for (auto &es : g)for (auto &e : es) {
+		cout << "  " << e.s << " -> " << e.d << ";" << endl;
+	}
+	cout << "}";
+}
+
+void generate_dot(const Graph &g, vector<int> group) {
+	int n = g.size();
+	vector<int> color(n);
+	color[2] = 990099;
+	cout << "digraph G {" << endl;
+	rep(i, 0, n) {
+		cout << i << "[";
+		cout << "color=\"#" << setfill('0') << setw(6) << color[group[i]] << "\"";
+		cout << "];";
+	}
+	cout << endl;
+	for (auto &es : g)for (auto &e : es) {
+		cout << e.s << " -> " << e.d << ";";
+	}
+	cout << endl;
+	cout << "}" << endl;
+}
+
+
 #include "Random.cpp"
 template<class F>
 void diff(F f1, F f2) {
