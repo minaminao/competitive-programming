@@ -15,12 +15,16 @@ using Matrix = vector<Array>;
 
 inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
 
-void add_edge(Graph &g, int a, int b, Weight w = 1) {
-	g[a].emplace_back(a, b, w);
-	g[b].emplace_back(b, a, w);
+void add_arc(Graph &g, int s, int d, Weight w = 1) {
+	g[s].emplace_back(s, d, w);
 }
-void add_arc(Graph &g, int s, int d, Weight w = 1) { g[s].emplace_back(s, d, w); }
+void add_edge(Graph &g, int a, int b, Weight w = 1) {
+	add_arc(g, a, b, w);
+	add_arc(g, b, a, w);
+}
 
+
+//全探索
 
 void dfs(const Graph &g, int root) {
 	int n = g.size();
@@ -92,8 +96,10 @@ void solve() {
 }
 
 
+//最短経路問題
+
 //単一始点最短経路(負閉路なし)
-//Dijkstra O((E+V)logV)
+//Dijkstra O((|E|+|V|)log|V|)
 //dist: 始点から各頂点までの最短距離
 //戻り値: 最短経路木の親頂点(根は-1)
 vector<int> dijkstra(const Graph &g, int s, Array &dist) {
@@ -122,7 +128,7 @@ vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 }
 
 //単一始点最短経路(負閉路あり)
-//Bellman-Ford O(VE)
+//Bellman-Ford O(|V||E|)
 //dist: 始点から各頂点までの最短距離
 //戻り値: 最短経路木の親頂点, 負閉路なし:true あり:false
 pair<vector<int>, bool> bellman_ford(const Graph &g, int s, Array &dist) {
@@ -203,7 +209,7 @@ vector<int> get_path(int s, int g, vector<int> prev) {
 //}
 
 //全点対間最短経路 
-//Warshall-Floyd O(V^3)
+//Warshall-Floyd O(|V|^3)
 //戻り値: 負閉路なし:true あり:false
 bool warshall_floyd(const Graph &g, Matrix &dist) {
 	int n = g.size();
@@ -244,7 +250,7 @@ Graph build_dag(const Graph &g, int s) {
 	return dag;
 }
 
-//トポロジカルソート O(E+V)
+//トポロジカルソート O(|E|+|V|)
 //入次数が0の点と辺を取り除きながらretに突っ込む
 vector<int> topological_sort(const Graph &g) {
 	int n = g.size(), k = 0;
@@ -305,7 +311,7 @@ struct LowestCommonAncestor {
 };
 
 #include "UnionFind.cpp"
-//無向グラフが連結グラフか判定 O(Eα(E))
+//無向グラフが連結グラフか判定 O(|E|α(|E|))
 bool is_connected_graph(const Graph &udg) {
 	int n = udg.size();
 	UnionFind uf(n);
@@ -339,46 +345,6 @@ bool is_semi_eulerian_graph(const Graph &udg) {
 	return odd == 2;
 }
 
-//二部グラフ O(f(N+M)) fは最大マッチングの数
-class BipartiteMatching {
-public:
-	int n;
-	vector<vector<int>> g;
-	vector<int> match;
-	BipartiteMatching(int n) : n(n), g(n), match(n), used(n) {}
-	void add_edge(int u, int v) {
-		g[u].emplace_back(v);
-		g[v].emplace_back(u);
-	}
-	//最大マッチング
-	int maximum_matching() {
-		int ret = 0;
-		fill(match.begin(), match.end(), -1);
-		for (int v = 0; v < n; v++) {
-			if (match[v] == -1) {
-				fill(used.begin(), used.end(), false);
-				if (dfs(v)) ret++;
-			}
-		}
-		return ret;
-	}
-private:
-	vector<int> used;
-	bool dfs(int v) {
-		used[v] = true;
-		for (int u : g[v]) {
-			int w = match[u];
-			if (w == -1 || (!used[w] && dfs(w))) {
-				match[v] = u;
-				match[u] = v;
-				return true;
-			}
-		}
-		return false;
-	}
-};
-//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235595
-
 //二次元配列からGraphを生成
 Graph build(const vector<vector<char>> &v) {
 	const int H = v.size(), W = v[0].size();
@@ -397,6 +363,7 @@ Graph build(const vector<vector<char>> &v) {
 	return g;
 }
 
+//二次元配列からGraphを生成
 Graph build(const vector<vector<char>> &v, int w) {
 	const int H = v.size(), W = v[0].size();
 	static const int di[4] = { 1,0,-1,0 }, dj[4] = { 0,1,0,-1 };
@@ -415,169 +382,10 @@ Graph build(const vector<vector<char>> &v, int w) {
 	return g;
 }
 
-
-//単純無向連結グラフのlowlink
-pair<vector<int>, vector<int>> lowlink(const Graph &g, int root = 0) {
-	int n = g.size();
-	vector<bool> vis(n);
-	vector<int> ord(n);
-	vector<int> low(n);
-	int o = 0;
-	function<void(int, int)> dfs = [&](int u, int p) {
-		if (vis[u])return;
-		vis[u] = true;
-		ord[u] = o++;
-		low[u] = ord[u];
-		for (auto &e : g[u]) {
-			if (!vis[e.d]) {
-				dfs(e.d, u);
-				chmin(low[u], low[e.d]);
-			}
-			else if (e.d != p) {
-				chmin(low[u], ord[e.d]);
-			}
-		}
-	};
-	dfs(root, -1);
-	return make_pair(ord, low);
-}
-
-//単純無向連結グラフの関節点
-vector<int> articulation_points(const Graph &g, int root = 0) {
-	/*
-	u が根
-	u が関節点 <=> 子が 2 つ以上存在する
-
-	u が根以外
-	u が関節点 <=> ord[u] <= low[v] となる子 v が存在する
-	*/
-	int n = g.size();
-	vector<bool> vis(n);
-	vector<int> ord(n);
-	vector<int> low(n);
-	vector<int> art;
-	int o = 0;
-	int child = 0;
-	function<void(int, int)> dfs = [&](int u, int p) {
-		if (vis[u])return;
-		if (p == root)child++;
-		vis[u] = true;
-		ord[u] = o++;
-		low[u] = ord[u];
-		bool is_art = false;
-		for (auto &e : g[u]) {
-			if (!vis[e.d]) {
-				dfs(e.d, u);
-				chmin(low[u], low[e.d]);
-				if (u != root&&ord[u] <= low[e.d])is_art = true;
-			}
-			else if (e.d != p) {
-				chmin(low[u], ord[e.d]);
-			}
-		}
-		if (is_art)art.emplace_back(u);
-	};
-	dfs(root, -1);
-	if (child >= 2)art.emplace_back(root);
-	sort(art.begin(), art.end());
-	return art;
-}
-
-//単純無向連結グラフの橋
-Edges bridges(const Graph &g, int root = 0) {
-	/*
-	e(u, v) が橋でない <=> ord[u] >= low[v]
-	e(u, v) が橋 <=> ord[u] < low[v]
-	*/
-	int n = g.size();
-	vector<bool> vis(n);
-	vector<int> ord(n);
-	vector<int> low(n);
-	Edges bri;
-	int o = 0;
-	function<void(int, int)> dfs = [&](int u, int p) {
-		if (vis[u])return;
-		vis[u] = true;
-		ord[u] = o++;
-		low[u] = ord[u];
-		bool is_art = false;
-		for (auto &e : g[u]) {
-			if (!vis[e.d]) {
-				dfs(e.d, u);
-				chmin(low[u], low[e.d]);
-				if (ord[u] < low[e.d])bri.emplace_back(u, e.d);
-			}
-			else if (e.d != p) {
-				chmin(low[u], ord[e.d]);
-			}
-		}
-	};
-	dfs(root, -1);
-	return bri;
-}
-
 //s <= d かつ s1 <= s2 かつ d1 <= d2 を満たすように並べる
 void sort(Edges &es) {
 	for (auto &e : es)
 		if (e.s > e.d)
 			swap(e.s, e.d);
 	sort(es.begin(), es.end(), [](const Edge &e1, const Edge &e2) {return e1.s == e2.s ? e1.d < e2.d : e1.s < e2.s; });
-}
-
-//辺を逆に張ったグラフ
-Graph reverse(const Graph &g) {
-	Graph rg(g.size());
-	for (auto &es : g)
-		for (auto &e : es)
-			rg[e.d].emplace_back(e.d, e.s, e.w);
-	return rg;
-}
-
-//強連結成分分解 O(|V|+|E|)
-//ret[u] = u が属している強連結成分のインデックス
-vector<int> kosaraju(const Graph &g) {
-	int n = g.size();
-	Graph rg = reverse(g);
-	vector<int> in(n, -1);
-	vector<int> post;
-	function<void(int, int)> dfs = [&](int u, int idx) {
-		if (in[u] != -1)return;
-		in[u] = idx;
-		for (auto &e : g[u]) {
-			if (in[e.d] != -1)continue;
-			dfs(e.d, idx);
-		}
-		post.emplace_back(u);
-	};
-	int idx = 0;
-	for (int u = 0; u < n; u++) {
-		if (in[u] == -1) {
-			dfs(u, idx++);
-		}
-	}
-	vector<int> in2(n, -1);
-	function<void(int, int, int)> dfs2 = [&](int u, int idx, int idx2) {
-		if (in2[u] != -1)return;
-		if (in[u] != idx)return;
-		in2[u] = idx2;
-		for (auto &e : rg[u]) {
-			if (in2[e.d] != -1)continue;
-			if (in[e.d] != idx)continue;
-			dfs2(e.d, idx, idx2);
-		}
-	};
-	int idx2 = 0;
-	reverse(post.begin(), post.end());
-	for (auto &u : post) {
-		if (in2[u] == -1) {
-			dfs2(u, in[u], idx2++);
-		}
-	}
-	return in2;
-}
-
-//閉路の検出 O(|V|+|E|)
-bool cycle_detection(const Graph &g) {
-	vector<int> res = kosaraju(g);
-	return find(all(res), g.size() - 1) == res.end();
 }

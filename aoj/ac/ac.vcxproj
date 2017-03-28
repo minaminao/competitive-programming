@@ -191,6 +191,7 @@
     <ClCompile Include="..\aoj\DSL_3_A.cpp" />
     <ClCompile Include="..\aoj\DSL_3_C.cpp" />
     <ClCompile Include="..\aoj\GRL_2_A_kruskal.cpp" />
+    <ClCompile Include="..\aoj\GRL_2_A_prim.cpp" />
     <ClCompile Include="..\aoj\GRL_3_A.cpp" />
     <ClCompile Include="..\aoj\GRL_3_B.cpp" />
     <ClCompile Include="..\aoj\GRL_3_C.cpp" />

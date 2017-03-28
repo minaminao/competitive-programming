@@ -204,5 +204,8 @@
     <ClCompile Include="..\aoj\GRL_2_A_kruskal.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\aoj\GRL_2_A_prim.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
