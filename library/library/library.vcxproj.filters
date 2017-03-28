@@ -19,6 +19,9 @@
     <Filter Include="snippet">
       <UniqueIdentifier>{80332d64-ec66-4bd5-bfb1-4dad1832c7e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GraphTheory">
+      <UniqueIdentifier>{9753e8da-8c9a-425e-8691-d9f1f869ad18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="template.cpp">
@@ -37,9 +40,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="DP_keta.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphTheory.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="CompleteSearch.cpp">
@@ -93,9 +93,6 @@
     <ClCompile Include="Sort.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -115,9 +112,6 @@
       <Filter>ソース ファイル\typical problem</Filter>
     </ClCompile>
     <ClCompile Include="Compression.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Flow.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Boost.cpp">
@@ -147,14 +141,23 @@
     <ClCompile Include="SlidingWindow.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SpanningTree.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectedComponents.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="GraphTheory.cpp">
+      <Filter>GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="Matching.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>GraphTheory</Filter>
+    </ClCompile>
+    <ClCompile Include="SpanningTree.cpp">
+      <Filter>GraphTheory</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>GraphTheory</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectedComponents.cpp">
+      <Filter>GraphTheory</Filter>
+    </ClCompile>
+    <ClCompile Include="Flow.cpp">
+      <Filter>GraphTheory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

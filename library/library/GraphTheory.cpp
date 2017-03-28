@@ -7,13 +7,12 @@ struct Edge {
 };
 bool operator<(const Edge &e1, const Edge &e2) { return e1.w < e2.w; }
 bool operator>(const Edge &e1, const Edge &e2) { return e2 < e1; }
+inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
 
 using Edges = vector<Edge>;
 using Graph = vector<Edges>;
 using Array = vector<Weight>;
 using Matrix = vector<Array>;
-
-inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
 
 void add_arc(Graph &g, int s, int d, Weight w = 1) {
 	g[s].emplace_back(s, d, w);
@@ -256,11 +255,11 @@ vector<int> topological_sort(const Graph &g) {
 	int n = g.size(), k = 0;
 	vector<int> ord(n), indeg(n); //“üŸ”
 	for (auto &es : g) for (auto &e : es) indeg[e.d]++;
-	queue<int> Q;
-	for (int i = 0; i < n; i++) if (indeg[i] == 0) Q.push(i);
-	while (!Q.empty()) {
-		int v = Q.front(); Q.pop(); ord[k++] = v;
-		for (auto &e : g[v]) if (--indeg[e.d] == 0) Q.push(e.d);
+	queue<int> q;
+	for (int i = 0; i < n; i++) if (indeg[i] == 0) q.push(i);
+	while (!q.empty()) {
+		int v = q.front(); q.pop(); ord[k++] = v;
+		for (auto &e : g[v]) if (--indeg[e.d] == 0) q.push(e.d);
 	}
 	return *max_element(indeg.begin(), indeg.end()) == 0 ? ord : vector<int>();
 }
