@@ -373,7 +373,7 @@ bool is_semi_eulerian_graph(const Graph &udg) {
 	return odd == 2;
 }
 
-//二部グラフ O(f(N+M)) fは最大マッチングの数で高々N
+//二部グラフ O(f(N+M)) fは最大マッチングの数
 class BipartiteMatching {
 public:
 	int n;
@@ -411,6 +411,7 @@ private:
 		return false;
 	}
 };
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235595
 
 //二次元配列からGraphを生成
 Graph build(const vector<vector<char>> &v) {
@@ -566,7 +567,7 @@ Graph reverse(const Graph &g) {
 	return rg;
 }
 
-//強連結成分分解
+//強連結成分分解 O(|V|+|E|)
 //ret[u] = u が属している強連結成分のインデックス
 vector<int> kosaraju(const Graph &g) {
 	int n = g.size();
@@ -607,4 +608,10 @@ vector<int> kosaraju(const Graph &g) {
 		}
 	}
 	return in2;
+}
+
+//閉路の検出 O(|V|+|E|)
+bool cycle_detection(const Graph &g) {
+	vector<int> res = kosaraju(g);
+	return find(all(res), g.size() - 1) == res.end();
 }

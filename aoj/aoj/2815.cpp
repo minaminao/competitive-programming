@@ -1,77 +1,20 @@
-#include "GraphTheory.cpp"
+#include "bits/stdc++.h"
+using namespace std;
+#ifdef _DEBUG
+#include "dump.hpp"
+#else
+#define dump(...)
+#endif
 
-// ç≈ëÂó¨
-struct Dinic {
-	int n, s, t;
-	vector<int> level, prog, que;
-	vector<vector<Flow>> cap, flow;
-	vector<vector<int>> g;
-	Flow inf;
-	Dinic(const Graph &graph)
-		: n(graph.size()),
-		cap(n, vector<Flow>(n)),
-		flow(n, vector<Flow>(n)),
-		g(n, vector<int>()),
-		inf(numeric_limits<Flow>::max() / 8) {
-		for (int i = 0; i < n; i++) {
-			for (auto &e : graph[i]) {
-				int u = e.s, v = e.d;
-				Flow c = e.c;
-				cap[u][v] += c;
-				cap[v][u] += c;
-				flow[v][u] += c;
-				g[u].push_back(v);
-				g[v].push_back(u);
-			}
-		}
-	}
-	inline Flow residue(int u, int v) { return cap[u][v] - flow[u][v]; }
-	Flow solve(int s_, int t_) {
-		this->t = t_, this->s = s_;
-		que.resize(n + 1);
-		Flow res = 0;
-		while (levelize()) {
-			prog.assign(n, 0);
-			res += augment(s, inf);
-		}
-		return res;
-	}
-	bool levelize() {
-		int l = 0, r = 0;
-		level.assign(n, -1);
-		level[s] = 0;
-		que[r++] = s;
-		while (l != r) {
-			int v = que[l++];
-			if (v == t) break;
-			for (const int &d : g[v])
-				if (level[d] == -1 && residue(v, d) != 0) {
-					level[d] = level[v] + 1;
-					que[r++] = d;
-				}
-		}
-		return level[t] != -1;
-	}
-	Flow augment(int v, Flow lim) {
-		Flow res = 0;
-		if (v == t) return lim;
-		for (int &i = prog[v]; i < (int)g[v].size(); i++) {
-			const int &d = g[v][i];
-			if (residue(v, d) == 0 || level[v] >= level[d]) continue;
-			const Flow aug = augment(d, min(lim, residue(v, d)));
-			flow[v][d] += aug;
-			flow[d][v] -= aug;
-			res += aug;
-			lim -= aug;
-			if (lim == 0) break;
-		}
-		return res;
-	}
-};
-//http://abc010.contest.atcoder.jp/submissions/1143879
-//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235592
+//#define int long long
+#define rep(i,a,b) for(int i=(a);i<(b);i++)
+#define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
+#define all(c) begin(c),end(c)
+const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
+const int MOD = (int)(1e9) + 7;
+template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
+template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 
-//ç≈è¨îÔópó¨
 struct MinimumCostMaximumFlow {
 	using Index = int;
 	using Flow = int;
@@ -156,5 +99,37 @@ struct MinimumCostMaximumFlow {
 		return total;
 	}
 };
-//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235555
-//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235579
+
+signed main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	int N, M, K; cin >> N >> M >> K;
+	MinimumCostMaximumFlow mcmf;
+	mcmf.init(N + M + 2 + 1 + 1);
+	int source = N + M,
+		sink = source + 1,
+		I = source + 2,
+		X = source + 3;
+	rep(i, 0, N) {
+		int test = i;
+		mcmf.add_arc(source, test, 1);
+		int a; cin >> a;
+		mcmf.add_arc(test, I, 1, -a);
+	}
+	rep(i, 0, M)rep(j, 0, N) {
+		int b; cin >> b;
+		int test = j;
+		int friends = i + N;
+		mcmf.add_arc(test, friends, 1, -b);
+	}
+	rep(i, 0, M) {
+		int T; cin >> T;
+		int friends = i + N;
+		mcmf.add_arc(friends, X, T);
+	}
+	mcmf.add_arc(X, sink, N - K);
+	mcmf.add_arc(I, sink);
+	auto res = mcmf.minimum_cost_maximum_flow(source, sink);
+	cout << -res.first << endl;
+	return 0;
+}

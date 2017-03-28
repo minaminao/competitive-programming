@@ -1,4 +1,5 @@
 #define idx(i) (i+25)
+//O(n) vはソート済み配列
 #define UNIQUE(v) v.erase(unique(v.begin(),v.end()),v.end())
 #define REMOVE(v,a) v.erase(remove(v.begin(),v.end(),a),v.end())
 
