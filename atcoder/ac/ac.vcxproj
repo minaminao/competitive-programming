@@ -201,6 +201,8 @@
     <ClCompile Include="..\atcoder\abc054_c_2.cpp" />
     <ClCompile Include="..\atcoder\abc054_d.cpp" />
     <ClCompile Include="..\atcoder\abc055_b.cpp" />
+    <ClCompile Include="..\atcoder\abc056_a.cpp" />
+    <ClCompile Include="..\atcoder\abc056_b.cpp" />
     <ClCompile Include="..\atcoder\abc057_a.cpp" />
     <ClCompile Include="..\atcoder\abc057_b.cpp" />
     <ClCompile Include="..\atcoder\abc057_c.cpp" />
@@ -237,7 +239,10 @@
     <ClCompile Include="..\atcoder\arc016_2.cpp" />
     <ClCompile Include="..\atcoder\arc017_1.cpp" />
     <ClCompile Include="..\atcoder\arc017_2.cpp" />
+    <ClCompile Include="..\atcoder\arc018_2.cpp" />
     <ClCompile Include="..\atcoder\arc019_1.cpp" />
+    <ClCompile Include="..\atcoder\arc019_2.cpp" />
+    <ClCompile Include="..\atcoder\arc020_2.cpp" />
     <ClCompile Include="..\atcoder\arc021_1.cpp" />
     <ClCompile Include="..\atcoder\arc023_1.cpp" />
     <ClCompile Include="..\atcoder\arc024_1.cpp" />
