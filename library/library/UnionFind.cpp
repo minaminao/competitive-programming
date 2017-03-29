@@ -34,3 +34,25 @@ struct UnionFind {
 	int size_of(int x) { return -parent[root(x)]; }
 	int min_of(int x) { return mini[root(x)]; }
 };
+
+//連結成分にインデックスを振る
+struct UnionFind {
+	vector<int> parent;
+	vector<int> idx;
+	int size;
+	UnionFind(int n) :parent(n, -1), size(n), idx(n) {
+		iota(all(idx), 0);
+	}
+	bool unite(int x, int y, int i) {
+		x = root(x); y = root(y);
+		if (x == y)return false;
+		if (size_of(x) < size_of(y))swap(x, y);
+		parent[x] += parent[y]; parent[y] = x; size--;
+		idx[x] = idx[y] = i;
+		return true;
+	}
+	bool same(int x, int y) { return root(x) == root(y); }
+	int root(int x) { return parent[x] < 0 ? x : parent[x] = root(parent[x]); }
+	int size_of(int x) { return -parent[root(x)]; }
+	int get_idx(int x) { return idx[root(x)]; }
+};
