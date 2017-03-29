@@ -16,11 +16,11 @@ struct UnionFind {
 };
 
 //素集合データ構造 + 集合内の最小値を求める機能
-struct UnionFind {
+struct UnionFind_ {
 	vector<int> parent;
 	vector<int> mini;
 	int size;
-	UnionFind(int n) :parent(n, -1), size(n), mini(n) {}
+	UnionFind_(int n) :parent(n, -1), size(n), mini(n) {}
 	bool unite(int x, int y) {
 		x = root(x); y = root(y);
 		if (x == y)return false;
@@ -35,12 +35,12 @@ struct UnionFind {
 	int min_of(int x) { return mini[root(x)]; }
 };
 
-//連結成分にインデックスを振る
-struct UnionFind {
+//連結成分にインデックスを割り当てる
+struct UnionFind_ {
 	vector<int> parent;
 	vector<int> idx;
 	int size;
-	UnionFind(int n) :parent(n, -1), size(n), idx(n) {
+	UnionFind_(int n) :parent(n, -1), size(n), idx(n) {
 		iota(all(idx), 0);
 	}
 	bool unite(int x, int y, int i) {

@@ -15,66 +15,89 @@
 //template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 //template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 //
-//using Weight = int;
-//using Flow = int;
-//struct Edge {
-//	int s, d; Weight w; Flow c;
-//	Edge() {};
-//	Edge(int s, int d, Weight w = 1) : s(s), d(d), w(w), c(w) {};
-//	bool operator<(const Edge &e)const { return w < e.w; }
-//};
-//using Edges = vector<Edge>;
-//using Graph = vector<Edges>;
-//using Array = vector<Weight>;
-//using Matrix = vector<Array>;
-//
-//inline ostream &operator<<(ostream &os, const Edge &e) { return (os << '(' << e.s << ", " << e.d << ", " << e.w << ')'); }
-//
-//void add_edge(Graph &g, int a, int b, Weight w = 1) {
-//	g[a].emplace_back(a, b, w);
-//	g[b].emplace_back(b, a, w);
-//}
-//void add_arc(Graph &g, int s, int d, Weight w = 1) { g[s].emplace_back(s, d, w); }
-//
-//
-////óLå¸êXÅióLå¸ñÿÅjÇÃê[Ç≥
-//using P = pair<int, int>; //ê[Ç≥ ç™
-//vector<P> depth(const Graph &g) {
-//	int n = g.size();
-//	vector<P> ret(n);
-//	for (int i = 0; i < n; i++)
-//		ret[i] = P(0, i);
-//	vector<bool> isroot(n, true);
-//	for (int i = 0; i < n; i++)
-//		for (auto &e : g[i])
-//			isroot[e.d] = false;
-//	using State = tuple<int, int, int>; //ÉmÅ[Éh ç™ ê[Ç≥
-//	stack<State> st;
-//	dump(isroot);
-//	for (int i = 0; i < n; i++)
-//		if (isroot[i])
-//			st.emplace(i, i, 0);
-//	while (st.size()) {
-//		int s, r, d; tie(s, r, d) = st.top(); st.pop();
-//		ret[s] = P(d, r);
-//		for (auto &e : g[s])
-//			st.emplace(e.d, r, d + 1);
-//	}
-//	return ret;
-//}
-//
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//	int H, W, N; cin >> H >> W >> N;
-//	Graph g(H*W);
-//	auto index = [&](int i, int j) {return i*W + j; };
+//	int H, W; cin >> H >> W;
+//	int N; cin >> N;
+//	vector<vector<int>> r(H, vector<int>(W)), c(H, vector<int>(W));
 //	rep(i, 0, H)rep(j, 0, W) {
-//		int r, c; cin >> r >> c;
-//		add_arc(g, index(r, c), index(i, j));
+//		cin >> r[i][j] >> c[i][j];
 //	}
-//	dump(g);
-//	vector<P> d = depth(g);
-//	dump(d);
+//	vector<int> R(N), C(N); rep(i, 0, N) { cin >> R[i] >> C[i]; }
+//	using P = pair<vector<vector<int>>, vector<vector<int>>>;
+//	auto mul = [&](vector<vector<int>> r1, vector<vector<int>> c1, vector<vector<int>> r2, vector<vector<int>> c2) {
+//		rep(i, 0, H)rep(j, 0, W) {
+//			int nr = r1[i][j], nc = c1[i][j];
+//			r1[i][j] = r2[nr][nc];
+//			c1[i][j] = c2[nr][nc];
+//		}
+//		return P(r1, c1);
+//	};
+//	const int D = 30;
+//	vector<P> p(D);
+//	p[0] = P(r, c);
+//	rep(i, 0, D - 1) {
+//		p[i + 1] = mul(p[i].first, p[i].second, p[i].first, p[i].second);
+//	}
+//	auto collision = [&](int x) {
+//		using T = pair<int, int>;
+//		set<T> st;
+//		bool flag = false;
+//		rep(i, 0, N) {
+//			T a = T(p[x].first[R[i]][C[i]], p[x].second[R[i]][C[i]]);
+//			if (st.count(a)) {
+//				flag = true;
+//			}
+//			st.emplace(a);
+//		}
+//		return flag;
+//	};
+//	if (!collision(D - 1)) {
+//		cout << -1 << endl;
+//		return 0;
+//	}
+//	if (collision(0)) {
+//		cout << 1 << endl;
+//		return 0;
+//	}
+//	auto binary_search = [&](int l, int r) {
+//		if (collision(l))return l; //exception f(l):true
+//		while (l + 1 < r) {
+//			int m = (l + r) / 2;
+//			if (collision(m))
+//				r = m;
+//			else
+//				l = m;
+//		}
+//		//f(l):false, f(r):true
+//		return r;
+//	};
+//	auto collision2 = [&](P x) {
+//		using T = pair<int, int>;
+//		set<T> st;
+//		bool flag = false;
+//		rep(i, 0, N) {
+//			T a = T(x.first[R[i]][C[i]], x.second[R[i]][C[i]]);
+//			if (st.count(a)) {
+//				flag = true;
+//			}
+//			st.emplace(a);
+//		}
+//		return flag;
+//	};
+//	int b = binary_search(0, D - 1);
+//	int a = b - 1;
+//	P x = p[a];
+//	int ans = 1 << a;
+//	rrep(i, 0, a) {
+//		P y = mul(x.first, x.second, p[i].first, p[i].second);
+//		if (!collision2(y)) {
+//			x = y;
+//			ans += 1 << i;
+//		}
+//	}
+//	cout << ans + 2 << endl;
+//	dump(a, b);
 //	return 0;
 //}

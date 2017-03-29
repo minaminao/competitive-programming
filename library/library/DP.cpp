@@ -8,9 +8,9 @@ int longest_increasing_subsequence(const vector<int> &v) {
 }
 
 void solve() {
-	//dpは %2 を使うと空間が 2つ で済む
+	//dpは & 1 を使うと空間が 2つ で済む
 	int dp[2];
-	int i; dp[i % 2];
+	int i; dp[i & 1]; dp[(i + 1) & 1];
 }
 
 //レーベンシュタイン距離 (編集距離)
@@ -84,3 +84,65 @@ void traveling_salesman_problem() {
 	cout << (dp[(1 << V) - 1][0] == INF ? -1 : dp[(1 << V) - 1][0]) << endl;
 }
 //http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2236237
+
+//最大正方形 O(H*W)
+void largest_square() {
+	int H, W; cin >> H >> W;
+	vector<vector<int>> dp(H + 1, vector<int>(W + 1));
+	rep(i, 0, H) rep(j, 0, W) {
+		int x; cin >> x;
+		dp[i + 1][j + 1] = !x;
+	}
+	int ans = 0;
+	rep(i, 1, H + 1)rep(j, 1, W + 1) {
+		if (dp[i][j] == 0)continue;
+		dp[i][j] = min({
+			dp[i - 1][j],
+			dp[i][j - 1],
+			dp[i - 1][j - 1]
+		}) + 1;
+		chmax(ans, dp[i][j]);
+	}
+	cout << ans*ans << endl;
+}
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2236860
+
+//ヒストグラムの最大長方形 O(N)
+int largest_rectangle_in_a_histogram(const vector<int> &h) {
+	int n = h.size();
+	using P = pair<int, int>;
+	stack<P> st;
+	st.emplace(-1, -1);
+	int area = 0;
+	for (int i = 0; i < n; i++) {
+		if (st.top().first == h[i])
+			continue;
+		int pos = i;
+		while (st.top().first >= h[i]) {
+			chmax(area, st.top().first*(i - st.top().second));
+			pos = st.top().second;
+			st.pop();
+		}
+		st.emplace(h[i], pos);
+	}
+	while (st.size()) {
+		chmax(area, st.top().first*(n - st.top().second));
+		st.pop();
+	}
+	return area;
+}
+
+//0-1二次元配列上の最大長方形 O(H*W)
+//ヒストグラムの最大長方形を求めるのと同様
+int largest_rectangle(vector<vector<int>> v) {
+	int H = v.size(), W = v.front().size();
+	rep(i, 0, H - 1)rep(j, 0, W) {
+		if (v[i + 1][j] == 0)continue;
+		v[i + 1][j] += v[i][j];
+	}
+	int area = 0;
+	rep(i, 0, H)
+		chmax(area, largest_rectangle_in_a_histogram(v[i]));
+	return area;
+}
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2236876

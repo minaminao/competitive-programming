@@ -264,6 +264,7 @@ vector<int> topological_sort(const Graph &g) {
 	return *max_element(indeg.begin(), indeg.end()) == 0 ? ord : vector<int>();
 }
 
+#include "UnionFind.cpp"
 //Tarjan's off-line lowest common ancestors (dfs再帰)
 //構築O(N) クエリ(1)
 struct Query {
@@ -309,7 +310,6 @@ struct LowestCommonAncestor {
 	}
 };
 
-#include "UnionFind.cpp"
 //無向グラフが連結グラフか判定 O(|E|α(|E|))
 bool is_connected_graph(const Graph &udg) {
 	int n = udg.size();
