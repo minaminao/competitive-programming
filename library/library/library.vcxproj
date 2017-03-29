@@ -171,6 +171,7 @@
     <ClCompile Include="NumberTheory.cpp" />
     <ClCompile Include="Parsing.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="RangeQuery.cpp" />
     <ClCompile Include="SegmentTree.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="NumericalAnalysis.cpp" />
@@ -194,7 +195,6 @@
     <ClInclude Include="bits\stdc++.h" />
     <ClInclude Include="clang.h" />
     <ClInclude Include="dump.hpp" />
-    <ClInclude Include="local.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

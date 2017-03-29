@@ -1,30 +1,12 @@
-#include "bits/stdc++.h"
-using namespace std;
-#ifdef _DEBUG
-#include "dump.hpp"
-#else
-#define dump(...)
-#endif
-
-//#define int long long
-#define rep(i,a,b) for(int i=(a);i<(b);i++)
-#define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
-#define all(c) begin(c),end(c)
-const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
-const int MOD = (int)(1e9) + 7;
-template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
-template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
-
-signed main() {
-	cin.tie(0);
-	ios::sync_with_stdio(false);
+//0-1 配列の 連続区間の個数
+void solve() {
 	int n; cin >> n;
 	string x; cin >> x;
 	int q; cin >> q;
 	using P = pair<int, int>;
 	enum { LEFT, RIGHT };
-	//連続区間の端点の集合
-	set<P> st; //位置, 左端 右端
+	//連続区間の端点の集合 位置, 左端 右端
+	set<P> st;
 	/*
 
 	a < l <= b <= r < c
@@ -94,5 +76,3 @@ signed main() {
 		dump(st);
 		cout << st.size() / 2 << endl;
 	}
-	return 0;
-}

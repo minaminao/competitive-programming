@@ -221,6 +221,8 @@
     <ClCompile Include="..\aoj\RitsCamp17Day1_E.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_F.cpp" />
     <ClCompile Include="..\aoj\RitsCamp17Day1_G.cpp" />
+    <ClCompile Include="..\aoj\RitsCamp17Day3_C.cpp" />
+    <ClCompile Include="..\aoj\RitsCamp17Day3_E.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
