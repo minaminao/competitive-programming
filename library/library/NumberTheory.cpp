@@ -261,3 +261,8 @@ struct Radix {
 http://judge.u-aizu.ac.jp/onlinejudge/creview.jsp?rid=2231361&cid=RitsCamp17Day1
 —á2) http://arc009.contest.atcoder.jp/submissions/1177495
 */
+
+//L <= x <= R ‚ğ–‚½‚· x ‚ÌŒÂ”
+int number_in_range(const vector<int> &v, int L, int R) {
+	return upper_bound(v.begin(), v.end(), R) - lower_bound(v.begin(), v.end(), L);
+}

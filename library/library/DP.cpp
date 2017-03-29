@@ -13,9 +13,9 @@ void solve() {
 	int i; dp[i % 2];
 }
 
-//レーベンシュタイン距離(編集距離)
-//aに操作{挿入, 削除, 置換}を行いbと等しくするための操作の最小回数
-//時間O(mn) 空間O(mn)
+//レーベンシュタイン距離 (編集距離)
+//a に操作 {挿入, 削除, 置換} を行い b と等しくするための操作の最小回数
+//時間 O(mn) 空間 O(mn)
 int levenshtein_distance(const string &a, const string &b) {
 	int m = a.size(), n = b.size();
 	vector<vector<int>> ld(m + 1, vector<int>(n + 1, INF));
@@ -34,7 +34,8 @@ int levenshtein_distance(const string &a, const string &b) {
 	return ld[m][n];
 }
 
-//時間O(mn) 空間O(m)
+//レーベンシュタイン距離 (編集距離)
+//時間 O(mn) 空間 O(m)
 int levenshtein_distance(const string &a, const string &b) {
 	int m = a.size(), n = b.size();
 	int column_start = 1;
@@ -55,3 +56,31 @@ int levenshtein_distance(const string &a, const string &b) {
 	}
 	return column[m];
 }
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2235636
+
+//巡回セールスマン問題
+//有向グラフにおいて各頂点をちょうど1回通る最短閉路
+void traveling_salesman_problem() {
+	static const int MAX_V = 15;
+	static int dp[1 << MAX_V][MAX_V];
+	static int g[MAX_V][MAX_V];
+	memset(dp, 0x3f, sizeof(dp));
+	memset(g, 0x3f, sizeof(g));
+	int V, E; cin >> V >> E;
+	rep(i, 0, E) {
+		int s, t, d; cin >> s >> t >> d;
+		g[s][t] = d;
+	}
+	dp[0][0] = 0;
+	for (int mask = 0; mask < (1 << V); mask++) {
+		rep(i, 0, V) {
+			rep(j, 0, V) {
+				if (mask >> j & 1)continue;
+				if (dp[mask][i] == INF || g[i][j] == INF)continue;
+				chmin(dp[mask | (1 << j)][j], dp[mask][i] + g[i][j]);
+			}
+		}
+	}
+	cout << (dp[(1 << V) - 1][0] == INF ? -1 : dp[(1 << V) - 1][0]) << endl;
+}
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2236237
