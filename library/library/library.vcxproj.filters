@@ -299,5 +299,11 @@
     <None Include="snippet\unique.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\vv.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\v.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>

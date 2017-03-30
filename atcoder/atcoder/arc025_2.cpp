@@ -15,35 +15,40 @@ const int MOD = (int)(1e9) + 7;
 template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 
+template<typename T>
+struct RectangleSum {
+	int H, W;
+	vector<vector<T>> sum;
+	RectangleSum(vector<vector<T>> v)
+		:H(v.size()), W(v.front().size()), sum(H + 1, vector<T>(W + 1)) {
+		rep(i, 0, H + 1)rep(j, 0, W + 1) {
+			sum[i][j] = (i == 0 || j == 0) ? 0 :
+				sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + v[i - 1][j - 1];
+		}
+		dump(sum);
+		dump(v);
+	}
+	//[si, ti), [sj, tj)
+	T get(int si, int sj, int ti, int tj) {
+		return sum[ti][tj] - sum[si][tj] - sum[ti][sj] + sum[si][sj];
+	}
+};
+
 signed main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	int H, W; cin >> H >> W;
-	vector<vector<int>> b(H, vector<int>(W)), w(H, vector<int>(W));
+	vector<vector<int>> C(H, vector<int>(W));
 	rep(i, 0, H) rep(j, 0, W) {
 		int c; cin >> c;
-		if ((i + j) & 1)b[i][j] = c;
-		else w[i][j] = c;
+		if ((i + j) & 1)C[i][j] = -c;
+		else C[i][j] = c;
 	}
-	rep(i, 0, H)rep(j, 0, W - 1) {
-		b[i][j + 1] += b[i][j];
-		w[i][j + 1] += w[i][j];
-	}
-	rep(i, 0, H - 1)rep(j, 0, W) {
-		b[i + 1][j] += b[i][j];
-		w[i + 1][j] += w[i][j];
-	}
+	RectangleSum<int> sum(C);
 	int ans = 0;
-	rep(i, -1, H)rep(j, -1, W)rep(k, 0, H)rep(l, 0, W) {
-		int p, q, r, s;
-		int b_, w_;
-		p = b[k][l], q = j == -1 ? 0 : b[k][j], r = i == -1 ? 0 : b[i][l], s = i == -1 || j == -1 ? 0 : b[i][j];
-		b_ = p - q - r + s;
-		p = w[k][l], q = j == -1 ? 0 : w[k][j], r = i == -1 ? 0 : w[i][l], s = i == -1 || j == -1 ? 0 : w[i][j];
-		w_ = p - q - r + s;
-		if (w_ == b_) {
-			chmax(ans, (k - i)*(l - j));
-		}
+	rep(i, 0, H)rep(j, 0, W)rep(k, i + 1, H + 1)rep(l, j + 1, W + 1) {
+		dump(i, j, k, l, sum.get(i, j, k, l));
+		if (sum.get(i, j, k, l) == 0)chmax(ans, (k - i)*(l - j));
 	}
 	cout << ans << endl;
 	return 0;

@@ -149,7 +149,6 @@
   <ItemGroup>
     <ClCompile Include="agc011_c.cpp" />
     <ClCompile Include="arc024_2.cpp" />
-    <ClCompile Include="arc025_2.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
     <ClCompile Include="arc070_c.cpp" />

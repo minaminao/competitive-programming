@@ -233,11 +233,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="snippet\unique.snippet" />
+    <None Include="snippet\v.snippet" />
     <None Include="snippet\vb.snippet" />
     <None Include="snippet\vc.snippet" />
     <None Include="snippet\vi.snippet" />
     <None Include="snippet\vpii.snippet" />
     <None Include="snippet\vs.snippet" />
+    <None Include="snippet\vv.snippet" />
     <None Include="snippet\vvc.snippet" />
     <None Include="snippet\vvi.snippet" />
   </ItemGroup>

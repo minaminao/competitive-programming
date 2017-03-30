@@ -26,17 +26,10 @@ T min_diff(const vector<T> &v, T x) {
 	return min(*u - x, x - *(u - 1));
 }
 
-//2次元imos法
-struct Imos {
-	int X, Y;
-	vector<vector<int>> s; //累積和 1-based
-	Imos(const vector<vector<int>> &f) :X(f.size()), Y(f[0].size()), s(X + 1, vector<int>(Y + 1)) {
-		for (int y = 0; y < Y; y++)
-			for (int x = 0; x < X; x++)
-				s[x + 1][y + 1] += s[x + 1][y] + s[x][y + 1] - s[x][y] + f[x][y];
-	}
-	//[x1,x2)かつ[y1,y2)のfieldの和
-	int sum(int x1, int y1, int x2, int y2) { return s[x2][y2] - s[x2][y1] - s[x1][y2] + s[x1][y1]; }
+//2次元配列を動的に
+template<typename T, size_t MAX_H, size_t MAX_W>
+struct _ {
+	T a[MAX_H + 1][MAX_W + 1];
 };
 
 //魔法陣
@@ -224,6 +217,7 @@ void f() {
 	set.count(2);
 	set.size();
 	set.empty();
+	//i番目の要素を取り出すことはできない
 
 	/*
 	map は宣言直後は空
