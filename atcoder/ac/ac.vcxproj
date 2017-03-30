@@ -244,7 +244,10 @@
     <ClCompile Include="..\atcoder\arc019_2.cpp" />
     <ClCompile Include="..\atcoder\arc020_2.cpp" />
     <ClCompile Include="..\atcoder\arc021_1.cpp" />
+    <ClCompile Include="..\atcoder\arc021_2.cpp" />
+    <ClCompile Include="..\atcoder\arc022_2.cpp" />
     <ClCompile Include="..\atcoder\arc023_1.cpp" />
+    <ClCompile Include="..\atcoder\arc023_2.cpp" />
     <ClCompile Include="..\atcoder\arc024_1.cpp" />
     <ClCompile Include="..\atcoder\arc025_1.cpp" />
     <ClCompile Include="..\atcoder\arc029_1.cpp" />

@@ -77,3 +77,33 @@ int number_of_windows(const vector<int> &a, int x) {
 	}
 	return num;
 }
+
+//—v‘f‚ªŒİ‚¢‚ÉˆÙ‚È‚é•”•ª—ñ‚Ì’·‚³ r-l ‚ÌÅ‘å’l
+int sliding_window2(const vector<int> &a) {
+	int n = a.size(), l = 0, r = 0;
+	int ret = 0;
+	unordered_set<int> st;
+	while (l < n) {
+		if (r == n) {
+			break;
+		}
+		//‹æŠÔ‚ğ‹·‚ß‚é
+		else if (st.count(a[r])) {
+			st.erase(a[l]);
+			if (l == r) {
+				l++, r++;
+			}
+			else {
+				a[l];
+				l++;
+			}
+		}
+		//‹æŠÔ‚ğL‚°‚é
+		else {
+			st.emplace(a[r]);
+			r++;
+		}
+		chmax(ret, r - l);
+	}
+	return ret;
+}

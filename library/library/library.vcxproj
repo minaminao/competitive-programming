@@ -161,6 +161,7 @@
     <ClCompile Include="GraphTheory.cpp" />
     <ClCompile Include="inclusion-exclusion principle.cpp" />
     <ClCompile Include="is_eulerian_graph.cpp" />
+    <ClCompile Include="KdTree.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Marathon.cpp" />

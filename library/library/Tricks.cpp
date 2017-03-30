@@ -125,6 +125,8 @@ signed main() {
 void f() {
 	LLONG_MAX;
 
+	using It = vector<int>::iterator;
+
 	int i;
 	i & 1; //奇数か
 
@@ -147,6 +149,12 @@ void f() {
 	random_shuffle(v.begin(), v.end()); //乱択や特定の順番の入力に弱い時使える
 	v.insert(v.end(), v2.begin(), v2.end()); //vの末尾にv2を挿入
 	iota(v.begin(), v.end(), 1); //{1, 2, ... , v.size()}
+
+	;//nth_element(first, nth, last);
+	//*nth = ソートした時のn番目の要素
+	//平均 線形時間
+	//nth以外の並び順はソート済みになるとは保証されない
+	nth_element(v.begin(), v.begin() + v.size() / 2, v.end());
 
 	;//ソート済みのシーケンスに対してその値が存在するかどうか二分探索
 	//setが使えない時		 
@@ -178,7 +186,7 @@ void f() {
 
 	string s;
 	string(3, 'a'); //"aaa"
-	"URDL"[1] //'R'
+	"URDL"[1]; //'R'
 
 	;//型変換
 	//char→string
