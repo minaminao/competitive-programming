@@ -1,5 +1,3 @@
-//by anta
-
 //20160723
 //http://arc058.contest.atcoder.jp/submissions/815261
 
@@ -34,11 +32,13 @@ struct ModInt {
 		return res;
 	}
 };
-template <int M>
-ostream &operator << (ostream &os, const ModInt<M> &m) { return os << m.x; }
-template <int M>
-istream &operator >> (istream &is, ModInt<M> &m) { signed long long s; is >> s; m = ModInt<M>(s); return is; };
-template<int MOD> ModInt<MOD> operator^(ModInt<MOD> a, unsigned long long k) {
+template<int MOD>
+ostream &operator << (ostream &os, const ModInt<MOD> &m) { return os << m.x; }
+template<int MOD>
+istream &operator >> (istream &is, ModInt<MOD> &m) { signed long long s; is >> s; m = ModInt<MOD>(s); return is; };
+//pow(mint(2), 1000) のように
+template<int MOD>
+ModInt<MOD> pow(ModInt<MOD> a, unsigned long long k) {
 	ModInt<MOD> r = 1;
 	while (k) {
 		if (k & 1) r *= a;
@@ -48,6 +48,7 @@ template<int MOD> ModInt<MOD> operator^(ModInt<MOD> a, unsigned long long k) {
 	return r;
 }
 
+//#define int long long を使っても大丈夫
 using mint = ModInt<1000000007>;
 
 //nCrで用いる
@@ -67,7 +68,7 @@ mint nCr(int n, int r) {
 	return r > n ? 0 : fact[n] * factinv[n - r] * factinv[r];
 }
 
-
+mint nHr(int n, int r) { return r == 0 ? 1 : nCr(n + r - 1, r); }
 
 
 
@@ -111,6 +112,7 @@ struct ModInt {
 	ModInt operator-() const { ModInt t; t.x = x == 0 ? 0 : Mod - x; return t; }
 };
 
+//演算子の優先順位が原因でバグを生むので使わない
 template<int MOD> ModInt<MOD> operator^(ModInt<MOD> a, unsigned long long k) {
 	ModInt<MOD> r = 1;
 	while (k) {

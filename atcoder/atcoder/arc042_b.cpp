@@ -1,3 +1,20 @@
+#include "bits/stdc++.h"
+using namespace std;
+#ifdef _DEBUG
+#include "dump.hpp"
+#else
+#define dump(...)
+#endif
+
+//#define int long long
+#define rep(i,a,b) for(int i=(a);i<(b);i++)
+#define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
+#define all(c) begin(c),end(c)
+const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
+const int MOD = (int)(1e9) + 7;
+template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
+template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
+
 //#define double long double
 const double EPS = 1e-8;
 const double PI = acos(-1);
@@ -178,7 +195,7 @@ pair<Point, Point> get_cross_points(Circle c1, Circle c2) {
 	int m = intersect(c1, c2);
 	assert(m != 4 && m != 0);
 	double d = (c1.c - c2.c).abs();
-	double a = acos((c1.r*c1.r - c2.r*c2.r + d*d) / (2 * c1.r*d));
+	double a = acos((c1.r*c1.r + d*d - c2.r*c2.r) / (2 * c1.r*d));
 	double t = arg(c2.c - c1.c);
 	return make_pair(c1.c + polar(c1.r, t + a), c1.c + polar(c1.r, t - a));
 }
@@ -311,15 +328,21 @@ Point center(const Polygon &P) {
 	return ret;
 }
 
-//‚’¼“ñ“™•ªü
-Line get_bisection(const Point &p1, const Point &p2) {
-	Circle c1(p1, INF), c2(p2, INF); //INF ‚¾‚ÆŒë·‚ª“‚¢
-	auto ps = get_cross_points(c1, c2);
-	return Line(ps.first, ps.second);
-}
-
-//3“_‚©‚ç‹——£‚ª“™‚µ‚¢“_ (3“_‚ð‰~Žüã‚ÉŽ‚Â‰~‚Ì’†S)
-Point get_center(const Point &p1, const Point &p2, const Point &p3) {
-	Line l1 = get_bisection(p1, p2), l2 = get_bisection(p2, p3);
-	return get_cross_point(l1, l2);
+signed main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	Point t; cin >> t;
+	int N; cin >> N;
+	Polygon g(N);
+	rep(i, 0, N) {
+		cin >> g[i];
+	}
+	double ans = INF;
+	rep(i, 0, N) {
+		Segment s(next(g, i), g[i]);
+		chmin(ans, get_distance(s, t));
+	}
+	cout << fixed << setprecision(10);
+	cout << ans << endl;
+	return 0;
 }

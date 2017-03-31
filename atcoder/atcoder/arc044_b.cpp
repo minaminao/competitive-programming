@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
-	<CodeSnippet Format="1.0.0">
-		<Header>
-			<Title>modint</Title>
-			<Shortcut>modint</Shortcut>
-			<Description></Description>
-			<Author>minami</Author>
-			<SnippetTypes>
-				<SnippetType>Expansion</SnippetType>
-				<SnippetType>SurroundsWith</SnippetType>
-			</SnippetTypes>
-		</Header>
-		<Snippet>
-			<Code Language="cpp">
-        <![CDATA[template<int MOD>
+#include "bits/stdc++.h"
+using namespace std;
+#ifdef _DEBUG
+#include "dump.hpp"
+#else
+#define dump(...)
+#endif
+
+#define int long long
+#define rep(i,a,b) for(int i=(a);i<(b);i++)
+#define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
+#define all(c) begin(c),end(c)
+const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
+const int MOD = (int)(1e9) + 7;
+template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
+template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
+
+template<int MOD>
 struct ModInt {
 	static const int Mod = MOD;
 	unsigned x;
@@ -61,22 +63,43 @@ ModInt<MOD> pow(ModInt<MOD> a, unsigned long long k) {
 
 using mint = ModInt<1000000007>;
 
-vector<mint> fact, factinv;
-void nCr_compute_factinv(int N) {
-	N = min(N, mint::Mod - 1);
-	fact.resize(N + 1); factinv.resize(N + 1);
-	fact[0] = 1;
-	rep(i, 1, N + 1) fact[i] = fact[i - 1] * i;
-	factinv[N] = fact[N].inverse();
-	for (int i = N; i >= 1; i--) factinv[i - 1] = factinv[i] * i;
+
+signed main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	int N; cin >> N;
+	vector<int> A(N); rep(i, 0, N) { cin >> A[i]; }
+	if (A[0] != 0) {
+		cout << 0 << endl;
+		return 0;
+	}
+	unordered_map<int, int> cnt;
+	rep(i, 0, N)cnt[A[i]]++;
+	if (cnt[0] > 1) {
+		cout << 0 << endl;
+		return 0;
+	}
+	int c = 0;
+	int last = N;
+	rep(i, 0, N) {
+		if (cnt[i] == 0) {
+			if (c != N) {
+				cout << 0 << endl;
+				return 0;
+			}
+			last = i;
+			break;
+		}
+		c += cnt[i];
+	}
+	mint ans = 1;
+	dump(cnt);
+	rep(i, 1, last) {
+		ans *= pow(pow(mint(2), cnt[i - 1]) - 1, cnt[i]);
+		dump(ans);
+		ans *= pow(mint(2), cnt[i] * (cnt[i] - 1) / 2);
+		dump(ans);
+	}
+	cout << ans << endl;
+	return 0;
 }
-mint nCr(int n, int r) {
-	if (n >= mint::Mod)
-		return nCr(n % mint::Mod, r % mint::Mod) * nCr(n / mint::Mod, r / mint::Mod);
-	return r > n ? 0 : fact[n] * factinv[n - r] * factinv[r];
-}
-$end$]]>
-			</Code>
-		</Snippet>
-	</CodeSnippet>
-</CodeSnippets>

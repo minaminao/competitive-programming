@@ -211,7 +211,9 @@ void f() {
 	//W‡‚Ì‚æ‚¤‚Ég‚¤
 	//o‚µ“ü‚ê‚Å‚«‚é
 	set<int> set{ 2,7,1 };
-	set.insert(8); set.emplace(8);
+	set.insert(8);
+	set.insert(v.begin(), v.end());
+	set.emplace(8);
 	set.erase(2);
 	auto it = set.find(2);
 	set.count(2);
@@ -235,6 +237,9 @@ void f() {
 	}
 	mp.count("hoge");
 	mp.find("hoge");
+	for (auto &e : mp) {
+		e.first; e.second;
+	}
 
 	//stack
 	stack<int> st;
@@ -338,6 +343,7 @@ void f() {
 
 	//—j“ú
 	vector<string> v = { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday" };
+
 }
 
 /*
@@ -347,3 +353,24 @@ equal_to, not_equal_to, greater, less, greater_equal, less_equal
 ‰‰ZŒn
 plus, minus, multiplies, divides, modulus, negate
 */
+
+void miss() {
+	int x, y; bool z;
+	z = x == y; //z ‚ª true ‚É‚È‚Á‚½‚ç‚¸‚Á‚Æ true ‚É‚µ‚Ä‚¨‚«‚½‚¢‚È‚ç
+	if (x == y)z = true; //‚É‚µ‚Ä‚¨‚­
+}
+
+//–¢ŒŸØ
+using Point = pair<double, double>;
+using Rectangle = pair<Point, Point>;
+// t
+//s
+
+Rectangle common(const Rectangle &r1, const Rectangle &r2) {
+	Point s1, t1, s2, t2;
+	tie(s1, t1) = r1;
+	tie(s2, t2) = r2;
+	chmax(s1, s2);
+	chmin(t1, t2);
+	return Rectangle(s1, t1);
+}

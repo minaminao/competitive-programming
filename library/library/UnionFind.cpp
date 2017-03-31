@@ -56,3 +56,27 @@ struct UnionFind_ {
 	int size_of(int x) { return -parent[root(x)]; }
 	int get_idx(int x) { return idx[root(x)]; }
 };
+
+//無向グラフの閉路の検出
+//根を連結成分の id として見ると都合がいい
+struct UnionFind {
+	vector<int> parent;
+	vector<bool> cycle;
+	int size;
+	UnionFind(int n) :parent(n, -1), size(n), cycle(n) {}
+	bool unite(int x, int y) {
+		x = root(x); y = root(y);
+		if (x == y) {
+			cycle[x] = true;
+			return false;
+		}
+		if (cycle[x] || cycle[y])cycle[x] = cycle[y] = true;
+		if (size_of(x) < size_of(y))swap(x, y);
+		parent[x] += parent[y]; parent[y] = x; size--;
+		return true;
+	}
+	bool same(int x, int y) { return root(x) == root(y); }
+	int root(int x) { return parent[x] < 0 ? x : parent[x] = root(parent[x]); }
+	int size_of(int x) { return -parent[root(x)]; }
+	bool has_cycle(int x) { return cycle[root(x)]; }
+};

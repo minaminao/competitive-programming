@@ -34,6 +34,16 @@ struct Imos {
 	int sum(int x1, int y1, int x2, int y2) { return s[x2][y2] - s[x2][y1] - s[x1][y2] + s[x1][y1]; }
 };
 
+//”š˜a
+int digitsum(int x) {
+	int sum = 0;
+	while (x) {
+		sum += x % 10;
+		x /= 10;
+	}
+	return sum;
+}
+
 //1+2+...+n
 mint arithsum(int n) {
 	return (mint)n*(n + 1) / 2;

@@ -35,7 +35,6 @@ double binary_search_(double l, double r, F f) {
 }
 
 void solve() {
-	//ƒ‰ƒ€ƒ_Ž®
 	auto f = [&](int x) {return x > 0; };
 	auto binary_search = [&](int l, int r) {
 		if (f(l))return l; //exception f(l):true
@@ -47,6 +46,35 @@ void solve() {
 				l = m;
 		}
 		//f(l):false, f(r):true
+		return r;
+	};
+	auto f = [&](double x) {
+		return x*x;
+	};
+	auto binary_search = [&](double l, double r) {
+		if (f(l))return l; //exception f(l):true
+		for (int i = 0; i < 100; i++) {
+			double m = (l + r) / 2;
+			if (f(m))
+				r = m;
+			else
+				l = m;
+		}
+		return r; //f(l):false, f(r):true
+	};
+	//ŽO•ª’Tõ
+	auto ternary_search = [&](double l, double r) {
+		for (int i = 0; i < 100; i++) {
+			double m1 = l + (r - l) / 3, m2 = r - (r - l) / 3;
+			//min ‰š : f(m1) > f(m2)
+			//max “Ê : f(m1) < f(m2)
+			if (f(m1) > f(m2)) {
+				l = m1;
+			}
+			else {
+				r = m2;
+			}
+		}
 		return r;
 	};
 }

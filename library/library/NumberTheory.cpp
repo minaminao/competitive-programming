@@ -1,3 +1,5 @@
+#include "ModInt.cpp"
+
 /*
 
 計算量を落とす
@@ -265,4 +267,26 @@ http://judge.u-aizu.ac.jp/onlinejudge/creview.jsp?rid=2231361&cid=RitsCamp17Day1
 //L <= x <= R を満たす x の個数
 int number_in_range(const vector<int> &v, int L, int R) {
 	return upper_bound(v.begin(), v.end(), R) - lower_bound(v.begin(), v.end(), L);
+}
+
+//数列 v の並べ方
+mint number_of_arrangement(vector<int> v) {
+	int n = v.size();
+	assert(fact.size() >= n);
+	mint ret = fact[n];
+	unordered_map<int, int> cnt;
+	for (auto &e : v)cnt[e]++;
+	sort(v.begin(), v.end());
+	v.erase(unique(v.begin(), v.end()), v.end());
+	for (auto &e : v)ret /= fact[cnt[e]];
+	return ret;
+}
+
+//フィボナッチ数列
+vector<int> fibonacci(int n) {
+	vector<int> v(n);
+	v[0] = v[1] = 1;
+	rep(i, 0, n - 2)
+		v[i + 2] += v[i + 1] + v[i];
+	return v;
 }

@@ -19,7 +19,7 @@
     <Filter Include="snippet">
       <UniqueIdentifier>{80332d64-ec66-4bd5-bfb1-4dad1832c7e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GraphTheory">
+    <Filter Include="ソース ファイル\GraphTheory">
       <UniqueIdentifier>{9753e8da-8c9a-425e-8691-d9f1f869ad18}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -142,22 +142,22 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="GraphTheory.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="Matching.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="SpanningTree.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="ConnectedComponents.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="Flow.cpp">
-      <Filter>GraphTheory</Filter>
+      <Filter>ソース ファイル\GraphTheory</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>ソース ファイル</Filter>
@@ -232,9 +232,6 @@
     <None Include="snippet\ooo.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\ov.snippet">
-      <Filter>snippet</Filter>
-    </None>
     <None Include="snippet\ovv.snippet">
       <Filter>snippet</Filter>
     </None>
@@ -271,9 +268,6 @@
     <None Include="snippet\oaa.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\oa.snippet">
-      <Filter>snippet</Filter>
-    </None>
     <None Include="snippet\iiiiv.snippet">
       <Filter>snippet</Filter>
     </None>
@@ -303,6 +297,18 @@
       <Filter>snippet</Filter>
     </None>
     <None Include="snippet\v.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ov_space.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ov_endl.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\oa_space.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\oa_endl.snippet">
       <Filter>snippet</Filter>
     </None>
   </ItemGroup>

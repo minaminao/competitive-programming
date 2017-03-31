@@ -159,12 +159,14 @@ vector<int> get_path(int s, int g, vector<int> prev) {
 	vector<int> path;
 	path.emplace_back(g);
 	for (int i = g; i != s; ) {
-		if (i == -1)return vector<int>();
+		if (i == -1)
+			return vector<int>();
 		path.emplace_back(i = prev[i]);
 	}
 	reverse(path.begin(), path.end());
 	return path;
 }
+
 ////Œo˜H•œŒ³(Warshall-Floyd)
 ////‘¶İ‚µ‚È‚¢ê‡‚Ì–ß‚è’l: ?
 //vector<int> get_path(int s, int g, vector<vector<int>> next) {
