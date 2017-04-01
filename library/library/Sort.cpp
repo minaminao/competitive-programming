@@ -10,6 +10,10 @@ void tied_sort(vector<T> &a, vector<Tail>&... tail) {
 	for (int i = 0; i < n; i++)
 		tie(a[i], tail[i]...) = s[i];
 }
+/*
+vector<int> v(N), idx(N); iota(all(idx), 0);
+tied_sort(v idx);
+*/
 
 //merge sort
 template <class It>
