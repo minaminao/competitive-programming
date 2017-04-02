@@ -6,7 +6,7 @@ using namespace std;
 #define dump(...)
 #endif
 
-//#define int long long
+#define int long long
 #define rep(i,a,b) for(int i=(a);i<(b);i++)
 #define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
 #define all(c) begin(c),end(c)
@@ -140,13 +140,27 @@ signed main() {
 	}
 	dump(cminwidx);
 	UnionFind uf(N);
-	int minwidx = min_element(all(w)) - w.begin();
 	rep(i, 0, N) {
 		if (w[cminwidx[c[i]]] + w[i] <= X)uf.unite(cminwidx[c[i]], i);
 	}
 	dump(uf.parent);
+	tied_sort(w_, c_, idx);
+	int minwidx = idx[0];
+	int minwidx2;
+	rep(i, 1, N) {
+		if (c_[0] != c_[i]) {
+			minwidx2 = idx[i];
+			break;
+		}
+	}
+	dump(minwidx, minwidx2);
 	rep(i, 0, N) {
+		if (c[minwidx] == c[i])continue;
 		if (w[minwidx] + w[i] <= Y)uf.unite(minwidx, i);
+	}
+	rep(i, 0, N) {
+		if (c[minwidx2] == c[i])continue;
+		if (w[minwidx2] + w[i] <= Y)uf.unite(minwidx2, i);
 	}
 	dump(uf.parent);
 	vector<int> ridx(N);
@@ -155,16 +169,14 @@ signed main() {
 	}
 	c_ = c;
 	tied_sort(ridx, c_);
-	vector<int> tmp;
-	int prev = ridx.front();
+	vector<int> tmp{ c_[0] };
 	mint ans = 1;
-	rep(i, 0, N) {
-		if (prev == ridx[i]) {
+	rep(i, 1, N) {
+		if (ridx[i - 1] == ridx[i]) {
 			tmp.emplace_back(c_[i]);
 		}
 		else {
 			ans *= number_of_arrangement(tmp);
-			prev = ridx[i];
 			tmp = { c_[i] };
 		}
 		dump(i, tmp, ans);

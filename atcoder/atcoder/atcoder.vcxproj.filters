@@ -78,28 +78,13 @@
     <ClCompile Include="arc024_2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="arc043_b.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="arc046_b.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="arc050_b.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="agc010_b.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="agc012_a.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="agc012_b.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="agc012_c.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="agc012_d.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="agc012_e.cpp">

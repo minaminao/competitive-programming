@@ -149,15 +149,10 @@
   <ItemGroup>
     <ClCompile Include="agc010_b.cpp" />
     <ClCompile Include="agc011_c.cpp" />
-    <ClCompile Include="agc012_a.cpp" />
     <ClCompile Include="agc012_b.cpp" />
     <ClCompile Include="agc012_c.cpp" />
-    <ClCompile Include="agc012_d.cpp" />
     <ClCompile Include="agc012_e.cpp" />
     <ClCompile Include="arc024_2.cpp" />
-    <ClCompile Include="arc043_b.cpp" />
-    <ClCompile Include="arc046_b.cpp" />
-    <ClCompile Include="arc050_b.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
     <ClCompile Include="arc069_d.cpp" />
     <ClCompile Include="arc070_c.cpp" />
