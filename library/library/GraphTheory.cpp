@@ -27,15 +27,15 @@ void add_edge(Graph &g, int a, int b, Weight w = 1) {
 
 void dfs(const Graph &g, int root) {
 	int n = g.size();
-	vector<bool> f(n);
+	vector<bool> vis(n);
 	stack<int> st; st.emplace(root);
 	while (st.size()) {
 		int u = st.top(); st.pop();
-		if (f[u])continue;
-		f[u] = true;
+		if (vis[u])continue;
+		vis[u] = true;
 		/* èàóù */
 		for (auto &e : g[u]) {
-			if (f[e.d])continue;
+			if (vis[e.d])continue;
 			/* èàóù */
 			st.emplace(e.d);
 		}
@@ -44,15 +44,15 @@ void dfs(const Graph &g, int root) {
 
 void bfs(const Graph &g, int root) {
 	int n = g.size();
-	vector<bool> f(n);
+	vector<bool> vis(n);
 	queue<int> q; q.emplace(root);
 	while (q.size()) {
 		int u = q.front(); q.pop();
-		if (f[u])continue;
-		f[u] = true;
+		if (vis[u])continue;
+		vis[u] = true;
 		/* èàóù */
 		for (auto &e : g[u]) {
-			if (f[e.d])continue;
+			if (vis[e.d])continue;
 			/* èàóù */
 			q.emplace(e.d);
 		}
@@ -60,33 +60,29 @@ void bfs(const Graph &g, int root) {
 }
 
 void solve() {
-	auto dfs = [&](const Graph &g, int root) {
-		int n = g.size();
-		vector<bool> f(n);
-		stack<int> st; st.emplace(root);
-		while (st.size()) {
-			int u = st.top(); st.pop();
-			if (f[u])continue;
-			f[u] = true;
+	int n;
+	Graph g(n);
+	vector<bool> vis(n);
+	function<void(int)> dfs = [&](int u) {
+		if (vis[u])return;
+		vis[u] = true;
+		/* èàóù */
+		for (auto &e : g[u]) {
+			if (vis[e.d])continue;
 			/* èàóù */
-			for (auto &e : g[u]) {
-				if (f[e.d])continue;
-				/* èàóù */
-				st.emplace(e.d);
-			}
+			dfs(e.d);
 		}
 	};
-	auto bfs = [&](const Graph &g, int root) {
-		int n = g.size();
-		vector<bool> f(n);
+	auto bfs = [&](int root) {
+		vector<bool> vis(n);
 		queue<int> q; q.emplace(root);
 		while (q.size()) {
 			int u = q.front(); q.pop();
-			if (f[u])continue;
-			f[u] = true;
+			if (vis[u])continue;
+			vis[u] = true;
 			/* èàóù */
 			for (auto &e : g[u]) {
-				if (f[e.d])continue;
+				if (vis[e.d])continue;
 				/* èàóù */
 				q.emplace(e.d);
 			}
@@ -383,7 +379,7 @@ Graph build(const vector<vector<char>> &v, int w) {
 	return g;
 }
 
-//s <= d Ç©Ç¬ s1 <= s2 Ç©Ç¬ d1 <= d2 ÇñûÇΩÇ∑ÇÊÇ§Ç…ï¿Ç◊ÇÈ
+//s <= d Ç©Ç¬ s1 <= s2 Ç©Ç¬ d1 <= d2 ÇñûÇΩÇ∑ÇÊÇ§Ç…É\Å[Ég
 void sort(Edges &es) {
 	for (auto &e : es)
 		if (e.s > e.d)

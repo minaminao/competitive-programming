@@ -213,6 +213,7 @@
     <ClCompile Include="..\atcoder\agc012_d.cpp" />
     <ClCompile Include="..\atcoder\arc001_1.cpp" />
     <ClCompile Include="..\atcoder\arc001_2.cpp" />
+    <ClCompile Include="..\atcoder\arc001_c.cpp" />
     <ClCompile Include="..\atcoder\arc002_1.cpp" />
     <ClCompile Include="..\atcoder\arc002_2.cpp" />
     <ClCompile Include="..\atcoder\arc003_1.cpp" />
