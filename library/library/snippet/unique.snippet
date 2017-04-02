@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
-	<CodeSnippet Format="1.0.0">
-		<Header>
-			<Title>unique</Title>
-			<Shortcut>unique</Shortcut>
-			<Description></Description>
-			<Author>minami</Author>
-			<SnippetTypes>
-				<SnippetType>Expansion</SnippetType>
-				<SnippetType>SurroundsWith</SnippetType>
-			</SnippetTypes>
-		</Header>
-		<Snippet>
-			<Declarations>
-				<Literal>
-					<ID>v</ID>
-					<Default>v</Default>
-					<ToolTip>変数名</ToolTip>
-				</Literal>
-			</Declarations>
-			<Code Language="cpp">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>unique</Title>
+      <Shortcut>unique</Shortcut>
+      <Description></Description>
+      <Author>minami</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>v</ID>
+          <Default>v</Default>
+          <ToolTip>変数名</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="cpp">
         <![CDATA[$v$.erase(unique($v$.begin(), $v$.end()), $v$.end());$end$]]>
-			</Code>
-		</Snippet>
-	</CodeSnippet>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>

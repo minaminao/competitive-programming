@@ -2,8 +2,8 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>ov_endl</Title>
-			<Shortcut>ovendl</Shortcut>
+			<Title>binary_search</Title>
+			<Shortcut>binarysearch</Shortcut>
 			<Description></Description>
 			<Author>minami</Author>
 			<SnippetTypes>
@@ -12,20 +12,21 @@
 			</SnippetTypes>
 		</Header>
 		<Snippet>
-			<Declarations>
-        <Literal>
-          <ID>v</ID>
-          <Default>v</Default>
-          <ToolTip>変数名</ToolTip>
-        </Literal>
-        <Literal>
-          <ID>i</ID>
-          <Default>i</Default>
-          <ToolTip>変数名</ToolTip>
-        </Literal>
-			</Declarations>
 			<Code Language="cpp">
-        <![CDATA[rep($i$, 0, $v$.size()) { cout << $v$[$i$] << endl; }$end$]]>
+        <![CDATA[auto f = [&](int x) {return x > 0; };
+auto binary_search = [&](int l, int r) {
+	if (f(l))return l; //exception f(l):true
+	while (l + 1 < r) {
+		int m = (l + r) / 2;
+		if (f(m))
+			r = m;
+		else
+			l = m;
+	}
+	//f(l):false, f(r):true
+	return r;
+};
+$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

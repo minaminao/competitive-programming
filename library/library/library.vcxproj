@@ -202,7 +202,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="snippet\all.snippet" />
+    <None Include="snippet\binary_search.snippet" />
+    <None Include="snippet\clang.snippet" />
     <None Include="snippet\didj.snippet" />
+    <None Include="snippet\dijkstra.snippet" />
+    <None Include="snippet\graph.snippet" />
     <None Include="snippet\i.snippet" />
     <None Include="snippet\ii.snippet" />
     <None Include="snippet\iii.snippet" />
@@ -235,6 +239,7 @@
     <None Include="snippet\tmp.snippet">
       <SubType>Designer</SubType>
     </None>
+    <None Include="snippet\uf.snippet" />
     <None Include="snippet\unique.snippet" />
     <None Include="snippet\v.snippet" />
     <None Include="snippet\vb.snippet" />

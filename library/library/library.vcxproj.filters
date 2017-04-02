@@ -302,16 +302,31 @@
     <None Include="snippet\v.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\ov_space.snippet">
+    <None Include="snippet\uf.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\ov_endl.snippet">
+    <None Include="snippet\oa_endl.snippet">
       <Filter>snippet</Filter>
     </None>
     <None Include="snippet\oa_space.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\oa_endl.snippet">
+    <None Include="snippet\ov_endl.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\ov_space.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\graph.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\dijkstra.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\clang.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\binary_search.snippet">
       <Filter>snippet</Filter>
     </None>
   </ItemGroup>

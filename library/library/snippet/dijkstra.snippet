@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>dijkstra</Title>
+			<Shortcut>dijkstra</Shortcut>
+			<Description></Description>
+			<Author>minami</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="cpp">
+        <![CDATA[vector<int> dijkstra(const Graph &g, int s, Array &dist) {
+	int n = g.size();
+	assert(s < n);
+	enum { WHITE, GRAY, BLACK };
+	vector<int> color(n, WHITE); color[s] = GRAY;
+	vector<int> prev(n, -1);
+	dist.assign(n, INF); dist[s] = 0;
+	using State = tuple<Weight, int, int>;
+	priority_queue<State, vector<State>, greater<State>> pq; pq.emplace(0, s, -1);
+	while (pq.size()) {
+		Weight d; int v, u; tie(d, v, u) = pq.top(); pq.pop();
+		if (dist[v] < d)continue;
+		color[v] = BLACK; prev[v] = u;
+		for (auto &e : g[v]) {
+			if (color[e.d] == BLACK)continue;
+			if (dist[e.d] > dist[v] + e.w) {
+				dist[e.d] = dist[v] + e.w;
+				pq.emplace(dist[e.d], e.d, v);
+				color[e.d] = GRAY;
+			}
+		}
+	}
+	return prev;
+}
+$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

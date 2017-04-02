@@ -14,16 +14,6 @@
 		<Snippet>
       <Declarations>
         <Literal>
-          <ID>i</ID>
-          <Default>i</Default>
-          <ToolTip></ToolTip>
-        </Literal>
-        <Literal>
-          <ID>j</ID>
-          <Default>j</Default>
-          <ToolTip></ToolTip>
-        </Literal>
-        <Literal>
           <ID>H</ID>
           <Default>H</Default>
           <ToolTip></ToolTip>
@@ -35,7 +25,7 @@
         </Literal>
       </Declarations>
 			<Code Language="cpp">
-        <![CDATA[auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };$end$]]>
+        <![CDATA[auto inrange = [&](int i, int j) { return i >= 0 && i < $H$ && j >= 0 && j < $W$; };$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>
