@@ -73,3 +73,38 @@ mint solve(int N, int K, int g) {
 	if (K%g)return 0;
 	return solve(N / g, K / g)*g;
 }
+
+//‚ ‚é“_‚©‚ç1ŸŒ³ã‚Ì“_ŒQ‚É‘Î‚µ‚Ä‚Ì‹——£‚Ì‘˜a O(logn)
+struct DistanceSum {
+	int n;
+	vector<int> p;
+	vector<int> sum; //[0, i)
+	DistanceSum(const vector<int> p_) :n(p_.size()), p(p_), sum(n + 1) {
+		sort(p.begin(), p.end());
+		for (int i = 0; i < n; i++)
+			sum[i + 1] = sum[i] + p[i];
+	}
+	int get(int x) {
+		int r = lower_bound(p.begin(), p.end(), x) - p.begin();
+		int d = 0;
+		d += r*x - sum[r];
+		d += sum[n] - sum[r] - x*(n - r);
+		return d;
+	}
+};
+/*
+
+- - - -|+ + + +o
+- - - -|+ +r
+- - -o+|
+-o+ + +|
+
+sum[n] - sum[r] - x*(n - r)
+- - - -|+ + + +o
+- - - -|+ +r
+
+r*x - sum[r]
+- - -o+|
+-o+ + +|
+
+*/

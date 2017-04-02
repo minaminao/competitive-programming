@@ -301,6 +301,10 @@
     <ClCompile Include="..\atcoder\arc069_a.cpp" />
     <ClCompile Include="..\atcoder\arc069_b.cpp" />
     <ClCompile Include="..\atcoder\arc069_c.cpp" />
+    <ClCompile Include="..\atcoder\bcu30_a.cpp" />
+    <ClCompile Include="..\atcoder\bcu30_b.cpp" />
+    <ClCompile Include="..\atcoder\bcu30_c.cpp" />
+    <ClCompile Include="..\atcoder\bcu30_d.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a.cpp" />
     <ClCompile Include="..\atcoder\chokudai003_a_2.cpp" />
     <ClCompile Include="..\atcoder\joi2006yo_a.cpp" />
