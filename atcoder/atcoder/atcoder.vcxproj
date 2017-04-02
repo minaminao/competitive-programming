@@ -159,10 +159,6 @@
     <ClCompile Include="arc070_d.cpp" />
     <ClCompile Include="arc070_e.cpp" />
     <ClCompile Include="mujin_b.cpp" />
-    <ClCompile Include="rco_a.cpp" />
-    <ClCompile Include="rco_a_2.cpp" />
-    <ClCompile Include="rco_b.cpp" />
-    <ClCompile Include="rco_b_2.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

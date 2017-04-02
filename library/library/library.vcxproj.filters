@@ -168,6 +168,9 @@
     <ClCompile Include="KdTree.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="eight_queens_puzzle.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bits\stdc++.h">
