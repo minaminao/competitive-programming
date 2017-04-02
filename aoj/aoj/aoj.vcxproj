@@ -162,7 +162,6 @@
     <ClCompile Include="2812.cpp" />
     <ClCompile Include="c407_a.cpp" />
     <ClCompile Include="DPL_2_B.cpp" />
-    <ClCompile Include="DSL_2_C.cpp" />
     <ClCompile Include="RitsCamp17Day2_F.cpp" />
     <ClCompile Include="RitsCamp17Day2_D.cpp" />
     <ClCompile Include="RitsCamp17Day2_E.cpp" />

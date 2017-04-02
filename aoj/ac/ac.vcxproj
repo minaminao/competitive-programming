@@ -184,6 +184,7 @@
     <ClCompile Include="..\aoj\ALDS1_7_D.cpp" />
     <ClCompile Include="..\aoj\ALDS1_8_A.cpp" />
     <ClCompile Include="..\aoj\ALDS1_8_B.cpp" />
+    <ClCompile Include="..\aoj\CGL_7_F.cpp" />
     <ClCompile Include="..\aoj\DPL_1_A.cpp" />
     <ClCompile Include="..\aoj\DPL_1_B.cpp" />
     <ClCompile Include="..\aoj\DPL_1_C.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="..\aoj\DPL_4_B.cpp" />
     <ClCompile Include="..\aoj\DSL_2_A.cpp" />
     <ClCompile Include="..\aoj\DSL_2_B.cpp" />
+    <ClCompile Include="..\aoj\DSL_2_C.cpp" />
     <ClCompile Include="..\aoj\DSL_2_D.cpp" />
     <ClCompile Include="..\aoj\DSL_2_E.cpp" />
     <ClCompile Include="..\aoj\DSL_2_F.cpp" />

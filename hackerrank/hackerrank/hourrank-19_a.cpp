@@ -18,6 +18,15 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//
+//	int N; cin >> N;
+//	vector<int> v(N); rep(i, 0, N) { cin >> v[i]; }
+//	int pos = 0;
+//	int ans = 0;
+//	while (pos < N) {
+//		dump(v[pos]);
+//		pos += v[pos] + 1;
+//		ans++;
+//	}
+//	cout << ans << endl;
 //	return 0;
 //}

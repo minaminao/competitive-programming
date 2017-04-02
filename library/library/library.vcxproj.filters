@@ -108,9 +108,6 @@
     <ClCompile Include="Debug.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\aoj\aoj\n_puzzle.cpp">
-      <Filter>ソース ファイル\typical problem</Filter>
-    </ClCompile>
     <ClCompile Include="Compression.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -169,6 +166,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="eight_queens_puzzle.cpp">
+      <Filter>ソース ファイル\typical problem</Filter>
+    </ClCompile>
+    <ClCompile Include="n_puzzle.cpp">
       <Filter>ソース ファイル\typical problem</Filter>
     </ClCompile>
   </ItemGroup>

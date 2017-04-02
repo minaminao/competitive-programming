@@ -39,7 +39,7 @@ struct Puzzle {
 		space = t;
 	}
 };
-inline istream &operator >> (istream &is, Puzzle &p) { 
+inline istream &operator >> (istream &is, Puzzle &p) {
 	for (int i = 0; i < NN; i++) {
 		is >> p.f[i];
 		if (p.f[i] == 0) {
@@ -47,7 +47,7 @@ inline istream &operator >> (istream &is, Puzzle &p) {
 			p.space = i;
 		}
 	}
-	return is; 
+	return is;
 }
 
 

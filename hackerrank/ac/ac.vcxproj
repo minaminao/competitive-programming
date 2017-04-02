@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DA160859-EED6-44C2-AD3F-81B54405303C}</ProjectGuid>
+    <ProjectGuid>{5C3B3D1A-1A6D-4697-B2B1-3B50B86946BC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>library</RootNamespace>
+    <RootNamespace>ac</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,7 +88,6 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ForcedIncludeFiles>template.cpp</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,117 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bit.cpp" />
-    <ClCompile Include="Boost.cpp" />
-    <ClCompile Include="CompleteSearch.cpp" />
-    <ClCompile Include="Compression.cpp" />
-    <ClCompile Include="ConnectedComponents.cpp" />
-    <ClCompile Include="Date.cpp" />
-    <ClCompile Include="Debug.cpp" />
-    <ClCompile Include="eight_queens_puzzle.cpp" />
-    <ClCompile Include="Flow.cpp" />
-    <ClCompile Include="DP.cpp" />
-    <ClCompile Include="DP_keta.cpp" />
-    <ClCompile Include="FenwickTree.cpp" />
-    <ClCompile Include="Field.cpp" />
-    <ClCompile Include="Geometry.cpp" />
-    <ClCompile Include="Geometry3D.cpp" />
-    <ClCompile Include="GraphTheory.cpp" />
-    <ClCompile Include="inclusion-exclusion principle.cpp" />
-    <ClCompile Include="is_eulerian_graph.cpp" />
-    <ClCompile Include="KdTree.cpp" />
-    <ClCompile Include="Macro.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Marathon.cpp" />
-    <ClCompile Include="Matching.cpp" />
-    <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="miller_rabin_primality_test.cpp" />
-    <ClCompile Include="ModInt.cpp" />
-    <ClCompile Include="NumberTheory.cpp" />
-    <ClCompile Include="n_puzzle.cpp" />
-    <ClCompile Include="Parsing.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="RangeQuery.cpp" />
-    <ClCompile Include="SegmentTree.cpp" />
-    <ClCompile Include="Regex.cpp" />
-    <ClCompile Include="NumericalAnalysis.cpp" />
-    <ClCompile Include="reversi.cpp" />
-    <ClCompile Include="Search.cpp" />
-    <ClCompile Include="SlidingWindow.cpp" />
-    <ClCompile Include="Sort.cpp" />
-    <ClCompile Include="SpanningTree.cpp" />
-    <ClCompile Include="SqrtDecomposition.cpp" />
-    <ClCompile Include="String.cpp" />
-    <ClCompile Include="Sum.cpp" />
-    <ClCompile Include="template.cpp" />
-    <ClCompile Include="Time.cpp" />
-    <ClCompile Include="Tree.cpp" />
-    <ClCompile Include="Tricks.cpp" />
-    <ClCompile Include="TwoSatisfiability.cpp" />
-    <ClCompile Include="UnionFind.cpp" />
-    <ClCompile Include="平均最大化.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="bits\stdc++.h" />
-    <ClInclude Include="clang.h" />
-    <ClInclude Include="dump.hpp" />
-    <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="snippet\all.snippet" />
-    <None Include="snippet\didj.snippet" />
-    <None Include="snippet\i.snippet" />
-    <None Include="snippet\ii.snippet" />
-    <None Include="snippet\iii.snippet" />
-    <None Include="snippet\iiii.snippet" />
-    <None Include="snippet\iiiii.snippet" />
-    <None Include="snippet\iiiiiv.snippet" />
-    <None Include="snippet\iiiiv.snippet" />
-    <None Include="snippet\iiiv.snippet" />
-    <None Include="snippet\iiv.snippet" />
-    <None Include="snippet\inrange.snippet" />
-    <None Include="snippet\iv.snippet" />
-    <None Include="snippet\ivv.snippet" />
-    <None Include="snippet\ll.snippet" />
-    <None Include="snippet\memset.snippet" />
-    <None Include="snippet\modint.snippet" />
-    <None Include="snippet\o.snippet" />
-    <None Include="snippet\oa_endl.snippet" />
-    <None Include="snippet\oa_space.snippet" />
-    <None Include="snippet\oaa.snippet" />
-    <None Include="snippet\oo.snippet" />
-    <None Include="snippet\ooo.snippet" />
-    <None Include="snippet\oooo.snippet" />
-    <None Include="snippet\ooooo.snippet" />
-    <None Include="snippet\oooooo.snippet" />
-    <None Include="snippet\ovv.snippet" />
-    <None Include="snippet\ov_endl.snippet" />
-    <None Include="snippet\ov_space.snippet" />
-    <None Include="snippet\pii.snippet" />
-    <None Include="snippet\pre.snippet" />
-    <None Include="snippet\tmp.snippet">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="snippet\unique.snippet" />
-    <None Include="snippet\v.snippet" />
-    <None Include="snippet\vb.snippet" />
-    <None Include="snippet\vc.snippet" />
-    <None Include="snippet\vi.snippet" />
-    <None Include="snippet\vpii.snippet" />
-    <None Include="snippet\vs.snippet" />
-    <None Include="snippet\vv.snippet" />
-    <None Include="snippet\vvc.snippet" />
-    <None Include="snippet\vvi.snippet" />
+    <ClCompile Include="..\hackerrank\simple-array-sum.cpp" />
+    <ClCompile Include="..\hackerrank\solve-me-first.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\atcoder\packages\boost.1.63.0.0\build\native\boost.targets" Condition="Exists('..\..\atcoder\packages\boost.1.63.0.0\build\native\boost.targets')" />
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\atcoder\packages\boost.1.63.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\atcoder\packages\boost.1.63.0.0\build\native\boost.targets'))" />
-  </Target>
 </Project>

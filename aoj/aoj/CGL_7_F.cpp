@@ -1,3 +1,20 @@
+#include "bits/stdc++.h"
+using namespace std;
+#ifdef _DEBUG
+#include "dump.hpp"
+#else
+#define dump(...)
+#endif
+
+//#define int long long
+#define rep(i,a,b) for(int i=(a);i<(b);i++)
+#define rrep(i,a,b) for(int i=(b)-1;i>=(a);i--)
+#define all(c) begin(c),end(c)
+const int INF = sizeof(int) == sizeof(long long) ? 0x3f3f3f3f3f3f3f3fLL : 0x3f3f3f3f;
+const int MOD = (int)(1e9) + 7;
+template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
+template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
+
 //#define double long double
 const double EPS = 1e-8;
 const double PI = acos(-1);
@@ -342,4 +359,18 @@ pair<Point, Point> get_tangent(const Circle &c, const Point &p) {
 	double d = get_distance(c.c, p);
 	Circle c2((c.c + p) / 2, d / 2);
 	return get_cross_points(c, c2);
+}
+
+signed main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	Point p;
+	Circle c;
+	cin >> p >> c.c >> c.r;
+	auto res = get_tangent(c, p);
+	if (res.first > res.second)swap(res.first, res.second);
+	cout << fixed << setprecision(10);
+	cout << res.first << endl;
+	cout << res.second << endl;
+	return 0;
 }
