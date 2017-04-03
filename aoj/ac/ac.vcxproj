@@ -144,10 +144,12 @@
   <ItemGroup>
     <ClCompile Include="..\aoj\0116.cpp" />
     <ClCompile Include="..\aoj\0514.cpp" />
+    <ClCompile Include="..\aoj\0518.cpp" />
     <ClCompile Include="..\aoj\0523.cpp" />
     <ClCompile Include="..\aoj\0524.cpp" />
     <ClCompile Include="..\aoj\0525.cpp" />
     <ClCompile Include="..\aoj\0527.cpp" />
+    <ClCompile Include="..\aoj\0535.cpp" />
     <ClCompile Include="..\aoj\0539.cpp" />
     <ClCompile Include="..\aoj\0545.cpp" />
     <ClCompile Include="..\aoj\0546.cpp" />

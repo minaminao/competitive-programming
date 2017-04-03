@@ -329,5 +329,8 @@
     <None Include="snippet\binary_search.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\vvb.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>
