@@ -112,6 +112,7 @@ signed main() {
 	cout << (flag ? "YES" : "NO") << endl;
 	cin.ignore();
 	string s; getline(cin, s);
+	char s2[100]; cin >> s2; int n = strlen(s2);
 	return 0;
 }
 

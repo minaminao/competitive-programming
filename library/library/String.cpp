@@ -196,6 +196,13 @@ signed main() {
 	s = "" + c;
 	s = string(1, c);
 
+	char s2[100]; int N = strlen(s2);
+	map<string, int> counts;
+	rep(len, 1, 10) {
+		rep(i, 0, N - len + 1) {
+			string(s2 + i, s2 + i + len); //[i, i+len)
+		}
+	}
 	return 0;
 }
 

@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AhoCorasick.cpp" />
     <ClCompile Include="Bit.cpp" />
     <ClCompile Include="Boost.cpp" />
     <ClCompile Include="CompleteSearch.cpp" />

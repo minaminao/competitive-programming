@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="430.cpp" />
     <ClCompile Include="470.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stdafx.cpp">
