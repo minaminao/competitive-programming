@@ -1,8 +1,9 @@
+#include "GraphTheory.cpp"
+#include "UnionFind.cpp"
+
 /*
 基本的には木もグラフ同様、Graphを使えばいい
 */
-
-#include "GraphTheory.cpp"
 
 //preorder と inorder から postorder を構築
 vector<int> reconstruct_tree(const vector<int> &pre, const vector<int> &in) {
@@ -19,6 +20,52 @@ vector<int> reconstruct_tree(const vector<int> &pre, const vector<int> &in) {
 	rec(0, pre.size());
 	return post;
 }
+
+
+//Tarjan's off-line lowest common ancestors (dfs再帰)
+//構築O(N) クエリ(1)
+struct Query {
+	int u, v;
+	Query(int u, int v) :u(u), v(v) {}
+};
+struct LowestCommonAncestor {
+	vector<vector<pair<int, Query>>> query_set;
+	Graph g;
+	vector<int> color;
+	vector<int> ancestor;
+	vector<int> res;
+	UnionFind uf;
+	LowestCommonAncestor(const Graph &g, vector<Query> &query) :g(g), color(g.size()), ancestor(g.size()), uf(g.size()), res(query.size()), query_set(g.size()) {
+		int n = query.size();
+		for (int i = 0; i < n; i++) {
+			query_set[query[i].u].emplace_back(i, query[i]);
+			query_set[query[i].v].emplace_back(i, query[i]);
+		}
+	}
+	void visit(int s, int prev) {
+		ancestor[uf.root(s)] = s;
+		for (auto &e : g[s]) {
+			if (e.d == prev)continue;
+			visit(e.d, s);
+			uf.unite(e.s, e.d);
+			ancestor[uf.root(s)] = s;
+		}
+		color[s] = 1;
+		for (auto &p : query_set[s]) {
+			Query q = p.second;
+			int w = (q.v == s ? q.u : q.u == s ? q.v : -1);
+			if (w == -1 || !color[w])continue;
+			res[p.first] = ancestor[uf.root(w)];
+		}
+	}
+	vector<int> solve(int root) {
+		int n = g.size();
+		UnionFind uf(n);
+		vector<int> color(n), ancestor(n);
+		visit(root, -1);
+		return res;
+	}
+};
 
 
 //lowest common ancestor (ダブリング + dfs再帰)
@@ -115,6 +162,8 @@ struct LowestCommonAncestor {
 		return parent[0][u];
 	}
 };
+
+
 
 //木の直径
 Edge diameter(const Graph &g, int s = 0) {

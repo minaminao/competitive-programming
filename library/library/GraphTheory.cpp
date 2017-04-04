@@ -88,6 +88,22 @@ void solve() {
 			}
 		}
 	};
+	//not verified
+	auto unweighted_shortest_path = [&](int root, Array &dist) {
+		dist.assign(n, INF); dist[root] = 0;
+		vector<bool> vis(n);
+		queue<int> q; q.emplace(root);
+		while (q.size()) {
+			int u = q.front(); q.pop();
+			if (vis[u])continue;
+			vis[u] = true;
+			for (auto &e : g[u]) {
+				if (vis[e.d])continue;
+				dist[e.d] = dist[u] + 1;
+				q.emplace(e.d);
+			}
+		}
+	};
 }
 
 
@@ -228,6 +244,38 @@ bool warshall_floyd(const Graph &g, Matrix &dist) {
 	return !negative_cycle;
 }
 
+//全点対間最短経路
+//Warshall-Floyd O(|V|^3)
+//インライン版
+const int N = 100;
+int wf[N][N];
+void warshall_floyd() {
+	int n; cin >> n;
+	rep(i, 0, n)rep(j, 0, n)wf[i][j] = INF;
+	rep(i, 0, n)wf[i][i] = 0;
+
+	int m; cin >> m;
+	rep(i, 0, m) {
+		int s, d, w; cin >> s >> d >> w;
+		wf[s][d] = min(wf[s][d], w);
+	}
+
+	rep(k, 0, n)rep(i, 0, n)rep(j, 0, n) {
+		if (wf[i][k] != INF&&wf[k][j] != INF)
+			wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
+	}
+
+	int i, j;
+
+	//iを通る負閉路があるか
+	wf[i][i] < 0;
+
+	//iからjへ向かう道であり負閉路を通るものがあるか
+	rep(k, 0, n)
+		if (wf[i][k] != INF&&wf[k][j] != INF&&wf[k][k] < 0);
+}
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2243165
+
 //全点対間最短経路 
 void all_pairs_shortest_paths_by_dijkstra(const Graph &g, Matrix &dists) {
 	int n = g.size();
@@ -263,51 +311,6 @@ vector<int> topological_sort(const Graph &g) {
 }
 
 #include "UnionFind.cpp"
-//Tarjan's off-line lowest common ancestors (dfs再帰)
-//構築O(N) クエリ(1)
-struct Query {
-	int u, v;
-	Query(int u, int v) :u(u), v(v) {}
-};
-struct LowestCommonAncestor {
-	vector<vector<pair<int, Query>>> query_set;
-	Graph g;
-	vector<int> color;
-	vector<int> ancestor;
-	vector<int> res;
-	UnionFind uf;
-	LowestCommonAncestor(const Graph &g, vector<Query> &query) :g(g), color(g.size()), ancestor(g.size()), uf(g.size()), res(query.size()), query_set(g.size()) {
-		int n = query.size();
-		for (int i = 0; i < n; i++) {
-			query_set[query[i].u].emplace_back(i, query[i]);
-			query_set[query[i].v].emplace_back(i, query[i]);
-		}
-	}
-	void visit(int s, int prev) {
-		ancestor[uf.root(s)] = s;
-		for (auto &e : g[s]) {
-			if (e.d == prev)continue;
-			visit(e.d, s);
-			uf.unite(e.s, e.d);
-			ancestor[uf.root(s)] = s;
-		}
-		color[s] = 1;
-		for (auto &p : query_set[s]) {
-			Query q = p.second;
-			int w = (q.v == s ? q.u : q.u == s ? q.v : -1);
-			if (w == -1 || !color[w])continue;
-			res[p.first] = ancestor[uf.root(w)];
-		}
-	}
-	vector<int> solve(int root) {
-		int n = g.size();
-		UnionFind uf(n);
-		vector<int> color(n), ancestor(n);
-		visit(root, -1);
-		return res;
-	}
-};
-
 //無向グラフが連結グラフか判定 O(|E|α(|E|))
 bool is_connected_graph(const Graph &udg) {
 	int n = udg.size();

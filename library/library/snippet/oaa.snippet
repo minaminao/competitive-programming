@@ -28,11 +28,21 @@
           <Default>j</Default>
           <ToolTip>変数名</ToolTip>
         </Literal>
+        <Literal>
+          <ID>n</ID>
+          <Default>n</Default>
+          <ToolTip>変数名</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>m</ID>
+          <Default>m</Default>
+          <ToolTip>変数名</ToolTip>
+        </Literal>
 			</Declarations>
 			<Code Language="cpp">
-        <![CDATA[	rep($i$, 0, size($a$)) {
+        <![CDATA[	rep($i$, 0, $n$) {
         cout << $a$[$i$][0];
-        rep($j$, 1, size($a$[$i$])) { cout << " " << $a$[$i$][$j$]; }
+        rep($j$, 1, $m$) { cout << " " << $a$[$i$][$j$]; }
         cout << endl;
         }$end$]]>
 			</Code>

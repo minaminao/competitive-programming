@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>warshall_floyd</Title>
+			<Shortcut>warshallfloyd</Shortcut>
+			<Description></Description>
+			<Author>minami</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="cpp">
+        <![CDATA[const int N = 100;
+int wf[N][N];
+void warshall_floyd() {
+	int n; cin >> n;
+	rep(i, 0, n)rep(j, 0, n)wf[i][j] = INF;
+	rep(i, 0, n)wf[i][i] = 0;
+
+	int m; cin >> m;
+	rep(i, 0, m) {
+		int s, d, w; cin >> s >> d >> w;
+		wf[s][d] = min(wf[s][d], w);
+	}
+
+	rep(k, 0, n)rep(i, 0, n)rep(j, 0, n) {
+		if (wf[i][k] != INF&&wf[k][j] != INF)
+			wf[i][j] = min(wf[i][j], wf[i][k] + wf[k][j]);
+	}
+
+	int i, j;
+
+	wf[i][i] < 0; 
+
+	rep(k, 0, n)
+		if (wf[i][k] != INF&&wf[k][j] != INF&&wf[k][k] < 0);
+}
+$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

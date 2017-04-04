@@ -11,6 +11,8 @@ using P = pair<int, int>;
 //#define double long double
 
 ////使えず
+////__VA_ARGS__が1個の引数として認識されてしまうため
+////tuple化してもダメだった（変数が含まれるとタプル化はできないみたい）
 //#define _overload(_1,_2,_3,name,...) name
 //#define _rep(i,n) _rep2(i,0,n)
 //#define _rrep(i,n) _rrep2(i,0,n)

@@ -161,6 +161,7 @@
     <ClCompile Include="bcu30_e.cpp" />
     <ClCompile Include="bcu30_e_2.cpp" />
     <ClCompile Include="bcu30_f.cpp" />
+    <ClCompile Include="codefestival_2016_final_f.cpp" />
     <ClCompile Include="mujin_b.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stdafx.cpp">

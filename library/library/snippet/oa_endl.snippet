@@ -23,9 +23,14 @@
           <Default>i</Default>
           <ToolTip>変数名</ToolTip>
         </Literal>
+        <Literal>
+          <ID>n</ID>
+          <Default>n</Default>
+          <ToolTip>変数名</ToolTip>
+        </Literal>
 			</Declarations>
 			<Code Language="cpp">
-        <![CDATA[rep($i$, 0, size($a$)) { cout << $a$[$i$] << endl; }$end$]]>
+        <![CDATA[rep($i$, 0, $n$)) { cout << $a$[$i$] << endl; }$end$]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>
