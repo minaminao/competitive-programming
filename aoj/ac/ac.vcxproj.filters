@@ -162,9 +162,6 @@
     <ClCompile Include="..\aoj\GRL_3_B.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\aoj\GRL_3_C.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\aoj\2805.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -271,6 +268,15 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\aoj\GRL_1_C.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\aoj\GRL_3_C.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\aoj\GRL_3_C_2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\aoj\GRL_2_B.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -247,9 +247,9 @@ bool warshall_floyd(const Graph &g, Matrix &dist) {
 //全点対間最短経路
 //Warshall-Floyd O(|V|^3)
 //インライン版
-const int N = 100;
-int wf[N][N];
 void warshall_floyd() {
+	static const int N = 100;
+	static int wf[N][N];
 	int n; cin >> n;
 	rep(i, 0, n)rep(j, 0, n)wf[i][j] = INF;
 	rep(i, 0, n)wf[i][i] = 0;

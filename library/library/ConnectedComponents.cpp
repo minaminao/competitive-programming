@@ -114,46 +114,88 @@ Graph reverse(const Graph &g) {
 vector<int> kosaraju(const Graph &g) {
 	int n = g.size();
 	Graph rg = reverse(g);
-	vector<int> in(n, -1);
+	vector<int> cc(n, -1);
 	vector<int> post;
-	function<void(int, int)> dfs = [&](int u, int idx) {
-		if (in[u] != -1)return;
-		in[u] = idx;
-		for (auto &e : g[u]) {
-			if (in[e.d] != -1)continue;
-			dfs(e.d, idx);
-		}
+	function<void(int, int)> dfs_cc = [&](int u, int cc_id) {
+		if (cc[u] != -1)return;
+		cc[u] = cc_id;
+		for (auto &e : g[u])
+			dfs_cc(e.d, cc_id);
 		post.emplace_back(u);
 	};
-	int idx = 0;
-	for (int u = 0; u < n; u++) {
-		if (in[u] == -1) {
-			dfs(u, idx++);
-		}
-	}
-	vector<int> in2(n, -1);
-	function<void(int, int, int)> dfs2 = [&](int u, int idx, int idx2) {
-		if (in2[u] != -1)return;
-		if (in[u] != idx)return;
-		in2[u] = idx2;
-		for (auto &e : rg[u]) {
-			if (in2[e.d] != -1)continue;
-			if (in[e.d] != idx)continue;
-			dfs2(e.d, idx, idx2);
-		}
+	int count_cc = 0;
+	for (int u = 0; u < n; u++)
+		if (cc[u] == -1)
+			dfs_cc(u, count_cc++);
+	vector<int> scc(n, -1);
+	function<void(int, int, int)> dfs_scc = [&](int u, int scc_id, int cc_id) {
+		if (scc[u] != -1)return;
+		if (cc[u] != cc_id)return;
+		scc[u] = scc_id;
+		for (auto &e : rg[u])
+			dfs_scc(e.d, scc_id, cc_id);
 	};
-	int idx2 = 0;
+	int count_scc = 0;
 	reverse(post.begin(), post.end());
-	for (auto &u : post) {
-		if (in2[u] == -1) {
-			dfs2(u, in[u], idx2++);
-		}
-	}
-	return in2;
+	for (auto &u : post)
+		if (scc[u] == -1)
+			dfs_scc(u, count_scc++, cc[u]);
+	return scc;
 }
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2244415
 
 //閉路の検出 O(|V|+|E|)
-bool cycle_detection(const Graph &g) {
-	vector<int> res = kosaraju(g);
-	return find(all(res), g.size() - 1) == res.end();
+bool detect_cycle(const vector<int> &idx) {
+	return find(all(idx), idx.size() - 1) == idx.end();
+}
+bool detect_cycle(const Graph &g) {
+	vector<int> idx = kosaraju(g);
+	return find(all(idx), idx.size() - 1) == idx.end();
+}
+
+//強連結成分分解 O(|V|+|E|)
+//ret[u] = u が属している強連結成分内の頂点のインデックス
+vector<int> kosaraju(const Graph &g) {
+	int n = g.size();
+	Graph rg = reverse(g);
+	vector<int> cc(n, -1);
+	vector<int> post;
+	function<void(int, int)> dfs_cc = [&](int u, int cc_id) {
+		if (cc[u] != -1)return;
+		cc[u] = cc_id;
+		for (auto &e : g[u])
+			dfs_cc(e.d, cc_id);
+		post.emplace_back(u);
+	};
+	for (int u = 0; u < n; u++)
+		if (cc[u] == -1)
+			dfs_cc(u, u);
+	vector<int> scc(n, -1);
+	function<void(int, int, int)> dfs_scc = [&](int u, int scc_id, int cc_id) {
+		if (scc[u] != -1)return;
+		if (cc[u] != cc_id)return;
+		scc[u] = scc_id;
+		for (auto &e : rg[u])
+			dfs_scc(e.d, scc_id, cc_id);
+	};
+	reverse(post.begin(), post.end());
+	for (auto &u : post)
+		if (scc[u] == -1)
+			dfs_scc(u, u, cc[u]);
+	return scc;
+}
+/*
+http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2244420
+ccとしている箇所は連結成分ではなく到達できる範囲
+変数名を変えたい
+*/
+
+bool detect_cycle(const vector<int> &idx) {
+	int n = idx.size();
+	vector<bool> f(n);
+	for (auto &u : idx) {
+		if (f[u])return true;
+		f[u] = true;
+	}
+	return false;
 }

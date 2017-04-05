@@ -240,7 +240,7 @@
     <None Include="snippet\tmp.snippet">
       <SubType>Designer</SubType>
     </None>
-    <None Include="snippet\uf.snippet" />
+    <None Include="snippet\unionfind.snippet" />
     <None Include="snippet\unique.snippet" />
     <None Include="snippet\v.snippet" />
     <None Include="snippet\vb.snippet" />

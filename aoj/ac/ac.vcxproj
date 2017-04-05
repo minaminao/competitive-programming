@@ -212,9 +212,11 @@
     <ClCompile Include="..\aoj\GRL_1_C.cpp" />
     <ClCompile Include="..\aoj\GRL_2_A_kruskal.cpp" />
     <ClCompile Include="..\aoj\GRL_2_A_prim.cpp" />
+    <ClCompile Include="..\aoj\GRL_2_B.cpp" />
     <ClCompile Include="..\aoj\GRL_3_A.cpp" />
     <ClCompile Include="..\aoj\GRL_3_B.cpp" />
     <ClCompile Include="..\aoj\GRL_3_C.cpp" />
+    <ClCompile Include="..\aoj\GRL_3_C_2.cpp" />
     <ClCompile Include="..\aoj\GRL_4_A.cpp" />
     <ClCompile Include="..\aoj\GRL_6_A.cpp" />
     <ClCompile Include="..\aoj\GRL_6_B.cpp" />

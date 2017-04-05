@@ -22,9 +22,11 @@ void generate_dot(const Graph &g) {
 		cout << "  " << i << ";" << endl;
 	}
 	for (auto &es : g)for (auto &e : es) {
-		cout << "  " << e.s << " -> " << e.d << ";" << endl;
+		cout << "  " << e.s << " -> " << e.d;
+		cout << " [label = \"" << e.w << "\"]";
+		cout << ";" << endl;
 	}
-	cout << "}";
+	cout << "}" << endl;
 }
 
 void generate_dot(const Graph &g, vector<int> group) {

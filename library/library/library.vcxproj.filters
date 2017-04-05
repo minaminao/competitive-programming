@@ -305,9 +305,6 @@
     <None Include="snippet\v.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\uf.snippet">
-      <Filter>snippet</Filter>
-    </None>
     <None Include="snippet\oa_endl.snippet">
       <Filter>snippet</Filter>
     </None>
@@ -336,6 +333,9 @@
       <Filter>snippet</Filter>
     </None>
     <None Include="snippet\warshall_floyd.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\unionfind.snippet">
       <Filter>snippet</Filter>
     </None>
   </ItemGroup>

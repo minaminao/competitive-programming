@@ -46,7 +46,7 @@ Graph reverse(const Graph &g) {
 }
 
 //強連結成分分解 O(|V|+|E|)
-//ret[u] = u が属している強連結成分のインデックス
+//ret[u] = u が属している強連結成分内の最小の頂点のインデックス
 vector<int> kosaraju(const Graph &g) {
 	int n = g.size();
 	Graph rg = reverse(g);
@@ -59,10 +59,9 @@ vector<int> kosaraju(const Graph &g) {
 			dfs_cc(e.d, cc_id);
 		post.emplace_back(u);
 	};
-	int count_cc = 0;
 	for (int u = 0; u < n; u++)
 		if (cc[u] == -1)
-			dfs_cc(u, count_cc++);
+			dfs_cc(u, u);
 	vector<int> scc(n, -1);
 	function<void(int, int, int)> dfs_scc = [&](int u, int scc_id, int cc_id) {
 		if (scc[u] != -1)return;
@@ -71,11 +70,10 @@ vector<int> kosaraju(const Graph &g) {
 		for (auto &e : rg[u])
 			dfs_scc(e.d, scc_id, cc_id);
 	};
-	int count_scc = 0;
 	reverse(post.begin(), post.end());
 	for (auto &u : post)
 		if (scc[u] == -1)
-			dfs_scc(u, count_scc++, cc[u]);
+			dfs_scc(u, u, cc[u]);
 	return scc;
 }
 
@@ -89,6 +87,7 @@ signed main() {
 		add_arc(g, s, t);
 	}
 	vector<int> scc = kosaraju(g);
+	dump(scc);
 	int Q; cin >> Q;
 	rep(i, 0, Q) {
 		int u, v; cin >> u >> v;
