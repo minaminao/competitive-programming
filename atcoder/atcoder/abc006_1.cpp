@@ -18,6 +18,12 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//
+//	int N; cin >> N;
+//	if (N % 3 == 0 || N == 3) {
+//		cout << "YES" << endl;
+//	}
+//	else {
+//		cout << "NO" << endl;
+//	}
 //	return 0;
 //}
