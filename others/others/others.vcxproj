@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{46EFF5A6-13E2-4834-846C-D4A8BE249F87}</ProjectGuid>
+    <ProjectGuid>{CDB2DF17-C25A-49CD-A8D8-1A9E150EBBED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>topcoder</RootNamespace>
+    <RootNamespace>others</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>coding</ProjectName>
   </PropertyGroup>
@@ -147,13 +147,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ExploringNumbers.cpp" />
+    <ClCompile Include="gcj2016_a.cpp" />
+    <ClCompile Include="gcj2017_qual_a.cpp" />
+    <ClCompile Include="gcj2017_qual_b.cpp" />
+    <ClCompile Include="gcj2017_qual_c.cpp" />
+    <ClCompile Include="gcj2017_qual_d.cpp" />
+    <ClCompile Include="r1a_a.cpp" />
+    <ClCompile Include="r1a_b.cpp" />
+    <ClCompile Include="r1a_c.cpp" />
+    <ClCompile Include="r1a_d.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TCO.cpp" />
-    <ClCompile Include="TCO_R1B.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="in.txt" />
+    <Text Include="out.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="A-large-practice.in" />
+    <None Include="A-small-practice.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

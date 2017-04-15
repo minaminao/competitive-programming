@@ -290,3 +290,10 @@ vector<int> fibonacci(int n) {
 		v[i + 2] += v[i + 1] + v[i];
 	return v;
 }
+
+vector<int> compute_pow(int b, int e) {
+	vector<int> ret(e);
+	ret[0] = 1;
+	rep(i, 0, e - 1)ret[i + 1] = ret[i] * b;
+	return ret;
+}
