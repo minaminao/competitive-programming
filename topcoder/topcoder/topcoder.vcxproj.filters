@@ -27,7 +27,7 @@
     <ClCompile Include="TCO.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TCO_R1B.cpp">
+    <ClCompile Include="SRM712.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
