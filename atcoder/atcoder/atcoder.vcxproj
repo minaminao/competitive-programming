@@ -167,6 +167,8 @@
     <ClCompile Include="arc071_b.cpp" />
     <ClCompile Include="arc071_c.cpp" />
     <ClCompile Include="arc071_d.cpp" />
+    <ClCompile Include="arc072_c.cpp" />
+    <ClCompile Include="arc072_d.cpp" />
     <ClCompile Include="bcu30_e.cpp" />
     <ClCompile Include="bcu30_e_2.cpp" />
     <ClCompile Include="bcu30_f.cpp" />

@@ -151,11 +151,14 @@
     <ClCompile Include="gcj2017_qual_a.cpp" />
     <ClCompile Include="gcj2017_qual_b.cpp" />
     <ClCompile Include="gcj2017_qual_c.cpp" />
-    <ClCompile Include="gcj2017_qual_d.cpp" />
+    <ClCompile Include="r1b_a.cpp" />
     <ClCompile Include="r1a_a.cpp" />
     <ClCompile Include="r1a_b.cpp" />
     <ClCompile Include="r1a_c.cpp" />
-    <ClCompile Include="r1a_d.cpp" />
+    <ClCompile Include="r1b_b.cpp" />
+    <ClCompile Include="r1b_b_large.cpp" />
+    <ClCompile Include="r1b_c.cpp" />
+    <ClCompile Include="source.c" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

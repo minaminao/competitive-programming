@@ -36,9 +36,6 @@
     <ClCompile Include="gcj2017_qual_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="gcj2017_qual_d.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="r1a_a.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -48,7 +45,19 @@
     <ClCompile Include="r1a_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="r1a_d.cpp">
+    <ClCompile Include="source.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="r1b_a.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="r1b_b.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="r1b_c.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="r1b_b_large.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

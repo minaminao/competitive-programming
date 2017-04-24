@@ -76,3 +76,4 @@ void solve() {
 		dump(st);
 		cout << st.size() / 2 << endl;
 	}
+}
