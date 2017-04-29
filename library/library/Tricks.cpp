@@ -131,9 +131,6 @@ void f() {
 	vector<int> v, v2;
 	vector<double> vd;
 
-	//•Ï”–¼
-	int qw, er, as, df, zx, cv;
-
 	v.emplace_back(0); 	//push_back‚æ‚èemplace_back‚ğg‚¤‚Æ‘¬‚¢
 	v.erase(v.begin() + i); //i”Ô–Ú‚Ì—v‘f‚ğíœ
 	v.erase(v.begin(), v.begin() + i); //i”Ô–Ú‚Ì—v‘f‚Ü‚Åíœ

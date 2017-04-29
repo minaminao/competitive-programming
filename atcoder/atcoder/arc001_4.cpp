@@ -15,26 +15,30 @@
 //template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 //template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 //
+//double f(int a, int b) {
+//	int d = abs(a - b);
+//	return sqrt(d*d + 1 * 1);
+//}
+//
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//
-//	const int MAX_LEN = 10;
-//	char S[50001];
-//	while (cin >> S) {
-//		int N = strlen(S);
-//		unordered_map<string, int> counts;
-//		rep(len, 1, MAX_LEN + 1)
-//			rep(i, 0, N - len + 1)
-//			counts[string(S + i, S + i + len)]++;
-//		int M; cin >> M;
-//		int ans = 0;
-//		rep(i, 0, M) {
-//			char C[11];
-//			cin >> C;
-//			ans += counts[C];
-//		}
-//		cout << ans << endl;
+//	int N; cin >> N;
+//	int s, g; cin >> s >> g;
+//	static double dp[200010][2];
+//	vector<int> l(N), r(N); rep(i, 0, N) {
+//		cin >> l[i] >> r[i];
 //	}
+//	rep(i, 0, N - 1) {
+//		dp[i + 1][0] = min(
+//			dp[i][0] + f(l[i], l[i + 1]),
+//			dp[i][1] + f(r[i], l[i + 1])
+//		);
+//		dp[i + 1][1] = min(
+//			dp[i][0] + f(l[i], r[i + 1]),
+//			dp[i][1] + f(r[i], r[i + 1])
+//		);
+//	}
+//	cout << min(dp[N][0], dp[N][1]) << endl;
 //	return 0;
 //}

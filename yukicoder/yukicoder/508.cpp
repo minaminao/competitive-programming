@@ -18,23 +18,8 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//
-//	const int MAX_LEN = 10;
-//	char S[50001];
-//	while (cin >> S) {
-//		int N = strlen(S);
-//		unordered_map<string, int> counts;
-//		rep(len, 1, MAX_LEN + 1)
-//			rep(i, 0, N - len + 1)
-//			counts[string(S + i, S + i + len)]++;
-//		int M; cin >> M;
-//		int ans = 0;
-//		rep(i, 0, M) {
-//			char C[11];
-//			cin >> C;
-//			ans += counts[C];
-//		}
-//		cout << ans << endl;
-//	}
+//	double n;
+//	cin >> n;
+//	cout << (int)sqrt(n / 3) + 1 << endl;
 //	return 0;
 //}

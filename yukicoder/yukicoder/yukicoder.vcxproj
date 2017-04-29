@@ -153,6 +153,10 @@
   <ItemGroup>
     <ClCompile Include="430.cpp" />
     <ClCompile Include="470.cpp" />
+    <ClCompile Include="508.cpp" />
+    <ClCompile Include="509.cpp" />
+    <ClCompile Include="510.cpp" />
+    <ClCompile Include="511.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
