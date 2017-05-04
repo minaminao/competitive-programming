@@ -11,9 +11,11 @@ void solve() {
 
 	/*
 	rand() より mt のほうが速い場合もある
-	random_devise は遅い
+	random_devise
+		遅い
+		g++(windows) だと毎回同じ値になる
 
-	分布生成器もあるが mt % N で十分
+	分布生成器もあるが mt % N で十分なはず
 	*/
 
 	random_device rd;

@@ -14,12 +14,12 @@ using Graph = vector<Edges>;
 using Array = vector<Weight>;
 using Matrix = vector<Array>;
 
-void add_arc(Graph &g, int s, int d, Weight w = 1) {
+void addArc(Graph &g, int s, int d, Weight w = 1) {
 	g[s].emplace_back(s, d, w);
 }
-void add_edge(Graph &g, int a, int b, Weight w = 1) {
-	add_arc(g, a, b, w);
-	add_arc(g, b, a, w);
+void addEdge(Graph &g, int a, int b, Weight w = 1) {
+	addArc(g, a, b, w);
+	addArc(g, b, a, w);
 }
 
 
@@ -89,7 +89,7 @@ void solve() {
 		}
 	};
 	//not verified
-	auto unweighted_shortest_path = [&](int root, Array &dist) {
+	auto unweightedShortestPath = [&](int root, Array &dist) {
 		dist.assign(n, INF); dist[root] = 0;
 		vector<bool> vis(n);
 		queue<int> q; q.emplace(root);
@@ -142,7 +142,7 @@ vector<int> dijkstra(const Graph &g, int s, Array &dist) {
 //Bellman-Ford O(|V||E|)
 //dist: 始点から各頂点までの最短距離
 //戻り値: 最短経路木の親頂点, 負閉路なし:true あり:false
-pair<vector<int>, bool> bellman_ford(const Graph &g, int s, Array &dist) {
+pair<vector<int>, bool> bellmanFord(const Graph &g, int s, Array &dist) {
 	int n = g.size();
 	vector<int> prev(n, -1);
 	Edges es; for (int i = 0; i < n; i++) for (auto &e : g[i]) es.emplace_back(e);
@@ -167,7 +167,7 @@ pair<vector<int>, bool> bellman_ford(const Graph &g, int s, Array &dist) {
 //始点から終点までの経路を取得
 //終点から親を再帰的に辿り始点に着くまでの経路を反転している
 //存在しない場合の戻り値: vector<int>()
-vector<int> get_path(int s, int g, vector<int> prev) {
+vector<int> getPath(int s, int g, vector<int> prev) {
 	vector<int> path;
 	path.emplace_back(g);
 	for (int i = g; i != s; ) {
@@ -181,7 +181,7 @@ vector<int> get_path(int s, int g, vector<int> prev) {
 
 ////経路復元(Warshall-Floyd)
 ////存在しない場合の戻り値: ?
-//vector<int> get_path(int s, int g, vector<vector<int>> next) {
+//vector<int> getPath(int s, int g, vector<vector<int>> next) {
 //	vector<int> path;
 //	for (int i = s; i != g; i = next[i][g])
 //		path.emplace_back(i);
@@ -224,7 +224,7 @@ vector<int> get_path(int s, int g, vector<int> prev) {
 //全点対間最短経路 
 //Warshall-Floyd O(|V|^3)
 //戻り値: 負閉路なし:true あり:false
-bool warshall_floyd(const Graph &g, Matrix &dist) {
+bool warshallFloyd(const Graph &g, Matrix &dist) {
 	int n = g.size();
 	dist.assign(n, Array(n, INF));
 	for (int i = 0; i < n; i++) dist[i][i] = 0;
@@ -247,7 +247,7 @@ bool warshall_floyd(const Graph &g, Matrix &dist) {
 //全点対間最短経路
 //Warshall-Floyd O(|V|^3)
 //インライン版
-void warshall_floyd() {
+void warshallFloyd() {
 	static const int N = 100;
 	static int wf[N][N];
 	int n; cin >> n;
@@ -277,7 +277,7 @@ void warshall_floyd() {
 //http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2243165
 
 //全点対間最短経路 
-void all_pairs_shortest_paths_by_dijkstra(const Graph &g, Matrix &dists) {
+void allPairsShortestPathsByDijkstra(const Graph &g, Matrix &dists) {
 	int n = g.size();
 	dists.resize(n);
 	for (int i = 0; i < n; i++)
@@ -286,7 +286,7 @@ void all_pairs_shortest_paths_by_dijkstra(const Graph &g, Matrix &dists) {
 
 //最短経路DAGを構築
 //どのような経路を通っても最短経路になる
-Graph build_dag(const Graph &g, int s) {
+Graph buildDag(const Graph &g, int s) {
 	Graph dag(g.size());
 	Array dist; dijkstra(g, s, dist);
 	for (auto &es : g)for (auto &e : es)
@@ -297,7 +297,7 @@ Graph build_dag(const Graph &g, int s) {
 
 //トポロジカルソート O(|E|+|V|)
 //入次数が0の点と辺を取り除きながらretに突っ込む
-vector<int> topological_sort(const Graph &g) {
+vector<int> topologicalSort(const Graph &g) {
 	int n = g.size(), k = 0;
 	vector<int> ord(n), indeg(n); //入次数
 	for (auto &es : g) for (auto &e : es) indeg[e.d]++;
@@ -312,7 +312,7 @@ vector<int> topological_sort(const Graph &g) {
 
 #include "UnionFind.cpp"
 //無向グラフが連結グラフか判定 O(|E|α(|E|))
-bool is_connected_graph(const Graph &udg) {
+bool isConnectedGraph(const Graph &udg) {
 	int n = udg.size();
 	UnionFind uf(n);
 	for (auto &es : udg)for (auto &e : es) uf.unite(e.d, e.s);
@@ -320,8 +320,8 @@ bool is_connected_graph(const Graph &udg) {
 }
 
 //無向グラフがオイラーグラフか判定（オイラー閉路を持つ）
-bool is_eulerian_graph(const Graph &udg) {
-	if (!is_connected_graph(udg))return false;
+bool isEulerianGraph(const Graph &udg) {
+	if (!isConnectedGraph(udg))return false;
 	int n = udg.size();
 	vector<int> degree(n, 0);
 	for (auto &es : udg)for (auto &e : es) degree[e.d]++, degree[e.s]++;
@@ -331,8 +331,8 @@ bool is_eulerian_graph(const Graph &udg) {
 }
 
 //無向グラフが準オイラーグラフか判定（閉路でないオイラー路を持つ）
-bool is_semi_eulerian_graph(const Graph &udg) {
-	if (!is_connected_graph(udg))return false;
+bool isSemiEulerianGraph(const Graph &udg) {
+	if (!isConnectedGraph(udg))return false;
 	int n = udg.size();
 	vector<int> degree(n, 0);
 	for (auto &es : udg)for (auto &e : es) degree[e.d]++, degree[e.s]++;
@@ -357,7 +357,7 @@ Graph build(const vector<vector<char>> &v) {
 			int ni = i + di[k], nj = j + dj[k];
 			if (!inrange(ni, nj))continue;
 			int s = idx(i, j), d = idx(ni, nj);
-			add_arc(g, s, d);
+			addArc(g, s, d);
 		}
 	}
 	return g;
@@ -375,8 +375,8 @@ Graph build(const vector<vector<char>> &v, int w) {
 			int ni = i + di[k], nj = j + dj[k];
 			if (!inrange(ni, nj))continue;
 			int s = idx(i, j), d = idx(ni, nj);
-			if (v[ni][nj] == '#')add_arc(g, s, d, w);
-			else add_arc(g, s, d, 1);
+			if (v[ni][nj] == '#')addArc(g, s, d, w);
+			else addArc(g, s, d, 1);
 		}
 	}
 	return g;
