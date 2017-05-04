@@ -27,7 +27,7 @@ pair<vector<int>, vector<int>> lowlink(const Graph &g, int root = 0) {
 }
 
 //単純無向連結グラフの関節点
-vector<int> articulation_points(const Graph &g, int root = 0) {
+vector<int> articulationPoints(const Graph &g, int root = 0) {
 	/*
 	u が根
 	u が関節点 <=> 子が 2 つ以上存在する
@@ -145,10 +145,10 @@ vector<int> kosaraju(const Graph &g) {
 //http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2244415
 
 //閉路の検出 O(|V|+|E|)
-bool detect_cycle(const vector<int> &idx) {
+bool detectCycle(const vector<int> &idx) {
 	return find(all(idx), idx.size() - 1) == idx.end();
 }
-bool detect_cycle(const Graph &g) {
+bool detectCycle(const Graph &g) {
 	vector<int> idx = kosaraju(g);
 	return find(all(idx), idx.size() - 1) == idx.end();
 }
@@ -190,7 +190,7 @@ ccとしている箇所は連結成分ではなく到達できる範囲
 変数名を変えたい
 */
 
-bool detect_cycle(const vector<int> &idx) {
+bool detectCycle(const vector<int> &idx) {
 	int n = idx.size();
 	vector<bool> f(n);
 	for (auto &u : idx) {
