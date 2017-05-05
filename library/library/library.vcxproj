@@ -185,6 +185,7 @@
     <ClCompile Include="SpanningTree.cpp" />
     <ClCompile Include="SqrtDecomposition.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="Style.cpp" />
     <ClCompile Include="Sum.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Time.cpp" />
