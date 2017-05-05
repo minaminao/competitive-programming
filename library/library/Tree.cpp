@@ -21,15 +21,20 @@ vector<int> reconstruct_tree(const vector<int> &pre, const vector<int> &in) {
 	return post;
 }
 
-struct Node {
-	Node *l, *r;
+struct node_t {
 	int val;
+	node_t *ch[2];
 };
-void inorder(Node* x) {
-	if (!x)return;
-	inorder(x->l);
-	dump(x->val);
-	inorder(x->r);
+void inorder(node_t* root, string name = "") {
+	function<void(node_t*)> rec = [&](node_t *x) {
+		if (!x)return;
+		rec(x->ch[0]);
+		cerr << x->val << " ";
+		rec(x->ch[1]);
+	};
+	cerr << name << ": ";
+	rec(root);
+	cerr << endl;
 }
 
 //Tarjan's off-line lowest common ancestors (dfsÄ‹A)

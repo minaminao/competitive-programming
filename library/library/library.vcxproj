@@ -188,6 +188,7 @@
     <ClCompile Include="Sum.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Treap.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tricks.cpp" />
     <ClCompile Include="TwoSatisfiability.cpp" />
