@@ -75,9 +75,6 @@
     <ClCompile Include="RitsCamp17Day3_B.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="1508.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="2812.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -88,9 +85,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="0614.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="DSL_2_A_treap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

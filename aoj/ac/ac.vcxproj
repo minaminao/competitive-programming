@@ -162,6 +162,7 @@
     <ClCompile Include="..\aoj\0589.cpp" />
     <ClCompile Include="..\aoj\0594.cpp" />
     <ClCompile Include="..\aoj\1030.cpp" />
+    <ClCompile Include="..\aoj\1508.cpp" />
     <ClCompile Include="..\aoj\2104.cpp" />
     <ClCompile Include="..\aoj\2311.cpp" />
     <ClCompile Include="..\aoj\2663.cpp" />
@@ -201,6 +202,7 @@
     <ClCompile Include="..\aoj\DPL_4_A.cpp" />
     <ClCompile Include="..\aoj\DPL_4_B.cpp" />
     <ClCompile Include="..\aoj\DSL_2_A.cpp" />
+    <ClCompile Include="..\aoj\DSL_2_A_treap.cpp" />
     <ClCompile Include="..\aoj\DSL_2_B.cpp" />
     <ClCompile Include="..\aoj\DSL_2_C.cpp" />
     <ClCompile Include="..\aoj\DSL_2_D.cpp" />

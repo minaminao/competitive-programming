@@ -151,7 +151,6 @@
     <ClCompile Include="0540.cpp" />
     <ClCompile Include="0614.cpp" />
     <ClCompile Include="1.cpp" />
-    <ClCompile Include="1508.cpp" />
     <ClCompile Include="2170.cpp" />
     <ClCompile Include="2665.cpp" />
     <ClCompile Include="2662.cpp" />
@@ -163,7 +162,6 @@
     <ClCompile Include="2812.cpp" />
     <ClCompile Include="c407_a.cpp" />
     <ClCompile Include="DPL_2_B.cpp" />
-    <ClCompile Include="DSL_2_A_treap.cpp" />
     <ClCompile Include="RitsCamp17Day2_F.cpp" />
     <ClCompile Include="RitsCamp17Day2_D.cpp" />
     <ClCompile Include="RitsCamp17Day2_E.cpp" />
