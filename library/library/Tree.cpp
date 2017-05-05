@@ -21,6 +21,16 @@ vector<int> reconstruct_tree(const vector<int> &pre, const vector<int> &in) {
 	return post;
 }
 
+struct Node {
+	Node *l, *r;
+	int val;
+};
+void inorder(Node* x) {
+	if (!x)return;
+	inorder(x->l);
+	dump(x->val);
+	inorder(x->r);
+}
 
 //Tarjan's off-line lowest common ancestors (dfs再帰)
 //構築O(N) クエリ(1)
