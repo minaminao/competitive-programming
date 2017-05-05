@@ -1,23 +1,24 @@
-struct node_t {
+
+struct Node {
 	int val;
-	node_t *ch[2];
+	Node *ch[2];
 	int pri;
 	int cnt;
 	int sum;
 	int mini;
 
-	node_t(int v, double p) :val(v), mini(v), pri(p), cnt(1), sum(v) {
+	Node(int v, double p) :val(v), mini(v), pri(p), cnt(1), sum(v) {
 		ch[0] = ch[1] = NULL;
 	}
 };
 
-int count(node_t *t) { return !t ? 0 : t->cnt; }
-int sum(node_t *t) { return !t ? 0 : t->sum; }
-int val(node_t *t) { assert(t); return t->val; }
-int mini(node_t *t) { return !t ? INF : t->mini; }
+int count(Node *t) { return !t ? 0 : t->cnt; }
+int sum(Node *t) { return !t ? 0 : t->sum; }
+int val(Node *t) { assert(t); return t->val; }
+int mini(Node *t) { return !t ? INF : t->mini; }
 
-void inorder(node_t* root, string name = "") {
-	function<void(node_t*)> rec = [&](node_t *x) {
+void inorder(Node* root, string name = "") {
+	function<void(Node*)> rec = [&](Node *x) {
 		if (!x)return;
 		rec(x->ch[0]);
 		cerr << x->val << " ";
@@ -28,7 +29,7 @@ void inorder(node_t* root, string name = "") {
 	cerr << endl;
 }
 
-int mini(node_t *t, int l, int r) {
+int mini(Node *t, int l, int r) {
 	if (!t)return INF;
 	if (r <= l)return INF;
 	if (r - l == count(t))
@@ -45,7 +46,7 @@ int mini(node_t *t, int l, int r) {
 }
 
 // Žq‚ª•Ï‚í‚Á‚½‚Æ‚«‚É•K‚¸ŒÄ‚Ô
-node_t *update(node_t *t) {
+Node *update(Node *t) {
 	if (!t)return t;
 	t->cnt = count(t->ch[0]) + count(t->ch[1]) + 1;
 	t->sum = sum(t->ch[0]) + sum(t->ch[1]) + t->val;
@@ -53,7 +54,7 @@ node_t *update(node_t *t) {
 	return t;
 }
 
-node_t *merge(node_t *l, node_t *r) {
+Node *merge(Node *l, Node *r) {
 	if (!l)return r;
 	if (!r)return l;
 	if (l->pri > r->pri) {
@@ -67,28 +68,44 @@ node_t *merge(node_t *l, node_t *r) {
 }
 
 // ([0, k), [k, n))
-pair<node_t*, node_t*> split(node_t *t, int k) {
-	if (!t)return pair<node_t*, node_t*>(NULL, NULL);
+pair<Node*, Node*> split(Node *t, int k) {
+	if (!t)return pair<Node*, Node*>(NULL, NULL);
 	if (k <= count(t->ch[0])) {
-		pair<node_t*, node_t*> s = split(t->ch[0], k);
+		pair<Node*, Node*> s = split(t->ch[0], k);
 		t->ch[0] = s.second;
 		return make_pair(s.first, update(t));
 	}
 	else {
-		pair<node_t*, node_t*> s = split(t->ch[1], k - count(t->ch[0]) - 1);
+		pair<Node*, Node*> s = split(t->ch[1], k - count(t->ch[0]) - 1);
 		t->ch[1] = s.first;
 		return make_pair(update(t), s.second);
 	}
 }
 
-node_t *insert(node_t *t, int k, int v) {
+Node *insert(Node *t, int k, int v) {
 	auto s = split(t, k);
-	node_t *m = new node_t(v, rand());
+	Node *m = new Node(v, rand());
 	return update(merge(update(merge(s.first, m)), s.second));
 }
 
-node_t *erase(node_t *t, int k) {
+Node *erase(Node *t, int k) {
 	auto s1 = split(t, k);
 	auto s2 = split(s1.second, 1);
 	return update(merge(s1.first, s2.second));
 }
+
+Node* circularShift(Node *t, int l, int r) {
+	Node *a, *b, *c, *d;
+	tie(a, d) = split(t, r);
+	tie(a, b) = split(a, l);
+	tie(b, c) = split(b, r - l - 1);
+	return merge(merge(a, merge(c, b)), d);
+}
+
+Node *update(Node*t, int k, int v) {
+	t = erase(t, k);
+	t = insert(t, k, v);
+	return t;
+}
+
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2299004#1
