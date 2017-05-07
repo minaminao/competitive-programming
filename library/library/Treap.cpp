@@ -1,6 +1,7 @@
 // Treap
-// 分割した木に対する操作する必要があるなら Node* を返す
+// 分割した木に対して操作する必要があるなら Node* を返す
 // 乱数は rand() で十分なはず
+// 遅延評価版も作る
 // http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2299004#1
 // http://arc033.contest.atcoder.jp/submissions/1261629
 

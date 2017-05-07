@@ -28,64 +28,38 @@ void dfs(int x, int y) {
 	}
 }
 
-//xyç¿ïWÇ≈ÇÃïùóDêÊíTçı
+//ÉOÉäÉbÉhè„Ç≈ÇÃïùóDêÊíTçı
 //ç≈íZãóó£
 void bfs() {
-	cin >> R >> C;
-	int sy, sx, gy, gx; cin >> sy >> sx >> gy >> gx;
-	sy--, sx--, gy--, gx--;
-	vector<vector<char>> c(R, vector<char>(C, 0));
-	rep(i, 0, R) rep(j, 0, C) { cin >> c[i][j]; }
-
-	//ç≈íZãóó£
-	vector<vector<int>> d(R, vector<int>(C, INF));
-	d[sy][sx] = 0;
-
-	using pii = pair<int, int>;
-	queue<pii> Q;
-	Q.push(pii(sy, sx));
-	for (pii u; !Q.empty();) {
-		u = Q.front(); Q.pop();
-		if (u == pii(gy, gx))break; //ÉSÅ[ÉãÇ»ÇÁíTçıÇèIÇÌÇÈ
-		for (int i = 0; i < 4; i++) {
-			int ny = u.first + dy[i], nx = u.second + dx[i];
-			if (!inrange(ny, nx))continue;
-			if (c[ny][nx] == '#')continue;
-			if (d[ny][nx] != INF)continue;
-			d[ny][nx] = d[u.first][u.second] + 1;
-			Q.push(pii(ny, nx));
-		}
+	int H, W, K; cin >> H >> W;
+	vector<vector<char>> v(H, vector<char>(W));
+	int si, sj;
+	rep(i, 0, H) rep(j, 0, W) {
+		cin >> v[i][j];
+		if (v[i][j] == 'S')si = i, sj = j;
 	}
-	cout << d[gy][gx] << endl;
-}
 
-
-bool f[100][100] = {};
-int d[100][100] = {};
-
-//ÉOÉäÉbÉhè„ÇÃïùóDêÊíTçı
-using P = pair<int, int>;
-P bfs(int si, int sj) {
-	P ret;
-	int maxd = 0;
+	vector<vector<int>> d(H, vector<int>(W, INF));
 	d[si][sj] = 0;
 
-	queue<P> Q;
-	Q.push(P(si, sj));
-	for (P u; !Q.empty();) {
-		u = Q.front(); Q.pop();
-		//if (u == pii(gy, gx))break; //ÉSÅ[ÉãÇ»ÇÁíTçıÇèIÇÌÇÈ
+	auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };
+	static const int di[] = { 1,0,-1,0 };
+	static const int dj[] = { 0,1,0,-1 };
+
+	using P = pair<int, int>;
+	queue<P> q;
+	q.push(P(si, sj));
+	for (int ci, cj; !q.empty();) {
+		tie(ci, cj) = q.front(); q.pop();
 		for (int i = 0; i < 4; i++) {
-			int ni = u.first + di[i], nj = u.second + dj[i];
+			int ni = ci + di[i], nj = cj + dj[i];
 			if (!inrange(ni, nj))continue;
-			if (!f[ni][nj])continue;
+			if (v[ni][nj] == '#')continue;
 			if (d[ni][nj] != INF)continue;
-			d[ni][nj] = d[u.first][u.second] + 1;
-			Q.push(P(ni, nj));
-			if (chmax(maxd, d[ni][nj]))ret = P(ni, nj);
+			d[ni][nj] = d[ci][cj] + 1;
+			q.push(P(ni, nj));
 		}
 	}
-	return ret;
 }
 
 void solve() {
