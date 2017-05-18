@@ -15,60 +15,52 @@
 //template<class T> bool chmax(T &a, const T &b) { if (a < b) { a = b; return true; } return false; }
 //template<class T> bool chmin(T &a, const T &b) { if (b < a) { a = b; return true; } return false; }
 //
-//template<class T, class ...Tail>
-//void tied_sort(vector<T> &a, vector<Tail>&... tail) {
-//	int n = a.size();
-//	using S = tuple<T, Tail...>;
-//	vector<S> s(n);
-//	for (int i = 0; i < n; i++)
-//		s[i] = make_tuple(a[i], tail[i]...);
-//	sort(s.begin(), s.end());
-//	for (int i = 0; i < n; i++)
-//		tie(a[i], tail[i]...) = s[i];
-//}
-//
-//const double PI = acos(-1);
-//
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
 //	freopen("A-large.in", "r", stdin);
-//	freopen("A-large.txt", "w", stdout);
+//	freopen("A-large.out", "w", stdout);
 //	//freopen("in.txt", "r", stdin);
 //	//freopen("out.txt", "w", stdout);
 //	int T; cin >> T;
 //	cout << fixed << setprecision(10);
 //	for (int t = 0; t < T; t++) {
-//		int N, K; cin >> N >> K;
-//		vector<int> R(N), H(N); rep(i, 0, N) {
-//			cin >> R[i] >> H[i];
+//		int N, P; cin >> N >> P;
+//		vector<int> G(N); rep(i, 0, N) {
+//			cin >> G[i];
 //		}
-//		vector<double> a(N);
-//		rep(i, 0, N) {
-//			a[i] = 2.0 * R[i] * PI * H[i];
+//		int m[4] = {};
+//		int ans = 0;
+//		rep(i, 0, N)
+//			m[G[i] % P]++;
+//		dump(m);
+//		if (P == 2) {
+//			ans = m[1] / 2;
 //		}
-//		tied_sort(a, R, H);
-//		//dump(a, R, H);
-//		double ans = 0;
-//		rep(i, 0, N) {
-//			//dump(i);
-//			int k = 1;
-//			double area = 0;
-//			area += R[i] * R[i] * PI;
-//			area += a[i];
-//			rrep(j, 0, N) {
-//				if (i == j)continue;
-//				if (k < K&&R[j] <= R[i]) {
-//					k++;
-//					area += a[j];
-//					//dump(j, a[j]);
-//				}
+//		else if (P == 3) {
+//			int a = m[1], b = m[2];
+//			if (a > b)swap(a, b);
+//			int d = b - a;
+//			ans += a;
+//			if (d != 0)
+//				ans += (d + 2) % 3 + ((d - 1) / 3) * 2;
+//		}
+//		else if (P == 4) {
+//			ans = m[2] / 2;
+//			int a = m[1], b = m[3];
+//			if (a > b)swap(a, b);
+//			int d = b - a;
+//			ans += a;
+//			if (m[2] % 2) {
+//				d += 2;
+//				ans--;
 //			}
-//			//dump(area);
-//			chmax(ans, area);
+//			if (d != 0)
+//				ans += (d + 3) % 4 + ((d - 1) / 4) * 3;
 //		}
+//		dump(ans);
+//		ans = N - ans;
 //		cout << "Case #" << t + 1 << ": " << ans << endl;
-//
 //	}
 //	return 0;
 //}

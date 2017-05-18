@@ -163,6 +163,10 @@
     <ClCompile Include="r1c_b.cpp" />
     <ClCompile Include="r1c_c.cpp" />
     <ClCompile Include="r1c_c_large.cpp" />
+    <ClCompile Include="r2_a.cpp" />
+    <ClCompile Include="r2_b.cpp" />
+    <ClCompile Include="r2_b_large.cpp" />
+    <ClCompile Include="r2_c.cpp" />
     <ClCompile Include="source.c" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -1,6 +1,8 @@
+
+
 //Structure of Array (SoA) をソート
 template<class T, class ...Tail>
-void tied_sort(vector<T> &a, vector<Tail>&... tail) {
+void tiedSort(vector<T> &a, vector<Tail>&... tail) {
 	int n = a.size();
 	using S = tuple<T, Tail...>;
 	vector<S> s(n);
@@ -12,7 +14,7 @@ void tied_sort(vector<T> &a, vector<Tail>&... tail) {
 }
 /*
 vector<int> v(N), idx(N); iota(all(idx), 0);
-tied_sort(v idx);
+tiedSort(v idx);
 */
 
 //merge sort
@@ -32,11 +34,11 @@ void merge(It l, It m, It r) {
 };
 
 template <class It>
-void merge_sort(It l, It r) {
+void mergeSort(It l, It r) {
 	if (r - l <= 1)return;
 	It m = l + (r - l) / 2;
-	merge_sort(l, m);
-	merge_sort(m, r);
+	mergeSort(l, m);
+	mergeSort(m, r);
 	merge(l, m, r);
 }
 //end merge sort
@@ -61,12 +63,12 @@ long long merge(It l, It m, It r) {
 };
 
 template <class It>
-long long merge_sort(It l, It r) {
+long long mergeSort(It l, It r) {
 	if (r - l <= 1)return 0;
 	long long cnt = 0;
 	It m = l + (r - l) / 2;
-	cnt += merge_sort(l, m);
-	cnt += merge_sort(m, r);
+	cnt += mergeSort(l, m);
+	cnt += mergeSort(m, r);
 	cnt += merge(l, m, r);
 	return cnt;
 }
@@ -90,18 +92,18 @@ int partition(vector<T> &v, int l, int r, T x) {
 
 //平均O(NlogN) 最悪O(N^2) [l,r]
 template<typename T>
-void quick_sort(vector<T> &v, int l, int r) {
+void quickSort(vector<T> &v, int l, int r) {
 	if (l < r) {
 		int k = partition(v, l, r, v[r]);
-		quick_sort(v, l, k - 1);
-		quick_sort(v, k + 1, r);
+		quickSort(v, l, k - 1);
+		quickSort(v, k + 1, r);
 	}
 }
 //end quick sort
 
 //計数ソート O(n+k)
 //制約: 0 <= v[i] <= k
-void counting_sort(vector<int> &v) {
+void countingSort(vector<int> &v) {
 	int n = v.size(), k = *max_element(v.begin(), v.end());
 	vector<int> cnt(k + 1), tmp(v);
 	cnt[0]--;
@@ -117,7 +119,7 @@ void counting_sort(vector<int> &v) {
 //コスト v[i]+v[j] の交換を用いてソートする場合の最小コスト
 //オーバーフローに注意 v[i]!=v[j]
 template<class T>
-T minimum_cost_sort(const vector<T> &v) {
+T minimumCostSort(const vector<T> &v) {
 	int n = v.size();
 	T total_cost = 0;
 	vector<pair<T, int>> sorted(n);

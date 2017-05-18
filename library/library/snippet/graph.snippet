@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
-	<CodeSnippet Format="1.0.0">
-		<Header>
-			<Title>graph</Title>
-			<Shortcut>graph</Shortcut>
-			<Description></Description>
-			<Author>minami</Author>
-			<SnippetTypes>
-				<SnippetType>Expansion</SnippetType>
-				<SnippetType>SurroundsWith</SnippetType>
-			</SnippetTypes>
-		</Header>
-		<Snippet>
-			<Code Language="cpp">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>graph</Title>
+      <Shortcut>graph</Shortcut>
+      <Description></Description>
+      <Author>minami</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="cpp">
         <![CDATA[using Weight = int;
 using Flow = int;
 struct Edge {
@@ -29,15 +29,16 @@ using Graph = vector<Edges>;
 using Array = vector<Weight>;
 using Matrix = vector<Array>;
 
-void add_arc(Graph &g, int s, int d, Weight w = 1) {
+void addArc(Graph &g, int s, int d, Weight w = 1) {
 	g[s].emplace_back(s, d, w);
 }
-void add_edge(Graph &g, int a, int b, Weight w = 1) {
-	add_arc(g, a, b, w);
-	add_arc(g, b, a, w);
+void addEdge(Graph &g, int a, int b, Weight w = 1) {
+	addArc(g, a, b, w);
+	addArc(g, b, a, w);
 }
+
 $end$]]>
-			</Code>
-		</Snippet>
-	</CodeSnippet>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
