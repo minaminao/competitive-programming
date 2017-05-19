@@ -196,6 +196,7 @@
     <ClCompile Include="..\aoj\DPL_1_G.cpp" />
     <ClCompile Include="..\aoj\DPL_1_H.cpp" />
     <ClCompile Include="..\aoj\DPL_2_A.cpp" />
+    <ClCompile Include="..\aoj\DPL_2_B.cpp" />
     <ClCompile Include="..\aoj\DPL_3_A.cpp" />
     <ClCompile Include="..\aoj\DPL_3_B.cpp" />
     <ClCompile Include="..\aoj\DPL_3_C.cpp" />

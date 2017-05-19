@@ -100,7 +100,7 @@ __DEFINE__(unordered_set)
 __DEFINE__(vector)
 // end
 
-//vector<bool>
+// vector<bool>
 ostream &operator<<(ostream &os, const vector<bool> &v) {
 	for (auto e : v)
 		os << e;

@@ -6,13 +6,13 @@ struct UnionFind {
 	bool unite(int x, int y) {
 		x = root(x); y = root(y);
 		if (x == y)return false;
-		if (size_of(x) < size_of(y))swap(x, y);
+		if (sizeOf(x) < sizeOf(y))swap(x, y);
 		parent[x] += parent[y]; parent[y] = x; size--;
 		return true;
 	}
 	bool same(int x, int y) { return root(x) == root(y); }
 	int root(int x) { return parent[x] < 0 ? x : parent[x] = root(parent[x]); }
-	int size_of(int x) { return -parent[root(x)]; }
+	int sizeOf(int x) { return -parent[root(x)]; }
 };
 
 //素集合データ構造 + 集合内の最小値を求める機能
@@ -24,15 +24,15 @@ struct UnionFind_ {
 	bool unite(int x, int y) {
 		x = root(x); y = root(y);
 		if (x == y)return false;
-		if (size_of(x) < size_of(y))swap(x, y);
+		if (sizeOf(x) < sizeOf(y))swap(x, y);
 		parent[x] += parent[y]; parent[y] = x; size--;
 		mini[x] = min(mini[x], mini[y]);
 		return true;
 	}
 	bool same(int x, int y) { return root(x) == root(y); }
 	int root(int x) { return parent[x] < 0 ? x : parent[x] = root(parent[x]); }
-	int size_of(int x) { return -parent[root(x)]; }
-	int min_of(int x) { return mini[root(x)]; }
+	int sizeOf(int x) { return -parent[root(x)]; }
+	int minOf(int x) { return mini[root(x)]; }
 };
 
 //連結成分にインデックスを割り当てる
@@ -46,15 +46,15 @@ struct UnionFind_ {
 	bool unite(int x, int y, int i) {
 		x = root(x); y = root(y);
 		if (x == y)return false;
-		if (size_of(x) < size_of(y))swap(x, y);
+		if (sizeOf(x) < sizeOf(y))swap(x, y);
 		parent[x] += parent[y]; parent[y] = x; size--;
 		idx[x] = idx[y] = i;
 		return true;
 	}
 	bool same(int x, int y) { return root(x) == root(y); }
 	int root(int x) { return parent[x] < 0 ? x : parent[x] = root(parent[x]); }
-	int size_of(int x) { return -parent[root(x)]; }
-	int get_idx(int x) { return idx[root(x)]; }
+	int sizeOf(int x) { return -parent[root(x)]; }
+	int getIdx(int x) { return idx[root(x)]; }
 };
 
 //無向グラフの閉路の検出
