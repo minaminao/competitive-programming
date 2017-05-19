@@ -211,15 +211,16 @@ void f() {
 	//set
 	//集合のように使う
 	//出し入れできる
-	set<int> set{ 2,7,1 };
-	set.insert(8);
-	set.insert(v.begin(), v.end());
-	set.emplace(8);
-	set.erase(2);
-	auto it = set.find(2);
-	set.count(2);
-	set.size();
-	set.empty();
+	set<int> set1{ 2,7,1 }, set2;
+	set1.insert(8);
+	set1.insert(v.begin(), v.end());
+	set1.insert(set2.begin(), set2.end());
+	set1.emplace(8);
+	set1.erase(2);
+	auto it = set1.find(2);
+	set1.count(2);
+	set1.size();
+	set1.empty();
 	//i番目の要素を取り出すことはできない
 
 	/*
