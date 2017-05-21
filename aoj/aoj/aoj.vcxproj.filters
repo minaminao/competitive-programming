@@ -93,7 +93,7 @@
     <ClCompile Include="ALDS1_1_A.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="2153.cpp">
+    <ClCompile Include="2002.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
