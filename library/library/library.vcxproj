@@ -215,6 +215,7 @@
     <None Include="snippet\iii.snippet" />
     <None Include="snippet\iiii.snippet" />
     <None Include="snippet\iiiii.snippet" />
+    <None Include="snippet\iiiiii.snippet" />
     <None Include="snippet\iiiiiv.snippet" />
     <None Include="snippet\iiiiv.snippet" />
     <None Include="snippet\iiiv.snippet" />
