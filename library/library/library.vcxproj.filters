@@ -338,13 +338,13 @@
     <None Include="snippet\vvb.snippet">
       <Filter>snippet</Filter>
     </None>
-    <None Include="snippet\warshall_floyd.snippet">
-      <Filter>snippet</Filter>
-    </None>
     <None Include="snippet\unionfind.snippet">
       <Filter>snippet</Filter>
     </None>
     <None Include="snippet\iiiiii.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\warshallFloyd.snippet">
       <Filter>snippet</Filter>
     </None>
   </ItemGroup>

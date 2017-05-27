@@ -255,7 +255,7 @@
     <None Include="snippet\vvb.snippet" />
     <None Include="snippet\vvc.snippet" />
     <None Include="snippet\vvi.snippet" />
-    <None Include="snippet\warshall_floyd.snippet" />
+    <None Include="snippet\warshallFloyd.snippet" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
