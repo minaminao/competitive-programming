@@ -191,9 +191,11 @@ int euler_totient(int n) {
 	for (int x = 2; x*x <= n; x++) {
 		if (n%x)continue;
 		ret -= ret / x;
-		while (n%x == 0)n /= x;
+		while (n%x == 0)
+			n /= x;
 	}
-	if (n != 1)ret -= ret / n;
+	if (n != 1)
+		ret -= ret / n;
 	return ret;
 }
 

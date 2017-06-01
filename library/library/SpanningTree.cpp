@@ -68,7 +68,7 @@ Weight edmonds(const Graph &g, int root) {
 		}
 		//•Â˜H‚ª‚È‚¯‚ê‚ÎÅ¬‘Sˆæ—LŒü–Ø
 		vector<int> idx = kosaraju(rmsa);
-		if (!detect_cycle(idx))
+		if (!detectCycle(idx))
 			break;
 		vector<int> cycle_count(n);
 		Array cycle_cost(n);

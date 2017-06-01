@@ -84,4 +84,27 @@ void solve() {
 			}
 		}
 	};
+
+	static const int di[] = { 1,0,-1,0 };
+	static const int dj[] = { 0,1,0,-1 };
+	using State = tuple<int, int, int>;
+	vector<vector<int>> d(H, vector<int>(W, INF));
+	auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };
+	auto bfs = [&](int si, int sj) {
+		queue<State> q;
+		d.assign(H, vector<int>(W, INF));
+		q.emplace(0, si, sj);
+		while (q.size()) {
+			int cd, ci, cj; tie(cd, ci, cj) = q.front(); q.pop();
+			d[ci][cj] = cd;
+			rep(i, 0, 3) {
+				int ni = ci + di[i], nj = cj + dj[i];
+				if (!inrange(ni, nj))continue;
+				if (!v[ni][nj])continue;
+				if (d[ni][nj] != INF)continue;
+				q.emplace(cd + 1, ni, nj);
+				break;
+			}
+		}
+	};
 }

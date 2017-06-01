@@ -347,5 +347,11 @@
     <None Include="snippet\warshallFloyd.snippet">
       <Filter>snippet</Filter>
     </None>
+    <None Include="snippet\ci.snippet">
+      <Filter>snippet</Filter>
+    </None>
+    <None Include="snippet\cii.snippet">
+      <Filter>snippet</Filter>
+    </None>
   </ItemGroup>
 </Project>
