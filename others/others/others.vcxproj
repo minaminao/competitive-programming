@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="anckpa17prera_b.cpp" />
+    <ClCompile Include="snckpa17_b.cpp" />
     <ClCompile Include="gcj2016_a.cpp" />
     <ClCompile Include="gcj2017_qual_a.cpp" />
     <ClCompile Include="gcj2017_qual_b.cpp" />
