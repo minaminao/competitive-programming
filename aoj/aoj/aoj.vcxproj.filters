@@ -99,9 +99,6 @@
     <ClCompile Include="1156.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="1174.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="1161.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
