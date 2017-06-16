@@ -45,9 +45,6 @@
     <ClCompile Include="r1a_c.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="source.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="r1b_a.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -87,7 +84,16 @@
     <ClCompile Include="r2_b_large.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="snckpa17_b.cpp">
+    <ClCompile Include="ANCESTOR.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FOURPTS.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CHEFPRAD.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="MEXDIV.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

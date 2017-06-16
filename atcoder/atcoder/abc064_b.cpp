@@ -19,8 +19,9 @@
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
 //	int N; cin >> N;
-//	for (int i = 0; i < N; i++) {
-//		cout << i << endl;
+//	vector<int> v(N); rep(i, 0, N) {
+//		cin >> v[i];
 //	}
+//	cout << *max_element(all(v)) - *min_element(all(v)) << endl;
 //	return 0;
 //}

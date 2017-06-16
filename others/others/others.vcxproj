@@ -147,11 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="snckpa17_b.cpp" />
+    <ClCompile Include="ANCESTOR.cpp" />
+    <ClCompile Include="CHEFPRAD.cpp" />
+    <ClCompile Include="FOURPTS.cpp" />
     <ClCompile Include="gcj2016_a.cpp" />
     <ClCompile Include="gcj2017_qual_a.cpp" />
     <ClCompile Include="gcj2017_qual_b.cpp" />
     <ClCompile Include="gcj2017_qual_c.cpp" />
+    <ClCompile Include="MEXDIV.cpp" />
     <ClCompile Include="r1b_a.cpp" />
     <ClCompile Include="r1a_a.cpp" />
     <ClCompile Include="r1a_b.cpp" />
@@ -168,7 +171,6 @@
     <ClCompile Include="r2_b.cpp" />
     <ClCompile Include="r2_b_large.cpp" />
     <ClCompile Include="r2_c.cpp" />
-    <ClCompile Include="source.c" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

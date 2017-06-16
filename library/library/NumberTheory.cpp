@@ -186,7 +186,7 @@ vector<int> prime_factorization(int x) {
 //オイラーのφ関数（Euler's totient function）
 //nと互いに素な数[1,n]の個数
 //http://mathtrain.jp/phi
-int euler_totient(int n) {
+int eulerTotient(int n) {
 	int ret = n;
 	for (int x = 2; x*x <= n; x++) {
 		if (n%x)continue;
