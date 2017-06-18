@@ -18,12 +18,26 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//	int a, b, c; cin >> a >> b >> c;
-//	if ((a * 100 + b * 10 + c) % 4 == 0) {
-//		cout << "YES" << endl;
+//	int H, W, h, w; cin >> H >> W >> h >> w;
+//	vector<vector<int>> v(H, vector<int>(W));
+//	auto inrange = [&](int i, int j) { return i >= 0 && i < H && j >= 0 && j < W; };
+//	rep(i, 0, H - h + 1)rep(j, 0, W - w + 1) {
+//		rep(k, 0, h)rep(l, 0, w) {
+//			int ni = i + k, nj = j + l;
+//			if (!inrange(ni, nj))break;
+//			v[ni][nj]++;
+//		}
 //	}
-//	else {
-//		cout << "NO" << endl;
-//	}
+//	vector<vector<int>> a(H, vector<int>(W));
+//	auto f = [&]() {
+//		int sum = 0;
+//		rep(i, 0, H)rep(j, 0, W)
+//			sum += a[i][j];
+//		return sum > 0;
+//	};
+//	//while (!f()) {
+//
+//	//}
+//	dump(v);
 //	return 0;
 //}

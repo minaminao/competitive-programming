@@ -18,12 +18,33 @@
 //signed main() {
 //	cin.tie(0);
 //	ios::sync_with_stdio(false);
-//	int a, b, c; cin >> a >> b >> c;
-//	if ((a * 100 + b * 10 + c) % 4 == 0) {
-//		cout << "YES" << endl;
+//	string s; cin >> s;
+//	int ans = INF;
+//	rep(i, 0, 26) {
+//		char c = 'a' + i;
+//		string t = s;
+//		bool exist = false;
+//		rep(j, 0, s.size())
+//			if (s[j] == c)
+//				exist = true;
+//		if (!exist)continue;
+//		while (true) {
+//			bool flag = true;
+//			rep(j, 0, t.size()) {
+//				if (t[j] != c)
+//					flag = false;
+//			}
+//			if (flag)break;
+//			string u = t;
+//			u.pop_back();
+//			rep(j, 1, u.size()) {
+//				if (u[j] == c)
+//					u[j - 1] = c;
+//			}
+//			t = u;
+//		}
+//		chmin(ans, (int)s.size() - (int)t.size());
 //	}
-//	else {
-//		cout << "NO" << endl;
-//	}
+//	cout << ans << endl;
 //	return 0;
 //}

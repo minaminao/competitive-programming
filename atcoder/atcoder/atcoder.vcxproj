@@ -169,6 +169,11 @@
     <ClCompile Include="agc015_c.cpp" />
     <ClCompile Include="agc015_d.cpp" />
     <ClCompile Include="agc015_e.cpp" />
+    <ClCompile Include="agc016_a.cpp" />
+    <ClCompile Include="agc016_b.cpp" />
+    <ClCompile Include="agc016_c.cpp" />
+    <ClCompile Include="agc016_d.cpp" />
+    <ClCompile Include="agc016_e.cpp" />
     <ClCompile Include="arc001_4.cpp" />
     <ClCompile Include="arc024_2.cpp" />
     <ClCompile Include="arc069_c_2.cpp" />
