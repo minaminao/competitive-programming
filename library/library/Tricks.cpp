@@ -71,37 +71,6 @@ int blur[3][5][5] = {
 	}
 };
 
-//サイコロ
-struct Dice {
-	map<char, string> mp;
-	//string d = "UFRLBD";
-	string d = "RENSWL";
-	vector<int> v; //UFRLBD:123456
-	Dice() {
-		init();
-		v.resize(6);
-	};
-	Dice(vector<int> v) :v(v) {
-		init();
-	};
-	void init() {
-		mp[d[0]] = "2354";
-		mp[d[1]] = "1463";
-		mp[d[2]] = "1265";
-		mp[d[3]] = "1562";
-		mp[d[4]] = "1364";
-		mp[d[5]] = "2453";
-	}
-	void input() { rep(i, 0, 6) { cin >> v[i]; } }
-	void roll(char c) { roll(mp[c]); }
-	void roll(string s) {
-		int tmp = v[s[0] - '1'];
-		rep(i, 1, s.size())v[s[i - 1] - '1'] = v[s[i] - '1'];
-		v[s[s.size() - 1] - '1'] = tmp;
-	}
-	bool operator==(const Dice &D)const { return v == D.v; }
-};
-
 signed main() {
 	//cin高速化
 	cin.tie(0);
@@ -242,6 +211,8 @@ void f() {
 	for (auto &e : mp) {
 		e.first; e.second;
 	}
+	// 負の座標も管理したいときに便利
+	map<pair<int, int>, int>; 
 
 	//stack
 	stack<int> st;

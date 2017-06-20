@@ -151,6 +151,7 @@
     <ClCompile Include="ConnectedComponents.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="eight_queens_puzzle.cpp" />
     <ClCompile Include="Flow.cpp" />
     <ClCompile Include="DP.cpp" />

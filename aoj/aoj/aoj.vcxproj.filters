@@ -93,9 +93,6 @@
     <ClCompile Include="ALDS1_1_A.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="1150.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="1161.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
