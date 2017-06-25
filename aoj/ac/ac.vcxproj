@@ -170,6 +170,9 @@
     <ClCompile Include="..\aoj\1162.cpp" />
     <ClCompile Include="..\aoj\1174.cpp" />
     <ClCompile Include="..\aoj\1181.cpp" />
+    <ClCompile Include="..\aoj\1182.cpp" />
+    <ClCompile Include="..\aoj\1182_2.cpp" />
+    <ClCompile Include="..\aoj\1195.cpp" />
     <ClCompile Include="..\aoj\1508.cpp" />
     <ClCompile Include="..\aoj\2002.cpp" />
     <ClCompile Include="..\aoj\2005.cpp" />
