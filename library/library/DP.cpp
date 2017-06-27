@@ -71,7 +71,7 @@ void traveling_salesman_problem() {
 		int s, t, d; cin >> s >> t >> d;
 		g[s][t] = d;
 	}
-	dp[0][0] = 0;
+	dp[0][1] = 0;
 	for (int mask = 0; mask < (1 << V); mask++) {
 		rep(i, 0, V) {
 			rep(j, 0, V) {

@@ -57,7 +57,7 @@ void bfs() {
 			if (v[ni][nj] == '#')continue;
 			if (d[ni][nj] != INF)continue;
 			d[ni][nj] = d[ci][cj] + 1;
-			q.push(P(ni, nj));
+			q.emplace(ni, nj);
 		}
 	}
 }
