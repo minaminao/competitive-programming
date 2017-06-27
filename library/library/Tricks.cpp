@@ -126,6 +126,10 @@ void f() {
 	auto it = lower_bound(all(v), 0);
 	//指定した値超え の値の位置
 	auto it = upper_bound(all(v), 0);
+	//前の要素
+	prev(it);
+	//次の要素
+	next(it);
 
 	//pair<lower, upper>
 	auto range = equal_range(all(v), 0);
@@ -192,6 +196,20 @@ void f() {
 	set1.empty();
 	//i番目の要素を取り出すことはできない
 
+	// 偶数を削除
+	// erase の戻り値は次のイテレータ
+	for (auto it = set1.begin(); it != set1.end();) {
+		if (*it % 2 == 0)
+			it = set1.erase(it);
+		else
+			++it;
+	}
+	for (auto it = set1.begin(); it != set1.end();) {
+		pair<set<int>::iterator, bool> res = set1.insert(8);
+		it = res.first; // 挿入後のイテレータ
+		res.second; // 追加できたら true
+	}
+
 	/*
 	map は宣言直後は空
 	map::operator[] を存在しないキーに対して呼び出すと
@@ -212,7 +230,7 @@ void f() {
 		e.first; e.second;
 	}
 	// 負の座標も管理したいときに便利
-	map<pair<int, int>, int>; 
+	map<pair<int, int>, int>;
 
 	//stack
 	stack<int> st;
