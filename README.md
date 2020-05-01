@@ -1,6 +1,6 @@
 # competitive-programming
 
-My submissions of competition programming.
+My submissions of competitive programming.
 
 ## Rust
 - [Rust](rust)
