@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // Variables: https://code.visualstudio.com/docs/editor/variables-reference
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "submit",
+            "type": "shell",
+            //"command": "echo $PATH",
+            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test",
+            // "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && g++ -std=c++14 -O3 ${relativeFile} && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test && oj submit https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} ${relativeFile} -w 0 -y"
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+        },
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && ./a.out",
+        },
+        {
+            "label": "yukicoder",
+            "type": "shell",
+            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test && oj download https://yukicoder.me/problems/no/${fileBasenameNoExtension} && oj test",
+            //"command": "rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://yukicoder.me/problems/no/${fileBasenameNoExtension} && oj test && oj submit https://yukicoder.me/problems/no/${fileBasenameNoExtension} ${relativeFile}",
+        },
+        {
+            "label": "codeforces",
+            "type": "shell",
+            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test",
+        },
+    ]
+}
