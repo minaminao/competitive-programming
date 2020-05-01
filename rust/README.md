@@ -1,4 +1,4 @@
-# rust-compro
+# Rust 
 
 ## Online judges
 - AtCoder

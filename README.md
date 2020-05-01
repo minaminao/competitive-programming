@@ -1,8 +1,14 @@
 # competitive-programming
 
-競技プログラミングの過去の提出コードと、ライブラリ (~2017-04)
+My submissions of competition programming.
 
-### 現状(2020)
-提出: [minaminao/rust-compro: My submissions for online judges written in Rust](https://github.com/minaminao/rust-compro)
+## Rust
+- [Rust](rust)
 
-アルゴリズム: [minaminao/algorithms: Algorithms and Data Structures in C++/Rust/Python/JavaScript.](https://github.com/minaminao/algorithms)
+## C++
+- [C++](cpp)
+- Visual Studio Solution files
+
+## Algorithms and Data Structures 
+- Rust: [minaminao/algo-rs: Algorithms and Data Structures in Rust (no dependencies)](https://github.com/minaminao/algo-rs)
+- C++: [minaminao/algorithms: Algorithms and Data Structures in C++/Rust/Python/JavaScript.](https://github.com/minaminao/algorithms)
