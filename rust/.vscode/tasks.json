@@ -5,15 +5,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "submit",
+            "label": "atcoder (submit)",
             "type": "shell",
             //"command": "echo $PATH",
-            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test",
-            // "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && g++ -std=c++14 -O3 ${relativeFile} && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test && oj submit https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} ${relativeFile} -w 0 -y"
+            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test && oj submit https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} ${relativeFile} -w 0 -y",
             "group": {
                 "kind": "build",
                 "isDefault": true,
             },
+        },
+        {
+            "label": "atcoder (test)",
+            "type": "shell",
+            //"command": "echo $PATH",
+            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test",
         },
         {
             "label": "debug",
