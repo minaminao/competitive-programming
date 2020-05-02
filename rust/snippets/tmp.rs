@@ -82,4 +82,6 @@ fn read<T: FromStr>() -> T {
 }
 
 #[allow(non_snake_case)]
-fn main() {}
+fn main() {
+    $0
+}

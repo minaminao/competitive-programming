@@ -17,7 +17,7 @@ for filepath in FILES:
     prefix = filename.split('.')[0]
     if prefix == "tips":
         continue
-    print("path: f{filepath}, name: f{filename}")
+    print(f"path: {filepath}, name: {filename}")
     with open(filepath, 'r') as snippet:
         body = snippet.read()
         body = re.sub('(\$[A-Za-z])', '\\\\\\1', body)
