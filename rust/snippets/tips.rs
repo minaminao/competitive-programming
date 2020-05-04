@@ -22,8 +22,9 @@ fn data_structures() {
 
     // Vec
     {
-        let mut vec = Vec::new();
-        vec = Vec::with_capacity(100);
+        let mut v = Vec::new();
+        v = Vec::with_capacity(100);
+        v.reverse();
 
         // Vec<char> -> String
         let s = s.into_iter().collect::<String>();
@@ -39,6 +40,14 @@ fn data_structures() {
         let mut st = HashSet::new();
         st.insert(1);
         st.contains(&a);
+    }
+
+    // HashMap
+    {
+        let m = HashMap::new();
+        m.insert(1, 2); // HashMap<i32, i32>
+        let m = HashMap::<usize, usize>::new();
+        *m.entry(0).or_insert(0) += 1;
     }
 }
 
