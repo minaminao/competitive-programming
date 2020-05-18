@@ -1,7 +1,7 @@
 #[allow(unused_imports)]
 use std::cmp::{max, min};
 #[allow(unused_imports)]
-use std::collections::{HashMap, HashSet, VecDeque};
+use std::collections::{HashMap, HashSet};
 #[allow(unused_imports)]
 use std::io::*;
 #[allow(unused_imports)]
@@ -83,5 +83,15 @@ fn read<T: FromStr>() -> T {
 
 #[allow(non_snake_case)]
 fn main() {
-    $0
+    input! {
+        N:usize,
+    }
+    println!(
+        "{}",
+        match N % 10 {
+            0 | 1 | 6 | 8 => "pon",
+            3 => "bon",
+            _ => "hon",
+        }
+    );
 }

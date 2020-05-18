@@ -16,3 +16,5 @@ test
 .vscode/snippet.code-snippets
 
 .DS_Store
+
+snippets/modint.rs

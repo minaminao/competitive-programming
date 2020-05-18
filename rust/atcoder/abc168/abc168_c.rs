@@ -1,7 +1,7 @@
 #[allow(unused_imports)]
 use std::cmp::{max, min};
 #[allow(unused_imports)]
-use std::collections::{HashMap, HashSet, VecDeque};
+use std::collections::{HashMap, HashSet};
 #[allow(unused_imports)]
 use std::io::*;
 #[allow(unused_imports)]
@@ -83,5 +83,18 @@ fn read<T: FromStr>() -> T {
 
 #[allow(non_snake_case)]
 fn main() {
-    $0
+    input! {
+        A:usize,
+        B:usize,
+        H:usize,
+        M:usize,
+    }
+    let at = (H as f64 + M as f64 / 60.0) / 12.0 * 2.0 * std::f64::consts::PI;
+    let ax = (A as f64) * at.sin();
+    let ay = (A as f64) * at.cos();
+    let bt = M as f64 / 60.0 * 2.0 * std::f64::consts::PI;
+    let bx = (B as f64) * bt.sin();
+    let by = (B as f64) * bt.cos();
+    let ans = ((ax - bx) * (ax - bx) + (ay - by) * (ay - by)).sqrt();
+    println!("{}", ans);
 }

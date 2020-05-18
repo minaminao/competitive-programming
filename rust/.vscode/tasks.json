@@ -7,34 +7,34 @@
         {
             "label": "atcoder (submit)",
             "type": "shell",
-            //"command": "echo $PATH",
             "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test && oj submit https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} ${relativeFile} -w 0 -y",
             "group": {
                 "kind": "build",
-                "isDefault": true,
-            },
+                "isDefault": true
+            }
         },
         {
             "label": "atcoder (test)",
             "type": "shell",
-            //"command": "echo $PATH",
-            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test",
+            "command": "cd ${relativeFileDirname} && CDIR=$(basename `pwd`) && cd - && rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://atcoder.jp/contests/$CDIR/tasks/${fileBasenameNoExtension} && oj test"
         },
         {
             "label": "debug",
             "type": "shell",
             "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && ./a.out",
+            "problemMatcher": [
+                "$jshint-stylish"
+            ]
         },
         {
             "label": "yukicoder",
             "type": "shell",
-            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test && oj download https://yukicoder.me/problems/no/${fileBasenameNoExtension} && oj test",
-            //"command": "rustfmt ${relativeFile} && rustc ${relativeFile} -o a.out && rm -rf test && oj download https://yukicoder.me/problems/no/${fileBasenameNoExtension} && oj test && oj submit https://yukicoder.me/problems/no/${fileBasenameNoExtension} ${relativeFile}",
+            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test && oj download https://yukicoder.me/problems/no/${fileBasenameNoExtension} && oj test"
         },
         {
             "label": "codeforces",
             "type": "shell",
-            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test",
-        },
+            "command": "rustfmt ${relativeFile} && rustc -C opt-level=3 ${relativeFile} -o a.out && rm -rf test"
+        }
     ]
 }

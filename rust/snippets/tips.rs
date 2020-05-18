@@ -11,19 +11,31 @@ fn data_structures() {
     // String
     {
         let s: String;
+
+        // String to Vec<char>
         s.chars().collect::<Vec<char>>();
+
+        // Count
         s.chars().filter(|c| *c == '1').count();
         s.chars().filter(|&c| c == 'o').count();
+
+        // Replace
         s.replace("2017", "2018");
+
+        // Vec<char> to String
+        let v = Vec::new();
         v.iter().collect::<String>();
 
-        let s = s.chars().collect::<Vec<char>>();
+        // Slice
+        &S[0..5];
     }
 
     // Vec
     {
         let mut v = Vec::new();
+        let mut v = vec![0; N];
         v = Vec::with_capacity(100);
+
         v.reverse();
 
         // Vec<char> -> String
@@ -71,6 +83,15 @@ fn io() {
                 "YES"
             } else {
                 "NO"
+            }
+        );
+
+        println!(
+            "{}",
+            match N % 10 {
+                0 | 1 | 6 | 8 => "pon",
+                3 => "bon",
+                _ => "hon",
             }
         );
 
