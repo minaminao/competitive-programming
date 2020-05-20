@@ -44,6 +44,8 @@ fn data_structures() {
         // max min
         v.into_iter().max().unwrap();
         v.into_iter().min().unwrap();
+
+        v.iter().sum();
     }
 
     // HashSet
@@ -120,4 +122,6 @@ fn main() {
     println!("{}", ans.unwrap_or("None".to_string()));
 
     for (a, b) in v {}
+
+    std::f64::consts::PI;
 }
