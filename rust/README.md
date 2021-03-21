@@ -9,6 +9,9 @@
 ```
 bash new.sh URL
 ```
+
+`URL`　Example: https://atcoder.jp/contests/abc196/tasks/abc196_a
+
 Tip: `$ alias n="bash new.sh"`
 
 ## Snippets
