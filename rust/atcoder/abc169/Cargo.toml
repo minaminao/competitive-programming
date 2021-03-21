@@ -1,0 +1,15 @@
+[package]
+name = "abc169"
+version = "0.1.0"
+authors = ["minami <minaminaoy@gmail.com>"]
+edition = "2018"
+
+# dependencies added to new project
+[dependencies]
+proconio = "*"
+algo = { git = "https://github.com/minaminao/algo-rs.git" }
+primes = "*"
+
+[profile.release]
+lto = true
+panic = 'abort'
