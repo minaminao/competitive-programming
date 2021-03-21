@@ -36,3 +36,4 @@ path = "src/bin/e.rs"
 name = "abc196-f"
 path = "src/bin/f.rs"
 [dependencies]
+proconio = "*"
