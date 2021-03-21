@@ -4,6 +4,17 @@ version = "0.1.0"
 authors = ["minami <minaminaoy@gmail.com>"]
 edition = "2018"
 
+[package.metadata.cargo-compete]
+config = "../compete.toml"
+
+[package.metadata.cargo-compete.bin]
+a = {name = "abc169-a",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+b = {name = "abc169-b",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+c = {name = "abc169-c",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+d = {name = "abc169-d",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+e = {name = "abc169-e",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+f = {name = "abc169-f",problem = "https://atcoder.jp/contests/abc169/<FIXME: screen name of the problem>"}
+
 # dependencies added to new project
 [dependencies]
 proconio = "*"
@@ -13,3 +24,27 @@ primes = "*"
 [profile.release]
 lto = true
 panic = 'abort'
+
+[[bin]]
+name = "abc169-a"
+path = "./src/bin/a.rs"
+
+[[bin]]
+name = "abc169-b"
+path = "./src/bin/b.rs"
+
+[[bin]]
+name = "abc169-c"
+path = "./src/bin/c.rs"
+
+[[bin]]
+name = "abc169-d"
+path = "./src/bin/d.rs"
+
+[[bin]]
+name = "abc169-e"
+path = "./src/bin/e.rs"
+
+[[bin]]
+name = "abc169-f"
+path = "./src/bin/f.rs"

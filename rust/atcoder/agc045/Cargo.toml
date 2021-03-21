@@ -4,6 +4,17 @@ version = "0.1.0"
 authors = ["minami <minaminaoy@gmail.com>"]
 edition = "2018"
 
+[package.metadata.cargo-compete]
+config = "../compete.toml"
+
+[package.metadata.cargo-compete.bin]
+a = {name = "agc045-a",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+b = {name = "agc045-b",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+c = {name = "agc045-c",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+d = {name = "agc045-d",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+e = {name = "agc045-e",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+f = {name = "agc045-f",problem = "https://atcoder.jp/contests/agc045/<FIXME: screen name of the problem>"}
+
 # dependencies added to new project
 [dependencies]
 proconio = "*"
@@ -12,3 +23,27 @@ algo = { git = "https://github.com/minaminao/algo-rs.git" }
 [profile.release]
 lto = true
 panic = 'abort'
+
+[[bin]]
+name = "agc045-a"
+path = "./src/bin/a.rs"
+
+[[bin]]
+name = "agc045-b"
+path = "./src/bin/b.rs"
+
+[[bin]]
+name = "agc045-c"
+path = "./src/bin/c.rs"
+
+[[bin]]
+name = "agc045-d"
+path = "./src/bin/d.rs"
+
+[[bin]]
+name = "agc045-e"
+path = "./src/bin/e.rs"
+
+[[bin]]
+name = "agc045-f"
+path = "./src/bin/f.rs"

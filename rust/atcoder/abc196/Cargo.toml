@@ -1,0 +1,38 @@
+[package]
+name = "abc196"
+version = "0.1.0"
+authors = ["minami <minaminaoy@gmail.com>"]
+edition = "2018"
+
+[package.metadata.cargo-compete.bin]
+abc196-a = { alias = "a", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_a" }
+abc196-b = { alias = "b", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_b" }
+abc196-c = { alias = "c", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_c" }
+abc196-d = { alias = "d", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_d" }
+abc196-e = { alias = "e", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_e" }
+abc196-f = { alias = "f", problem = "https://atcoder.jp/contests/abc196/tasks/abc196_f" }
+
+[[bin]]
+name = "abc196-a"
+path = "src/bin/a.rs"
+
+[[bin]]
+name = "abc196-b"
+path = "src/bin/b.rs"
+
+[[bin]]
+name = "abc196-c"
+path = "src/bin/c.rs"
+
+[[bin]]
+name = "abc196-d"
+path = "src/bin/d.rs"
+
+[[bin]]
+name = "abc196-e"
+path = "src/bin/e.rs"
+
+[[bin]]
+name = "abc196-f"
+path = "src/bin/f.rs"
+[dependencies]
